@@ -58,7 +58,7 @@ export function Footer() {
         {/* Botão principal de conversão */}
         <Div2>
           <a
-            href="https://wa.me/5561991010204" // link do WhatsApp (IMPORTANTE: ajustar número real)
+            href="https://wa.me/5561991742090"
             target="_blank" // abre em nova aba
             rel="noreferrer" // segurança
           >

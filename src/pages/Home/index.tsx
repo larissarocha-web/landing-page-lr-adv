@@ -17,7 +17,7 @@ export function Home() {
           </p>
 
           <WhatsButton
-            href="https://wa.me/5561991010204?text=Olá,%20preciso%20de%20orientação%20em%20Direito%20de%20Família."
+            href="https://wa.me/5561991742090?text=Olá,%20preciso%20de%20orientação%20em%20Direito%20de%20Família."
             target="_blank"
             rel="noreferrer"
           >
