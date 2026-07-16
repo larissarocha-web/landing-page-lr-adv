@@ -17,6 +17,10 @@ export const Hero = styled.div`
   overflow: hidden;
   background: #f2ece7;
 
+  .mobile-microcopy {
+    display: none;
+  }
+
   &::after {
     position: absolute;
     inset: 0 auto 0 0;
@@ -38,21 +42,39 @@ export const Hero = styled.div`
   @media (max-width: 900px) {
     display: grid;
     min-height: calc(100svh - 66px);
-    grid-template-rows: auto minmax(300px, 43svh);
+    grid-template-rows: auto minmax(300px, 43svh) auto;
     background: #fbfaf8;
 
     &::after {
-      inset: auto 0 0;
-      z-index: 1;
-      width: 100%;
-      height: 145px;
-      background: linear-gradient(
-        180deg,
-        transparent 0%,
-        rgba(251, 250, 248, 0.16) 28%,
-        rgba(251, 250, 248, 0.76) 76%,
-        #fbfaf8 100%
-      );
+      display: none;
+    }
+
+    .mobile-microcopy {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      grid-row: 3;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      padding: 8px 22px 28px;
+      background: #fbfaf8;
+      color: #514a46;
+      font-size: clamp(0.58rem, 2.45vw, 0.69rem);
+      line-height: 1.55;
+      text-align: center;
+    }
+
+    .mobile-microcopy span {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .mobile-microcopy span + span::before {
+      margin: 0 10px;
+      color: #9b4052;
+      content: '•';
     }
   }
 `
@@ -141,15 +163,7 @@ export const Copy = styled.div`
     }
 
     .microcopy {
-      position: static;
-      width: 100%;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      margin-top: 22px;
-      color: #514a46;
-      font-size: clamp(0.58rem, 2.45vw, 0.69rem);
-      line-height: 1.55;
-      text-align: left;
+      display: none;
     }
   }
 
@@ -198,6 +212,15 @@ export const Portrait = styled.figure`
     object-position: center 48%;
   }
 
+  @media (min-width: 1200px) {
+    background: #d8ccc3;
+
+    img {
+      object-fit: contain;
+      object-position: right center;
+    }
+  }
+
   @media (max-width: 900px) {
     position: relative;
     inset: auto;
@@ -207,19 +230,19 @@ export const Portrait = styled.figure`
     min-height: 300px;
     -webkit-mask-image: linear-gradient(
       180deg,
-      transparent 0%,
-      rgba(0, 0, 0, 0.16) 9%,
-      rgba(0, 0, 0, 0.72) 23%,
-      #000 39%,
-      #000 100%
+      #000 0%,
+      #000 70%,
+      rgba(0, 0, 0, 0.92) 78%,
+      rgba(0, 0, 0, 0.45) 90%,
+      transparent 100%
     );
     mask-image: linear-gradient(
       180deg,
-      transparent 0%,
-      rgba(0, 0, 0, 0.16) 9%,
-      rgba(0, 0, 0, 0.72) 23%,
-      #000 39%,
-      #000 100%
+      #000 0%,
+      #000 70%,
+      rgba(0, 0, 0, 0.92) 78%,
+      rgba(0, 0, 0, 0.45) 90%,
+      transparent 100%
     );
 
     img {

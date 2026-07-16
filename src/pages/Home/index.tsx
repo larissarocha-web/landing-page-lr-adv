@@ -53,6 +53,15 @@ export function Home() {
             alt="Larissa Rocha em seu ambiente de trabalho"
           />
         </Portrait>
+
+        <div
+          className="mobile-microcopy"
+          aria-label="Informações do atendimento"
+        >
+          <span>Atendimento online</span>
+          <span>Sigilo</span>
+          <span>Retorno em horário comercial</span>
+        </div>
       </Hero>
     </Container>
   )
