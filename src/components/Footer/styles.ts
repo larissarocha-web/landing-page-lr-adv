@@ -1,122 +1,143 @@
 import styled from 'styled-components'
 
-/* ================= CONTAINER PRINCIPAL ================= */
 export const Container = styled.footer`
-  background: ${(props) =>
-    props.theme['footer-color']}; /* cor de fundo do footer */
-  /* cor de fundo do footer inteiro */
+  background: #fbf8f6;
 `
 
-/* ================= WRAPPER (ORGANIZAÇÃO GERAL) ================= */
 export const Wrapper = styled.div`
-  margin: 0 auto; /* centraliza o conteúdo */
-  display: flex;
-  padding: 2rem 1.5rem; /* espaçamento interno */
-  flex-direction: column; /* tudo em coluna */
-  gap: 1.5rem; /* espaço entre blocos */
-  align-items: center; /* centraliza horizontalmente */
-  max-width: 1100px; /* largura máxima */
+  display: grid;
+  max-width: 1180px;
+  grid-template-columns: 1.15fr 1.65fr 1fr;
+  gap: clamp(40px, 6vw, 80px);
+  margin: 0 auto;
+  padding: 78px 24px 66px;
 
-  /* AJUSTE PARA MOBILE */
-  @media (max-width: 1600px) {
-    padding: 1.5rem 1rem; /* menos espaço nas laterais */
-    gap: 1rem; /* reduz espaçamento entre blocos */
+  @media (max-width: 980px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 660px) {
+    grid-template-columns: 1fr;
+    padding: 62px 20px 50px;
   }
 `
 
-// 🔥 BLOCO PRINCIPAL (LOGO + DESCRIÇÃO)
 export const Div3 = styled.div`
-  display: flex;
-  flex-direction: column; /* organiza verticalmente */
-  align-items: center; /* centraliza */
-  text-align: center; /* centraliza texto */
-  max-width: 420px; /* limita largura do texto */
-  gap: 1rem; /* espaço entre logo e texto */
-
   img {
-    height: 140px; /* desktop */
-    opacity: 0.85;
-    transition: 0.3s;
-
-    @media (max-width: 600px) {
-      height: 60px; /* 👈 só reduz no mobile */
-    }
+    width: 260px;
+    height: auto;
+    margin-bottom: 24px;
   }
 
-  img:hover {
-    transform: scale(1.05);
-    opacity: 1;
-  }
   p {
-    font-size: 0.9rem; /* tamanho do texto */
-    line-height: 1.5; /* espaçamento entre linhas */
-    color: ${(props) => props.theme['base-hover']}; /* cor suave */
+    max-width: 330px;
+    color: #665e5a;
+    font-size: 0.9rem;
+    line-height: 1.7;
   }
 `
 
-// 🔥 COLUNAS DE INFORMAÇÃO
 export const Div1 = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  /* 3 colunas no desktop */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
 
-  gap: 2rem; /* espaço entre colunas */
-  color: white; /* texto branco */
-
-  /* TABLET / MOBILE */
-  @media (max-width: 900px) {
-    grid-template-columns: 1fr;
-    /* vira coluna única */
-  }
-
-  /* MOBILE MAIS COMPACTO */
-  @media (max-width: 600px) {
-    gap: 1rem; /* reduz espaçamento */
-
-    h5 {
-      font-size: 0.85rem; /* títulos menores */
-    }
-
-    p {
-      font-size: 0.75rem; /* textos menores */
-    }
-  }
-`
-
-// 🔥 BOTÃO DE AÇÃO (CTA - WHATSAPP)
-export const Div2 = styled.div`
-  a {
+  div {
     display: flex;
-    align-items: center;
-    gap: 0.5rem; /* espaço entre ícone e texto */
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
 
-    padding: 0.7rem 1.2rem; /* tamanho do botão */
-    border-radius: 6px; /* borda arredondada */
+  h2 {
+    margin-bottom: 9px;
+    color: #7d263a;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
 
-    background: ${(props) => props.theme['green-base']}; /* cor principal */
-    color: white;
-    text-decoration: none; /* remove sublinhado */
-
-    font-size: 0.85rem;
-    font-weight: 500;
-
-    transition: 0.3s; /* animação */
+  a,
+  p {
+    color: #665e5a;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    text-decoration: none;
   }
 
   a:hover {
-    background: ${(props) =>
-      props.theme['green-dark']}; /* cor ao passar mouse */
-    transform: translateY(-2px); /* sobe levemente */
+    color: #9b4052;
+  }
+
+  @media (max-width: 980px) {
+    grid-row: 2;
+    grid-column: 1 / -1;
+  }
+
+  @media (max-width: 660px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 420px) {
+    grid-template-columns: 1fr;
   }
 `
 
-// 🔥 COPYRIGHT (RODAPÉ FINAL)
+export const Div2 = styled.div`
+  padding-left: 30px;
+  border-left: 1px solid #dfd4ce;
+
+  p {
+    margin-bottom: 18px;
+    color: #403936;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.45rem;
+    line-height: 1.35;
+  }
+
+  a {
+    display: inline-flex;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 0 20px;
+    border-radius: 7px;
+    background: linear-gradient(135deg, #8c3044, #a94f60);
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 660px) {
+    padding-top: 28px;
+    padding-left: 0;
+    border-top: 1px solid #dfd4ce;
+    border-left: 0;
+  }
+`
+
 export const Div4 = styled.div`
+  display: flex;
+  max-width: 1180px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
   margin: 0 auto;
-  padding: 1rem; /* espaço interno */
-  text-align: center;
-  color: ${(props) => props.theme['base-label']}; /* cor mais discreta */
-  background-color: ${(props) =>
-    props.theme['footer-blue-dark']}; /* fundo mais escuro */
-  font-size: 0.75rem; /* texto pequeno */
+  padding: 20px 24px;
+  border-top: 1px solid #dfd4ce;
+  color: #8c837e;
+  font-size: 0.7rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  @media (max-width: 600px) {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 20px;
+  }
 `

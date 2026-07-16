@@ -1,40 +1,26 @@
 export const defaultTheme = {
-  // Product
-
-  'yellow-dark': '#A67C2E',
-  'yellow-base': '#C9A646',
-  'yellow-light': '#F5EBD6',
-
-  'green-dark': '#1e8025',
-  'green-base': '#2eb838',
-  'purple-light': '#E8E9ED',
-
-  // Base
-
-  'base-title': '#1F1F1F',
-  'base-subtitle': '#4A4A4A',
-  'base-text': '#6A6A6A',
-  'base-label': '#9A9A9A',
-  'base-hover': '#E5E5E5',
-  'base-button': '#F0F0F0',
-  'base-input': '#F7F7F7',
-  'base-card': '#FAFAFA',
-  'base-background': '#F8F7F5',
+  'yellow-dark': '#a77b2a',
+  'yellow-base': '#c9a96a',
+  'yellow-light': '#f2e5cd',
+  'green-dark': '#6f1f33',
+  'green-base': '#9b4052',
+  'purple-light': '#eee7e8',
+  'base-title': '#7d263a',
+  'base-subtitle': '#2b2827',
+  'base-text': '#5a5552',
+  'base-label': '#9a918d',
+  'base-hover': '#f2ece9',
+  'base-button': '#f0ebe8',
+  'base-input': '#faf8f6',
+  'base-card': '#ffffff',
+  'base-background': '#f7f6f3',
   'base-white': '#ffffff',
-
-  // NAV / BRAND
-  'base-nav': '#2C2F3A', // 🔥 agora é sério e elegante
-  'blue-home': '#EDE8E3', // fundo suave (bege neutro)
-
-  // SEÇÕES
-  'base-background-accordion': '#F1EFEA',
-
-  // FOOTER
-  'footer-color': '#5a1e24', // 🔥 vermelho escuro elegante
-  'footer-blue-dark': '#f0f0f0',
-
-  // HEADER / MENU
-  'header-color': '#F7F6F5',
-  'menu-color': '#5a1e24', // 🔥 menu premium escuro
-  'MENU-TEXT-HOVER': '#C9A646', // dourado elegante
+  'base-nav': '#2b2827',
+  'blue-home': '#f2ece8',
+  'base-background-accordion': '#f4efec',
+  'footer-color': '#641d30',
+  'footer-blue-dark': '#4c1424',
+  'header-color': '#ffffff',
+  'menu-color': '#fbf8f6',
+  'MENU-TEXT-HOVER': '#a77b2a',
 }

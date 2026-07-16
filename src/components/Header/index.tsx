@@ -1,108 +1,100 @@
-// Importa os componentes estilizados (CSS em JS)
-import { Div1, HeaderContainer, MenuMobileOpen, NavBar, Ul } from './styles'
+import { useEffect, useState } from 'react'
+import { FaWhatsapp } from 'react-icons/fa'
+import { IoClose, IoMenu } from 'react-icons/io5'
 
-// Importa as imagens de logo (header principal e menu mobile)
 import logo from '../../assets/logo3.png'
 import logomenu from '../../assets/logomenu.png'
+import { Div1, HeaderContainer, MenuMobileOpen, NavBar, Ul } from './styles'
 
-// Importa os ícones (menu hamburguer e botão de fechar)
-import { IoMenu, IoClose } from 'react-icons/io5'
+const whatsappUrl =
+  'https://wa.me/5561991742090?text=Olá,%20preciso%20de%20orientação%20em%20Direito%20de%20Família.'
 
-// Hook do React para controlar estado (abrir/fechar menu)
-import { useState } from 'react'
-
-// Componente principal do Header
 export function Header() {
-  // Estado que controla se o menu mobile está aberto ou fechado
   const [isOpen, setIsOpen] = useState(false)
 
-  // Função que alterna entre abrir/fechar o menu
-  const openMenuMobile = () => {
-    setIsOpen(!isOpen)
-  }
+  useEffect(() => {
+    document.body.classList.toggle('menu-open', isOpen)
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsOpen(false)
+    }
+
+    window.addEventListener('keydown', closeOnEscape)
+
+    return () => {
+      document.body.classList.remove('menu-open')
+      window.removeEventListener('keydown', closeOnEscape)
+    }
+  }, [isOpen])
+
+  const closeMenu = () => setIsOpen(false)
 
   return (
     <>
-      {/* HEADER FIXO NO TOPO */}
       <HeaderContainer>
-        {/* DIV INTERNA PARA ORGANIZAÇÃO (logo + menu) */}
         <Div1>
-          {/* LOGO PRINCIPAL (lado esquerdo) */}
-          <img src={logo} alt="Larissa Rocha Advogada" />
+          <a className="brand" href="#inicio" aria-label="Larissa Rocha - início">
+            <img src={logo} alt="Larissa Rocha Advocacia" />
+          </a>
 
-          {/* NAVEGAÇÃO */}
           <NavBar>
-            {/* MENU DESKTOP */}
             <ul>
-              <li>
-                <a href="#">INÍCIO</a>
-              </li>
-              {/* <li>
-                <a href="#consulta">ATUAÇÃO</a>
-              </li> */}
-              <li>
-                <a href="#sobre">SOBRE</a>
-              </li>
-              <li>
-                <a href="#perguntas">DÚVIDAS</a>
-              </li>
-              <li>
-                <a href="#footer">CONTATO</a>
-              </li>
+              <li><a href="#inicio">Início</a></li>
+              <li><a href="#sobre">Sobre mim</a></li>
+              <li><a href="#atuacao">Atuação</a></li>
+              <li><a href="#diferenciais">Diferenciais</a></li>
+              <li><a href="#perguntas">Dúvidas</a></li>
             </ul>
 
-            {/* BOTÃO MENU MOBILE (hamburguer) */}
-            <button onClick={openMenuMobile}>
-              <IoMenu size={35} />
+            <a
+              className="header-cta"
+              href={whatsappUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaWhatsapp />
+              Falar no WhatsApp
+            </a>
+
+            <button
+              className="menu-trigger"
+              type="button"
+              onClick={() => setIsOpen(true)}
+              aria-label="Abrir menu"
+              aria-expanded={isOpen}
+            >
+              <IoMenu size={30} />
             </button>
           </NavBar>
         </Div1>
       </HeaderContainer>
 
-      {/* MENU MOBILE (só aparece quando isOpen = true) */}
       {isOpen && (
-        <MenuMobileOpen>
-          {/* BOTÃO FECHAR (X no canto superior direito) */}
-          <button onClick={openMenuMobile}>
-            <IoClose size={35} />
-          </button>
-
-          {/* LOGO NO TOPO ESQUERDO DO MENU MOBILE */}
+        <MenuMobileOpen role="dialog" aria-modal="true" aria-label="Menu principal">
           <div className="menu-header">
             <img src={logomenu} alt="Larissa Rocha Advogada" />
+            <button type="button" onClick={closeMenu} aria-label="Fechar menu">
+              <IoClose size={32} />
+            </button>
           </div>
 
-          {/* LISTA DE LINKS DO MENU MOBILE */}
           <Ul>
-            <li>
-              <a href="#" onClick={openMenuMobile}>
-                Início
-              </a>
-            </li>
-            {/* <li>
-              <a href="#consulta" onClick={openMenuMobile}>
-                Atuação
-              </a>
-            </li> */}
-            <li>
-              <a href="#sobre" onClick={openMenuMobile}>
-                Sobre
-              </a>
-            </li>
-            <li>
-              <a href="#perguntas" onClick={openMenuMobile}>
-                Perguntas Frequentes
-              </a>
-            </li>
-            <li>
-              <a href="#footer" onClick={openMenuMobile}>
-                Contato
-              </a>
-            </li>
-
-            {/* ITEM VAZIO (pode remover depois se quiser) */}
-            <li></li>
+            <li><a href="#inicio" onClick={closeMenu}>Início</a></li>
+            <li><a href="#sobre" onClick={closeMenu}>Sobre mim</a></li>
+            <li><a href="#atuacao" onClick={closeMenu}>Atuação</a></li>
+            <li><a href="#diferenciais" onClick={closeMenu}>Diferenciais</a></li>
+            <li><a href="#perguntas" onClick={closeMenu}>Dúvidas</a></li>
           </Ul>
+
+          <a
+            className="mobile-cta"
+            href={whatsappUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaWhatsapp />
+            Falar no WhatsApp
+          </a>
         </MenuMobileOpen>
       )}
     </>

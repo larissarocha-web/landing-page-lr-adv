@@ -1,80 +1,60 @@
-// Importa os componentes estilizados (estrutura visual do footer)
-import { Container, Wrapper, Div1, Div2, Div3, Div4 } from './styles'
-
-// Importa a logo
-import logo from '../../assets/logofooter.png'
-
-// Importa ícone do WhatsApp
 import { FaWhatsapp } from 'react-icons/fa'
 
-// Componente Footer
+import logo from '../../assets/logofooter.png'
+import { Container, Div1, Div2, Div3, Div4, Wrapper } from './styles'
+
 export function Footer() {
   return (
-    // Container principal do footer (fundo + identificação)
     <Container id="footer">
-      {/* Wrapper centraliza e organiza o conteúdo */}
       <Wrapper>
-        {/* ================= BLOCO SUPERIOR ================= */}
-        {/* Logo + descrição institucional */}
         <Div3>
-          {/* Logo do escritório */}
-          <img src={logo} alt="Larissa Rocha Advogada" />
-
-          {/* Texto institucional */}
+          <img src={logo} alt="Larissa Rocha Advocacia" />
           <p>
-            Advocacia em Direito de Família com atendimento online, foco em
-            orientação clara, objetiva e segura.
+            Advocacia em Direito de Família com atendimento online, orientação
+            clara, objetiva e segura.
           </p>
         </Div3>
 
-        {/* ================= BLOCO CENTRAL ================= */}
-        {/* 3 colunas de informações */}
         <Div1>
-          {/* COLUNA 1 - Atendimento */}
           <div>
-            <h4>Atendimento</h4>
-            <p>Consultas 100% online</p>
-            <p>Horário comercial</p>
-            <p>Resposta rápida via WhatsApp</p>
+            <h2>Navegação</h2>
+            <a href="#inicio">Início</a>
+            <a href="#sobre">Sobre mim</a>
+            <a href="#atuacao">Áreas de atuação</a>
+            <a href="#perguntas">Dúvidas frequentes</a>
           </div>
 
-          {/* COLUNA 2 - Área de atuação */}
           <div>
-            <h4>Área de atuação</h4>
-            <p>Direito de Família</p>
-            <p>Divórcio, guarda, pensão</p>
+            <h2>Atuação</h2>
+            <p>Divórcio</p>
+            <p>Guarda e pensão</p>
             <p>Inventário e sucessões</p>
           </div>
 
-          {/* COLUNA 3 - Contato */}
           <div>
-            <h4>Contato</h4>
-            <p>WhatsApp direto</p>
-            <p>Atendimento personalizado</p>
+            <h2>Atendimento</h2>
+            <p>Consultas 100% online</p>
+            <p>Horário comercial</p>
+            <p>Resposta via WhatsApp</p>
           </div>
         </Div1>
 
-        {/* ================= CALL TO ACTION ================= */}
-        {/* Botão principal de conversão */}
         <Div2>
+          <p>Precisa de orientação para o seu caso?</p>
           <a
-            href="https://wa.me/5561991010204" // link do WhatsApp (IMPORTANTE: ajustar número real)
-            target="_blank" // abre em nova aba
-            rel="noreferrer" // segurança
+            href="https://wa.me/5561991742090?text=Olá,%20preciso%20de%20orientação%20em%20Direito%20de%20Família."
+            target="_blank"
+            rel="noreferrer"
           >
-            {/* Ícone */}
-            <FaWhatsapp size={28} />
-            {/* Texto do botão */}
+            <FaWhatsapp />
             Falar no WhatsApp
           </a>
         </Div2>
       </Wrapper>
 
-      {/* ================= RODAPÉ FINAL ================= */}
-      {/* Direitos autorais */}
       <Div4>
-        {/* Ano automático + nome */}© {new Date().getFullYear()} Larissa Rocha
-        Advogada • Todos os direitos reservados
+        <span>© {new Date().getFullYear()} Larissa Rocha Advogada</span>
+        <span>Todos os direitos reservados</span>
       </Div4>
     </Container>
   )

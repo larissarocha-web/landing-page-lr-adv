@@ -1,158 +1,175 @@
 import styled from 'styled-components'
-// importa o styled-components (permite criar estilos usando JS)
 
-/* ================= CONTAINER ================= */
 export const Container = styled.section`
-  padding: 4rem 1.5rem;
-  // espaço interno da seção (topo/baixo = 4rem, laterais = 1.5rem)
-  // 👉 controla o "respiro" da seção inteira
+  padding: 106px 24px 0;
+  background: #f8f5f2;
 
-  background: #f7f4f3;
-  // fundo levemente acinzentado (separa visualmente das outras seções)
-`
-
-/* ================= WRAPPER ================= */
-export const Wrapper = styled.div`
-  max-width: 900px;
-  // limita largura do conteúdo (melhora leitura)
-
-  margin: 0 auto;
-  // centraliza horizontalmente
-
-  h2 {
-    text-align: center;
-    // centraliza o título da seção
-
-    margin-bottom: 2rem;
-    // espaço abaixo do título
-
-    color: #2b2b2b;
-    // cor mais escura pra dar destaque
+  @media (max-width: 720px) {
+    padding: 76px 20px 0;
   }
 `
 
-/* ================= ACCORDION ================= */
+export const Wrapper = styled.div`
+  display: grid;
+  max-width: 1120px;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(48px, 8vw, 110px);
+  margin: 0 auto 104px;
+
+  .eyebrow {
+    display: block;
+    margin-bottom: 12px;
+    color: #a77b2a;
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .faq-heading h2 {
+    margin-bottom: 22px;
+    font-size: clamp(2.5rem, 4.4vw, 4.7rem);
+    letter-spacing: -0.025em;
+    line-height: 1.04;
+  }
+
+  .faq-heading p {
+    max-width: 440px;
+    color: #5a5552;
+    line-height: 1.75;
+  }
+
+  @media (max-width: 840px) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 74px;
+  }
+`
+
 export const AccordionContainer = styled.div`
-  margin-bottom: 3rem;
-  // espaço abaixo do bloco de perguntas (separa dos depoimentos)
+  border-top: 1px solid #d9ccc5;
 `
 
 export const AccordionItem = styled.div`
-  border-bottom: 1px solid #e6e5e5;
-  // linha divisória entre perguntas
-
-  padding: 1rem 0;
-  // espaço interno vertical de cada item
+  border-bottom: 1px solid #d9ccc5;
 `
 
-export const AccordionTitle = styled.div`
+export const AccordionTitle = styled.button`
   display: flex;
-  // permite alinhar ícone + texto
-
+  width: 100%;
+  min-height: 78px;
   align-items: center;
-  // alinha verticalmente
-
-  gap: 0.5rem;
-  // espaço entre ícone e texto
-
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px 0;
+  border: 0;
+  background: transparent;
+  color: #332d2a;
   cursor: pointer;
-  // mostra que é clicável
+  font-size: 0.96rem;
+  font-weight: 600;
+  text-align: left;
 
-  font-weight: 500;
-  // leve destaque no texto
+  svg {
+    flex: 0 0 auto;
+    color: #9b4052;
+    font-size: 1.3rem;
+    transition: transform 220ms ease;
+  }
 
-  color: #2b2b2b;
-
-  &:hover {
-    color: #c47f17;
-    // muda cor ao passar o mouse (feedback visual)
+  &[aria-expanded='true'] svg {
+    transform: rotate(180deg);
   }
 `
 
 export const AccordionContent = styled.div<{ isOpen: boolean }>`
-  max-height: ${(props) => (props.isOpen ? '200px' : '0')};
-  // controla altura:
-  // 👉 aberto = 200px
-  // 👉 fechado = 0 (escondido)
-
-  overflow: hidden;
-  // impede conteúdo de "vazar" quando fechado
-
-  transition: all 0.3s ease;
-  // animação suave ao abrir/fechar
-
+  display: grid;
+  grid-template-rows: ${(props) => (props.isOpen ? '1fr' : '0fr')};
   opacity: ${(props) => (props.isOpen ? 1 : 0)};
-  // fade (aparece/desaparece)
+  transition: grid-template-rows 240ms ease, opacity 180ms ease;
 
-  padding: ${(props) => (props.isOpen ? '0.8rem 0' : '0')};
-  // só tem espaçamento quando aberto
-
-  font-size: 0.9rem;
-  color: #5a5552;
+  p {
+    min-height: 0;
+    overflow: hidden;
+    padding: ${(props) => (props.isOpen ? '0 44px 24px 0' : '0 44px 0 0')};
+    color: #655d59;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    transition: padding 240ms ease;
+  }
 `
 
-/* ================= DEPOIMENTOS ================= */
 export const DepoimentosWrapper = styled.div`
-  margin-top: 3rem;
-  // separa visualmente dos FAQs
+  margin: 0 -24px;
+  padding: 90px max(24px, calc((100vw - 1180px) / 2));
+  background:
+    radial-gradient(circle at 12% 20%, rgba(201, 169, 106, 0.19), transparent 27%),
+    #641d30;
+  text-align: center;
 
-  h2 {
-    margin-bottom: 1.5rem;
-    // espaço abaixo do título dos depoimentos
+  > .eyebrow {
+    display: block;
+    margin-bottom: 12px;
+    color: #d8b978;
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  > h2 {
+    max-width: 760px;
+    margin: 0 auto 48px;
+    color: #fff8f3;
+    font-size: clamp(2.35rem, 4vw, 4.2rem);
+    line-height: 1.08;
+  }
+
+  @media (max-width: 720px) {
+    margin: 0 -20px;
+    padding: 72px 20px;
   }
 `
 
 export const Depoimentos = styled.div`
-  display: flex;
-  // layout horizontal (cards lado a lado)
+  display: grid;
+  max-width: 1180px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 0 auto;
 
-  gap: 1rem;
-  // espaço entre os cards
-
-  overflow-x: auto;
-  // permite rolagem horizontal no mobile
-
-  padding-bottom: 1rem;
-  // espaço pra não "cortar" visualmente
-
-  scrollbar-width: none;
-  // remove scrollbar no Firefox
-
-  &::-webkit-scrollbar {
-    display: none;
-    // remove scrollbar no Chrome/Safari
+  @media (max-width: 820px) {
+    grid-template-columns: 1fr;
   }
 `
 
-export const Card = styled.div`
-  min-width: 260px;
-  // largura mínima (força o scroll horizontal)
+export const Card = styled.article`
+  min-height: 250px;
+  padding: 36px 32px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+  text-align: left;
+  backdrop-filter: blur(8px);
 
-  background: white;
-  // fundo branco (contraste com o fundo da seção)
-
-  padding: 1.2rem;
-  // espaço interno do card
-
-  border-radius: 12px;
-  // bordas arredondadas (visual moderno)
-
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-  // sombra suave (efeito de profundidade)
+  > svg {
+    margin-bottom: 28px;
+    color: #d8b978;
+    font-size: 1.2rem;
+  }
 
   p {
-    font-size: 0.9rem;
-    // texto do depoimento
-
-    margin-bottom: 0.5rem;
-    // espaço abaixo do texto
+    margin-bottom: 24px;
+    color: #fffaf6;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.32rem;
+    line-height: 1.55;
   }
 
   span {
-    font-size: 0.75rem;
-    // nome da pessoa (menor)
-
-    color: #8d8686;
-    // cor mais suave (hierarquia visual)
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.73rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 `

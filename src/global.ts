@@ -1,88 +1,79 @@
-// Importa função para criar estilos globais (afeta o site todo)
 import { createGlobalStyle } from 'styled-components'
 
-// Cria o estilo global da aplicação
 export const GlobalStyle = createGlobalStyle`
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
-  /* ================= BODY ================= */
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    font-family: 'Inter', sans-serif; 
-    /* fonte principal (textos, botões, etc) */
-
-    font-size: 16px; 
-    /* base de todo o sistema tipográfico */
-
-    line-height: 1.6; 
-    /* espaçamento entre linhas (legibilidade) */
-
-    color: #5A5552; 
-    /* cor padrão do texto */
-  }
-
-  /* ================= TÍTULOS ================= */
-  h1, h2, h3 {
-    font-family: 'Playfair Display', serif; 
-    /* fonte elegante para títulos */
-
-    color: #2B2B2B; 
-    /* cor dos títulos */
-
-    margin: 0; 
-    /* remove espaçamento padrão do navegador */
-  }
-
-  /* ================= H1 ================= */
-  h1 {
-    font-size: 9rem; 
-    /* ⚠️ MUITO GRANDE (isso dá ~144px, não 48px) */
-
-    line-height: 1.2;
-
-    letter-spacing: -0.5px; 
-    /* leve compressão das letras */
-  }
-
-  /* ================= H2 ================= */
-  h2 {
-    font-size: 2.2rem; /* ~35px */
-    line-height: 1.3;
-  }
-
-  /* ================= H3 ================= */
-  h3 {
-    font-size: 1.5rem; /* 24px */
-    line-height: 1.4;
-  }
-
-  /* ================= PARÁGRAFOS ================= */
-  p {
-    font-size: 1rem; /* 16px */
+    margin: 0;
+    min-width: 320px;
+    overflow-x: hidden;
+    background: #f7f6f3;
+    color: #3d3937;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
   }
 
-  /* ================= TEXTO PEQUENO ================= */
-  small {
-    font-size: 0.85rem;
+  body.menu-open {
+    overflow: hidden;
   }
 
-  /* ================= RESPONSIVO ================= */
-  @media (max-width: 768px) {
-
-    h1 {
-      font-size: 2rem; 
-      /* reduz drasticamente no mobile */
-    }
-
-    h2 {
-      font-size: 1.6rem;
-    }
-
-    h3 {
-      font-size: 1.2rem;
-    }
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    margin: 0;
   }
 
-section {
-  scroll-margin-top: 60px;
-}
-  `
+  h1,
+  h2,
+  h3 {
+    color: #7d263a;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 500;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  button,
+  input,
+  textarea {
+    font: inherit;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  section {
+    scroll-margin-top: 86px;
+  }
+
+  ::selection {
+    background: #7d263a;
+    color: #ffffff;
+  }
+
+  :focus-visible {
+    outline: 3px solid rgba(201, 169, 106, 0.65);
+    outline-offset: 4px;
+  }
+`

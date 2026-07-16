@@ -1,50 +1,48 @@
-// Importa os estilos da seção
-import { Container, Wrapper, Cards } from './styles'
+import { FiFileText, FiHeart, FiUsers } from 'react-icons/fi'
 
-// Componente da seção "Atuação / Serviços"
+import { Cards, Container, Wrapper } from './styles'
+
 export function Servicos() {
   return (
-    // ID usado para navegação via menu (#consulta)
-    <Container id="consulta">
-      {/* Wrapper centraliza e controla largura */}
+    <Container id="atuacao">
       <Wrapper>
-        {/* Título da seção */}
-        <h2>Como posso te ajudar</h2>
-
-        {/* Texto de apoio (explica o serviço) */}
-        <p>
-          Atuação em Direito de Família com orientação clara, atendimento ágil e
-          acompanhamento completo do seu caso.
+        <span className="eyebrow">Áreas de atuação</span>
+        <h2>Orientação segura para decisões importantes</h2>
+        <p className="intro">
+          Atuação em Direito de Família com orientação clara, atendimento ágil
+          e acompanhamento completo do seu caso.
         </p>
 
-        {/* Grid de serviços */}
         <Cards>
-          {/* CARD 1 */}
-          <div>
+          <article>
+            <span className="number">01</span>
+            <FiFileText aria-hidden="true" />
             <h3>Divórcio</h3>
             <p>
               Orientação e condução completa do processo, com segurança jurídica
               e clareza em cada etapa.
             </p>
-          </div>
+          </article>
 
-          {/* CARD 2 */}
-          <div>
+          <article>
+            <span className="number">02</span>
+            <FiUsers aria-hidden="true" />
             <h3>Guarda e pensão</h3>
             <p>
               Atuação focada na proteção dos interesses familiares, com
               equilíbrio e responsabilidade.
             </p>
-          </div>
+          </article>
 
-          {/* CARD 3 */}
-          <div>
+          <article>
+            <span className="number">03</span>
+            <FiHeart aria-hidden="true" />
             <h3>Inventário e sucessões</h3>
             <p>
               Organização patrimonial com orientação segura, evitando conflitos
               e garantindo tranquilidade.
             </p>
-          </div>
+          </article>
         </Cards>
       </Wrapper>
     </Container>
