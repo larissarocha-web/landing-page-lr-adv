@@ -1,11 +1,8 @@
 import { FaWhatsapp } from 'react-icons/fa'
-import { FiHeart, FiHome, FiShield, FiUsers } from 'react-icons/fi'
 
-import blogueira from '../../assets/larissa-hero-colar-preservada.webp'
+import heroPhoto from '../../assets/larissa-hero-colar-preservada.webp'
 import {
   Actions,
-  Benefit,
-  Benefits,
   Container,
   Copy,
   Hero,
@@ -22,69 +19,41 @@ export function Home() {
     <Container id="inicio">
       <Hero>
         <Copy>
-          <span className="eyebrow">Advocacia especializada em</span>
-          <h1>Direito de Família</h1>
+          <span className="eyebrow">Advocacia em Direito de Família</span>
+          <h1>Clareza jurídica para decisões que mudam a sua família.</h1>
           <span className="gold-line" aria-hidden="true" />
 
           <p>
-            Atendimento online, humanizado e comprometido para solucionar
-            questões familiares com segurança e tranquilidade.
+            Orientação segura e acompanhamento próximo em divórcio, guarda,
+            pensão, união estável e inventário.
           </p>
 
           <Actions>
             <WhatsButton href={whatsappUrl} target="_blank" rel="noreferrer">
               <FaWhatsapp />
-              Falar no WhatsApp
+              Conversar pelo WhatsApp
             </WhatsButton>
 
             <SecondaryLink href="#atuacao">
-              Saiba mais
-              <span aria-hidden="true">↓</span>
+              Conhecer a atuação
+              <span aria-hidden="true">→</span>
             </SecondaryLink>
           </Actions>
+
+          <div className="microcopy" aria-label="Informações do atendimento">
+            <span>Atendimento online</span>
+            <span>Sigilo</span>
+            <span>Retorno em horário comercial</span>
+          </div>
         </Copy>
 
-        <Portrait aria-hidden="true">
+        <Portrait>
           <img
-            src={blogueira}
+            src={heroPhoto}
             alt="Larissa Rocha em seu ambiente de trabalho"
           />
         </Portrait>
       </Hero>
-
-      <Benefits aria-label="Diferenciais do atendimento">
-        <Benefit>
-          <FiUsers aria-hidden="true" />
-          <div>
-            <h2>Atendimento humanizado</h2>
-            <p>Cada caso é único. Você é acolhida e ouvida de verdade.</p>
-          </div>
-        </Benefit>
-
-        <Benefit>
-          <FiShield aria-hidden="true" />
-          <div>
-            <h2>Segurança jurídica</h2>
-            <p>Orientação clara e estratégias responsáveis para cada etapa.</p>
-          </div>
-        </Benefit>
-
-        <Benefit>
-          <FiHome aria-hidden="true" />
-          <div>
-            <h2>Foco na solução</h2>
-            <p>Buscamos sempre as melhores soluções para você e sua família.</p>
-          </div>
-        </Benefit>
-
-        <Benefit>
-          <FiHeart aria-hidden="true" />
-          <div>
-            <h2>Empatia e acolhimento</h2>
-            <p>Compreensão do momento que você e sua família estão vivendo.</p>
-          </div>
-        </Benefit>
-      </Benefits>
     </Container>
   )
 }

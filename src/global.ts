@@ -67,6 +67,12 @@ export const GlobalStyle = createGlobalStyle`
     scroll-margin-top: 86px;
   }
 
+  @media (max-width: 760px) {
+    section {
+      scroll-margin-top: 66px;
+    }
+  }
+
   ::selection {
     background: #7d263a;
     color: #ffffff;

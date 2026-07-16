@@ -2,9 +2,7 @@ import styled from 'styled-components'
 
 export const HeaderContainer = styled.header`
   position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
+  inset: 0 0 auto;
   z-index: 100;
   border-bottom: 1px solid rgba(85, 54, 47, 0.1);
   background: rgba(255, 255, 255, 0.96);
@@ -14,29 +12,37 @@ export const HeaderContainer = styled.header`
 
 export const Div1 = styled.div`
   display: flex;
-  width: min(100% - 104px, 1432px);
-  height: 102px;
+  width: min(100% - 64px, 1432px);
+  height: 88px;
   align-items: center;
   justify-content: space-between;
-  gap: 32px;
+  gap: 28px;
   margin: 0 auto;
 
   .brand {
     flex: 0 0 auto;
-    text-decoration: none;
   }
 
   .brand img {
-    width: 275px;
+    width: 245px;
     height: auto;
   }
 
   @media (max-width: 760px) {
-    width: min(100% - 32px, 1320px);
-    height: 70px;
+    display: grid;
+    width: 100%;
+    height: 66px;
+    grid-template-columns: 48px minmax(0, 1fr) 48px;
+    gap: 0;
+    padding: 0 14px;
+
+    .brand {
+      grid-column: 2;
+      justify-self: center;
+    }
 
     .brand img {
-      width: 180px;
+      width: min(58vw, 205px);
     }
   }
 `
@@ -44,12 +50,12 @@ export const Div1 = styled.div`
 export const NavBar = styled.nav`
   display: flex;
   align-items: center;
-  gap: clamp(24px, 3.2vw, 56px);
+  gap: clamp(20px, 2.2vw, 38px);
 
   ul {
     display: flex;
     align-items: center;
-    gap: clamp(22px, 2.5vw, 42px);
+    gap: clamp(16px, 1.6vw, 28px);
     margin: 0;
     padding: 0;
     list-style: none;
@@ -58,17 +64,16 @@ export const NavBar = styled.nav`
   ul a {
     position: relative;
     color: #2f2b29;
-    font-size: 0.78rem;
+    font-size: 0.7rem;
     font-weight: 500;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.045em;
     text-decoration: none;
     text-transform: uppercase;
-    transition: color 180ms ease;
 
     &::after {
       position: absolute;
       right: 0;
-      bottom: -10px;
+      bottom: -9px;
       left: 0;
       width: 0;
       height: 1px;
@@ -90,46 +95,35 @@ export const NavBar = styled.nav`
 
   .header-cta {
     display: inline-flex;
-    min-height: 54px;
+    min-height: 50px;
     align-items: center;
     justify-content: center;
     gap: 9px;
-    padding: 0 24px;
+    padding: 0 20px;
     border-radius: 7px;
     background: linear-gradient(135deg, #8c3044, #a94f60);
     box-shadow: 0 10px 24px rgba(125, 38, 58, 0.18);
     color: #fff;
-    font-size: 0.78rem;
+    font-size: 0.7rem;
     font-weight: 600;
-    letter-spacing: 0.02em;
     text-decoration: none;
     text-transform: uppercase;
-    transition:
-      transform 180ms ease,
-      box-shadow 180ms ease;
-
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 30px rgba(125, 38, 58, 0.24);
-    }
-
-    svg {
-      font-size: 1.1rem;
-    }
   }
 
   .menu-trigger {
     display: none;
+    width: 48px;
+    height: 48px;
     align-items: center;
     justify-content: center;
-    padding: 4px;
+    padding: 0;
     border: 0;
     background: transparent;
     color: #3a302d;
     cursor: pointer;
   }
 
-  @media (max-width: 1100px) {
+  @media (max-width: 1180px) {
     ul,
     .header-cta {
       display: none;
@@ -138,6 +132,11 @@ export const NavBar = styled.nav`
     .menu-trigger {
       display: inline-flex;
     }
+  }
+
+  @media (max-width: 760px) {
+    grid-column: 3;
+    justify-self: end;
   }
 `
 
@@ -149,14 +148,13 @@ export const MenuMobileOpen = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  padding: 110px 24px 42px;
+  padding: 92px 24px 36px;
   background: radial-gradient(
       circle at 88% 12%,
       rgba(166, 70, 88, 0.08),
       transparent 34%
     ),
     linear-gradient(145deg, #fbfaf8 0%, #f8f3f0 100%);
-  color: #7d263a;
   animation: fadeIn 220ms ease;
 
   @keyframes fadeIn {
@@ -168,27 +166,29 @@ export const MenuMobileOpen = styled.div`
 
   .menu-header {
     position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    width: 100%;
-    height: 82px;
+    inset: 0 0 auto;
+    display: grid;
+    height: 66px;
     align-items: center;
-    justify-content: space-between;
-    padding: 14px 22px;
+    grid-template-columns: 48px minmax(0, 1fr) 48px;
+    padding: 0 14px;
     border-bottom: 1px solid rgba(125, 38, 58, 0.08);
-    background: transparent;
   }
 
   .menu-header img {
-    width: min(64vw, 225px);
+    width: min(58vw, 205px);
     height: auto;
     object-fit: contain;
+    justify-self: center;
   }
 
   .menu-header button {
     display: inline-flex;
-    padding: 4px;
+    width: 48px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
     border: 0;
     background: transparent;
     color: #641d30;
@@ -197,16 +197,16 @@ export const MenuMobileOpen = styled.div`
 
   .mobile-cta {
     display: inline-flex;
-    width: min(100%, 320px);
-    min-height: 48px;
+    width: min(100%, 340px);
+    min-height: 52px;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    margin-top: 30px;
+    margin-top: 26px;
     border-radius: 7px;
     background: linear-gradient(135deg, #8c3044, #a94f60);
     color: #fff;
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     font-weight: 600;
     text-decoration: none;
     text-transform: uppercase;
@@ -221,16 +221,17 @@ export const Ul = styled.ul`
   text-align: center;
 
   li {
-    position: relative;
     border-bottom: 1px solid rgba(125, 38, 58, 0.1);
   }
 
   a {
-    display: block;
-    padding: 17px 10px;
+    display: flex;
+    min-height: 56px;
+    align-items: center;
+    justify-content: center;
     color: #352e2b;
-    font-size: 0.92rem;
-    letter-spacing: 0.06em;
+    font-size: 0.87rem;
+    letter-spacing: 0.055em;
     text-decoration: none;
     text-transform: uppercase;
   }

@@ -1,18 +1,13 @@
 import styled from 'styled-components'
 
 export const Container = styled.section`
-  padding: 90px 24px 100px;
-  scroll-margin-top: 102px;
-  background: radial-gradient(
-      circle at 100% 0,
-      rgba(201, 169, 106, 0.1),
-      transparent 27%
-    ),
-    #fff;
+  padding: 96px 24px 104px;
+  scroll-margin-top: 88px;
+  background: #fff;
 
-  @media (max-width: 720px) {
-    padding: 68px 0 74px;
-    scroll-margin-top: 70px;
+  @media (max-width: 760px) {
+    padding: 66px 20px 70px;
+    scroll-margin-top: 66px;
   }
 `
 
@@ -25,45 +20,38 @@ export const Wrapper = styled.div`
     display: block;
     margin-bottom: 12px;
     color: #a77b2a;
-    font-size: 0.76rem;
+    font-size: 0.74rem;
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
   }
 
-  h2 {
-    max-width: 1040px;
+  > h2 {
+    max-width: 760px;
     margin: 0 auto 18px;
-    font-size: clamp(2.35rem, 3.55vw, 3.8rem);
+    font-size: clamp(2.55rem, 4vw, 4.2rem);
     line-height: 1.06;
   }
 
   .intro {
     max-width: 660px;
-    margin: 0 auto 52px;
+    margin: 0 auto 50px;
     color: #5a5552;
     line-height: 1.7;
   }
 
-  @media (max-width: 720px) {
+  @media (max-width: 760px) {
     text-align: left;
 
-    > .eyebrow,
-    > h2,
-    > .intro {
-      margin-right: 20px;
-      margin-left: 20px;
-    }
-
-    h2 {
-      max-width: 590px;
-      font-size: clamp(2.15rem, 10.5vw, 3.15rem);
+    > h2 {
+      margin-bottom: 16px;
+      font-size: clamp(2.35rem, 10.5vw, 3.25rem);
       letter-spacing: -0.025em;
     }
 
     .intro {
-      margin-bottom: 36px;
-      font-size: 0.92rem;
+      margin-bottom: 34px;
+      font-size: 0.96rem;
       line-height: 1.65;
     }
   }
@@ -72,94 +60,145 @@ export const Wrapper = styled.div`
 export const Cards = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-
-  @media (max-width: 900px) {
-    display: flex;
-    gap: 16px;
-    padding: 2px 20px 20px;
-    overflow-x: auto;
-    scroll-padding-inline: 20px;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-
-    article {
-      flex: 0 0 min(78vw, 410px);
-      scroll-snap-align: start;
-    }
-  }
+  gap: 18px;
 
   article {
     position: relative;
-    min-height: 330px;
+    min-height: 238px;
     overflow: hidden;
-    padding: 46px 38px 40px;
     border: 1px solid #eadfda;
-    border-radius: 2px;
-    background: linear-gradient(145deg, #fff, #f9f5f2);
+    border-radius: 8px;
+    background: linear-gradient(145deg, #fff, #fbf7f4);
     text-align: left;
     transition:
-      transform 220ms ease,
-      box-shadow 220ms ease,
-      border-color 220ms ease;
-
-    &::after {
-      position: absolute;
-      right: -50px;
-      bottom: -62px;
-      width: 160px;
-      height: 160px;
-      border: 1px solid rgba(201, 169, 106, 0.22);
-      border-radius: 50%;
-      content: '';
-    }
+      transform 200ms ease,
+      box-shadow 200ms ease;
 
     &:hover {
-      transform: translateY(-6px);
-      border-color: rgba(155, 64, 82, 0.3);
-      box-shadow: 0 22px 50px rgba(78, 46, 40, 0.1);
+      transform: translateY(-4px);
+      box-shadow: 0 18px 44px rgba(78, 46, 40, 0.08);
+    }
+  }
+
+  button {
+    display: grid;
+    width: 100%;
+    align-items: start;
+    grid-template-columns: 1fr auto;
+    padding: 36px 32px 14px;
+    border: 0;
+    background: transparent;
+    color: #7d263a;
+    cursor: default;
+    text-align: left;
+  }
+
+  button > svg:first-child {
+    margin-bottom: 25px;
+    color: #9b4052;
+    font-size: 2rem;
+    stroke-width: 1.25;
+  }
+
+  h3 {
+    grid-column: 1 / -1;
+    font-size: 1.55rem;
+    line-height: 1.2;
+  }
+
+  .chevron {
+    display: none;
+  }
+
+  .area-content {
+    padding: 0 32px 34px;
+  }
+
+  p {
+    max-width: 290px;
+    color: #5a5552;
+    font-size: 0.88rem;
+    line-height: 1.65;
+  }
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 760px) {
+    display: block;
+    border-top: 1px solid #ded2cc;
+
+    article {
+      min-height: 0;
+      border: 0;
+      border-bottom: 1px solid #ded2cc;
+      border-radius: 0;
+      background: transparent;
+
+      &:hover {
+        transform: none;
+        box-shadow: none;
+      }
     }
 
-    .number {
-      position: absolute;
-      top: 24px;
-      right: 26px;
-      color: rgba(125, 38, 58, 0.14);
-      font-family: 'Playfair Display', serif;
-      font-size: 3.4rem;
+    button {
+      min-height: 60px;
+      align-items: center;
+      grid-template-columns: 28px 1fr 24px;
+      gap: 12px;
+      padding: 12px 2px;
+      cursor: pointer;
     }
 
-    > svg {
-      margin-bottom: 34px;
-      color: #9b4052;
-      font-size: 2.25rem;
-      stroke-width: 1.25;
+    button > svg:first-child {
+      margin: 0;
+      font-size: 1.35rem;
     }
 
     h3 {
-      margin-bottom: 14px;
-      color: #7d263a;
-      font-size: 1.75rem;
-      line-height: 1.2;
+      grid-column: auto;
+      color: #312c29;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.91rem;
+      font-weight: 600;
+    }
+
+    .chevron {
+      display: block;
+      color: #9b4052;
+      transition: transform 200ms ease;
+    }
+
+    article[data-open='true'] .chevron {
+      transform: rotate(180deg);
+    }
+
+    .area-content {
+      display: grid;
+      grid-template-rows: 0fr;
+      padding: 0 40px;
+      opacity: 0;
+      transition:
+        grid-template-rows 220ms ease,
+        padding 220ms ease,
+        opacity 180ms ease;
+    }
+
+    .area-content p {
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    article[data-open='true'] .area-content {
+      grid-template-rows: 1fr;
+      padding-bottom: 20px;
+      opacity: 1;
     }
 
     p {
-      max-width: 290px;
-      color: #5a5552;
-      font-size: 0.92rem;
-      line-height: 1.7;
-    }
-
-    @media (max-width: 500px) {
-      flex: 0 0 min(84vw, 340px);
-      min-height: 300px;
-      padding: 38px 28px 32px;
-      border-radius: 12px;
-      box-shadow: 0 15px 34px rgba(78, 46, 40, 0.07);
+      max-width: none;
+      font-size: 0.88rem;
     }
   }
 `

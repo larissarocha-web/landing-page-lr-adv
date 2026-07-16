@@ -8,6 +8,15 @@ import { Div1, HeaderContainer, MenuMobileOpen, NavBar, Ul } from './styles'
 const whatsappUrl =
   'https://wa.me/5561991742090?text=Olá,%20preciso%20de%20orientação%20em%20Direito%20de%20Família.'
 
+const navItems = [
+  ['#inicio', 'Início'],
+  ['#atuacao', 'Áreas de atuação'],
+  ['#como-funciona', 'Como funciona'],
+  ['#sobre', 'Sobre Larissa'],
+  ['#duvidas', 'Dúvidas'],
+  ['#contato', 'Contato'],
+]
+
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -26,8 +35,6 @@ export function Header() {
     }
   }, [isOpen])
 
-  const closeMenu = () => setIsOpen(false)
-
   return (
     <>
       <HeaderContainer>
@@ -42,18 +49,11 @@ export function Header() {
 
           <NavBar>
             <ul>
-              <li>
-                <a href="#inicio">Início e atuação</a>
-              </li>
-              <li>
-                <a href="#sobre">Sobre mim</a>
-              </li>
-              <li>
-                <a href="#duvidas">Dúvidas</a>
-              </li>
-              <li>
-                <a href="#footer">Contato</a>
-              </li>
+              {navItems.map(([href, label]) => (
+                <li key={href}>
+                  <a href={href}>{label}</a>
+                </li>
+              ))}
             </ul>
 
             <a
@@ -63,7 +63,7 @@ export function Header() {
               rel="noreferrer"
             >
               <FaWhatsapp />
-              Falar no WhatsApp
+              Conversar pelo WhatsApp
             </a>
 
             <button
@@ -73,7 +73,7 @@ export function Header() {
               aria-label="Abrir menu"
               aria-expanded={isOpen}
             >
-              <IoMenu size={30} />
+              <IoMenu size={28} />
             </button>
           </NavBar>
         </Div1>
@@ -86,33 +86,25 @@ export function Header() {
           aria-label="Menu principal"
         >
           <div className="menu-header">
+            <span aria-hidden="true" />
             <img src={logo} alt="Larissa Rocha Advocacia" />
-            <button type="button" onClick={closeMenu} aria-label="Fechar menu">
-              <IoClose size={32} />
+            <button
+              type="button"
+              onClick={() => setIsOpen(false)}
+              aria-label="Fechar menu"
+            >
+              <IoClose size={30} />
             </button>
           </div>
 
           <Ul>
-            <li>
-              <a href="#inicio" onClick={closeMenu}>
-                Início e atuação
-              </a>
-            </li>
-            <li>
-              <a href="#sobre" onClick={closeMenu}>
-                Sobre mim
-              </a>
-            </li>
-            <li>
-              <a href="#duvidas" onClick={closeMenu}>
-                Dúvidas
-              </a>
-            </li>
-            <li>
-              <a href="#footer" onClick={closeMenu}>
-                Contato
-              </a>
-            </li>
+            {navItems.map(([href, label]) => (
+              <li key={href}>
+                <a href={href} onClick={() => setIsOpen(false)}>
+                  {label}
+                </a>
+              </li>
+            ))}
           </Ul>
 
           <a
@@ -122,7 +114,7 @@ export function Header() {
             rel="noreferrer"
           >
             <FaWhatsapp />
-            Falar no WhatsApp
+            Conversar pelo WhatsApp
           </a>
         </MenuMobileOpen>
       )}

@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
 export const Container = styled.section`
-  padding: 106px 24px 0;
-  scroll-margin-top: 102px;
+  padding: 94px 24px 102px;
+  scroll-margin-top: 88px;
   background: #f8f5f2;
 
-  @media (max-width: 720px) {
-    padding: 76px 20px 0;
-    scroll-margin-top: 70px;
+  @media (max-width: 760px) {
+    padding: 66px 20px 72px;
+    scroll-margin-top: 66px;
   }
 `
 
@@ -15,22 +15,22 @@ export const Wrapper = styled.div`
   display: grid;
   max-width: 1120px;
   grid-template-columns: 0.9fr 1.1fr;
-  gap: clamp(48px, 8vw, 110px);
-  margin: 0 auto 104px;
+  gap: clamp(48px, 8vw, 105px);
+  margin: 0 auto;
 
   .eyebrow {
     display: block;
     margin-bottom: 12px;
     color: #a77b2a;
-    font-size: 0.76rem;
+    font-size: 0.74rem;
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
   }
 
   .faq-heading h2 {
-    margin-bottom: 22px;
-    font-size: clamp(2.5rem, 4.4vw, 4.7rem);
+    margin-bottom: 20px;
+    font-size: clamp(2.55rem, 4.1vw, 4.4rem);
     letter-spacing: -0.025em;
     line-height: 1.04;
   }
@@ -38,16 +38,19 @@ export const Wrapper = styled.div`
   .faq-heading p {
     max-width: 440px;
     color: #5a5552;
-    line-height: 1.75;
+    line-height: 1.72;
   }
 
   @media (max-width: 840px) {
     grid-template-columns: 1fr;
-    gap: 34px;
-    margin-bottom: 74px;
+    gap: 38px;
 
     .faq-heading h2 {
-      font-size: clamp(2.45rem, 11vw, 3.7rem);
+      font-size: clamp(2.35rem, 10.5vw, 3.3rem);
+    }
+
+    .faq-heading p {
+      font-size: 0.96rem;
     }
   }
 `
@@ -63,28 +66,33 @@ export const AccordionItem = styled.div`
 export const AccordionTitle = styled.button`
   display: flex;
   width: 100%;
-  min-height: 78px;
+  min-height: 72px;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 18px 0;
+  padding: 17px 0;
   border: 0;
   background: transparent;
   color: #332d2a;
   cursor: pointer;
-  font-size: 0.96rem;
+  font-size: 0.94rem;
   font-weight: 600;
   text-align: left;
 
   svg {
     flex: 0 0 auto;
     color: #9b4052;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     transition: transform 220ms ease;
   }
 
   &[aria-expanded='true'] svg {
     transform: rotate(180deg);
+  }
+
+  @media (max-width: 600px) {
+    min-height: 60px;
+    font-size: 0.88rem;
   }
 `
 
@@ -101,114 +109,8 @@ export const AccordionContent = styled.div<{ isOpen: boolean }>`
     overflow: hidden;
     padding: ${(props) => (props.isOpen ? '0 44px 24px 0' : '0 44px 0 0')};
     color: #655d59;
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     line-height: 1.7;
     transition: padding 240ms ease;
-  }
-`
-
-export const DepoimentosWrapper = styled.div`
-  margin: 0 -24px;
-  padding: 90px max(24px, calc((100vw - 1180px) / 2));
-  background: radial-gradient(
-      circle at 12% 20%,
-      rgba(201, 169, 106, 0.19),
-      transparent 27%
-    ),
-    #641d30;
-  text-align: center;
-
-  > .eyebrow {
-    display: block;
-    margin-bottom: 12px;
-    color: #d8b978;
-    font-size: 0.76rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  > h2 {
-    max-width: 760px;
-    margin: 0 auto 48px;
-    color: #fff8f3;
-    font-size: clamp(2.35rem, 4vw, 4.2rem);
-    line-height: 1.08;
-  }
-
-  @media (max-width: 720px) {
-    margin: 0 -20px;
-    padding: 72px 0;
-
-    > .eyebrow,
-    > h2 {
-      margin-right: 20px;
-      margin-left: 20px;
-    }
-
-    > h2 {
-      margin-bottom: 38px;
-      font-size: clamp(2.3rem, 10.5vw, 3.4rem);
-    }
-  }
-`
-
-export const Depoimentos = styled.div`
-  display: grid;
-  max-width: 1180px;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin: 0 auto;
-
-  @media (max-width: 820px) {
-    display: flex;
-    gap: 14px;
-    padding: 0 20px 8px;
-    overflow-x: auto;
-    scroll-padding-inline: 20px;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
-`
-
-export const Card = styled.article`
-  min-height: 250px;
-  padding: 36px 32px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(255, 255, 255, 0.07);
-  color: #fff;
-  text-align: left;
-  backdrop-filter: blur(8px);
-
-  > svg {
-    margin-bottom: 28px;
-    color: #d8b978;
-    font-size: 1.2rem;
-  }
-
-  p {
-    margin-bottom: 24px;
-    color: #fffaf6;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.32rem;
-    line-height: 1.55;
-  }
-
-  span {
-    color: rgba(255, 255, 255, 0.68);
-    font-size: 0.73rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  @media (max-width: 820px) {
-    flex: 0 0 min(84vw, 360px);
-    min-height: 265px;
-    border-radius: 12px;
-    scroll-snap-align: start;
   }
 `
