@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.main`
-  padding-top: 86px;
+  padding-top: 102px;
   background: #fff;
 
   @media (max-width: 760px) {
@@ -12,7 +12,7 @@ export const Container = styled.main`
 export const Hero = styled.div`
   position: relative;
   display: flex;
-  min-height: clamp(450px, 35.7vw, 548px);
+  min-height: clamp(420px, 28.65vw, 440px);
   align-items: stretch;
   overflow: hidden;
   background: #f5f0ec;
@@ -25,12 +25,12 @@ export const Hero = styled.div`
       linear-gradient(
         90deg,
         #fbfaf8 0%,
-        #fbfaf8 28%,
-        rgba(251, 250, 248, 0.99) 35%,
-        rgba(251, 250, 248, 0.92) 41%,
-        rgba(251, 250, 248, 0.63) 48%,
-        rgba(251, 250, 248, 0.2) 56%,
-        transparent 63%
+        #fbfaf8 32%,
+        rgba(251, 250, 248, 0.99) 36%,
+        rgba(251, 250, 248, 0.92) 40%,
+        rgba(251, 250, 248, 0.65) 45%,
+        rgba(251, 250, 248, 0.28) 50%,
+        transparent 56%
       );
     content: '';
     pointer-events: none;
@@ -57,7 +57,7 @@ export const Copy = styled.div`
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
-  padding: 49px 0 44px;
+  padding: 50px 0 38px;
 
   .eyebrow {
     margin-bottom: 13px;
@@ -71,7 +71,7 @@ export const Copy = styled.div`
   h1 {
     max-width: 670px;
     color: #741c32;
-    font-size: clamp(4rem, 5.35vw, 5.5rem);
+    font-size: clamp(4rem, 5.2vw, 5rem);
     letter-spacing: -0.035em;
     line-height: 0.98;
   }
@@ -127,11 +127,11 @@ export const Portrait = styled.figure`
 
   img {
     position: absolute;
-    top: clamp(-118px, -7.7vw, -82px);
-    left: 0;
-    width: 135%;
+    top: -10%;
+    right: 0;
+    width: auto;
     max-width: none;
-    height: auto;
+    height: 120%;
   }
 
   @media (max-width: 900px) {

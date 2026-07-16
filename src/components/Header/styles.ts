@@ -14,8 +14,8 @@ export const HeaderContainer = styled.header`
 
 export const Div1 = styled.div`
   display: flex;
-  width: min(100% - 96px, 1400px);
-  height: 86px;
+  width: min(100% - 104px, 1432px);
+  height: 102px;
   align-items: center;
   justify-content: space-between;
   gap: 32px;
@@ -27,7 +27,7 @@ export const Div1 = styled.div`
   }
 
   .brand img {
-    width: 218px;
+    width: 275px;
     height: auto;
   }
 
@@ -44,12 +44,12 @@ export const Div1 = styled.div`
 export const NavBar = styled.nav`
   display: flex;
   align-items: center;
-  gap: clamp(20px, 3vw, 50px);
+  gap: clamp(24px, 3.2vw, 56px);
 
   ul {
     display: flex;
     align-items: center;
-    gap: clamp(18px, 2.2vw, 36px);
+    gap: clamp(22px, 2.5vw, 42px);
     margin: 0;
     padding: 0;
     list-style: none;
@@ -90,11 +90,11 @@ export const NavBar = styled.nav`
 
   .header-cta {
     display: inline-flex;
-    min-height: 44px;
+    min-height: 54px;
     align-items: center;
     justify-content: center;
     gap: 9px;
-    padding: 0 20px;
+    padding: 0 24px;
     border-radius: 7px;
     background: linear-gradient(135deg, #8c3044, #a94f60);
     box-shadow: 0 10px 24px rgba(125, 38, 58, 0.18);
