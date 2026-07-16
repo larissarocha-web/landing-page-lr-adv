@@ -57,13 +57,10 @@ export function Servicos() {
     <Container id="atuacao">
       <Wrapper>
         <span className="eyebrow">Áreas de atuação</span>
-        <h2>
-          Direito de Família com orientação segura, clara, atendimento ágil e
-          acompanhamento completo do seu caso.
-        </h2>
+        <h2>Encontre orientação para a sua situação</h2>
         <p className="intro">
-          Cada situação familiar exige análise individual. Conheça os temas em
-          que Larissa Rocha oferece orientação jurídica.
+          Cada questão familiar pede uma análise individual. Conheça os temas em
+          que a Larissa pode oferecer orientação jurídica.
         </p>
 
         <Cards>
