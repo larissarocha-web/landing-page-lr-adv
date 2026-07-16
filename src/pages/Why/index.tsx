@@ -5,7 +5,7 @@ import {
   FiMonitor,
 } from 'react-icons/fi'
 
-import foto from '../../assets/larissarocha02.webp'
+import foto from '../../assets/larissa-sobre-sorrindo.webp'
 import { Cards, Container, Content, Wrapper } from './styles'
 
 export function Why() {

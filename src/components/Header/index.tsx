@@ -42,8 +42,8 @@ export function Header() {
               <li><a href="#inicio">Início</a></li>
               <li><a href="#sobre">Sobre mim</a></li>
               <li><a href="#atuacao">Atuação</a></li>
-              <li><a href="#diferenciais">Diferenciais</a></li>
               <li><a href="#perguntas">Dúvidas</a></li>
+              <li><a href="#footer">Contato</a></li>
             </ul>
 
             <a
@@ -82,8 +82,8 @@ export function Header() {
             <li><a href="#inicio" onClick={closeMenu}>Início</a></li>
             <li><a href="#sobre" onClick={closeMenu}>Sobre mim</a></li>
             <li><a href="#atuacao" onClick={closeMenu}>Atuação</a></li>
-            <li><a href="#diferenciais" onClick={closeMenu}>Diferenciais</a></li>
             <li><a href="#perguntas" onClick={closeMenu}>Dúvidas</a></li>
+            <li><a href="#footer" onClick={closeMenu}>Contato</a></li>
           </Ul>
 
           <a

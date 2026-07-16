@@ -1,7 +1,7 @@
 import { FaWhatsapp } from 'react-icons/fa'
 import { FiHeart, FiHome, FiShield, FiUsers } from 'react-icons/fi'
 
-import blogueira from '../../assets/larissarocha01.webp'
+import blogueira from '../../assets/larissa-hero-seria-joias.webp'
 import {
   Actions,
   Benefit,
@@ -44,7 +44,7 @@ export function Home() {
           </Actions>
         </Copy>
 
-        <Portrait>
+        <Portrait aria-hidden="true">
           <img src={blogueira} alt="Larissa Rocha em seu ambiente de trabalho" />
         </Portrait>
       </Hero>

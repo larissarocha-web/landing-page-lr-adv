@@ -10,38 +10,67 @@ export const Container = styled.main`
 `
 
 export const Hero = styled.div`
-  display: grid;
-  min-height: 610px;
-  grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.04fr);
+  position: relative;
+  display: flex;
+  min-height: 550px;
+  align-items: stretch;
+  overflow: hidden;
+  background: #f5f0ec;
+
+  &::after {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+      linear-gradient(
+        90deg,
+        #faf8f5 0%,
+        rgba(250, 248, 245, 0.99) 31%,
+        rgba(250, 248, 245, 0.88) 42%,
+        rgba(250, 248, 245, 0.46) 54%,
+        rgba(250, 248, 245, 0.08) 68%,
+        transparent 78%
+      );
+    content: '';
+    pointer-events: none;
+  }
 
   @media (max-width: 900px) {
-    min-height: auto;
-    grid-template-columns: 1fr;
+    min-height: 515px;
+    background:
+      radial-gradient(circle at 82% 15%, rgba(201, 169, 106, 0.12), transparent 28%),
+      linear-gradient(135deg, #fbfaf8 0%, #f3ede9 100%);
+
+    &::after {
+      display: none;
+    }
   }
 `
 
 export const Copy = styled.div`
+  position: relative;
+  z-index: 2;
   display: flex;
+  width: min(100% - 48px, 1320px);
   align-items: flex-start;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(56px, 7vw, 108px) clamp(32px, 6.4vw, 104px);
-  background:
-    radial-gradient(circle at 18% 18%, rgba(201, 169, 106, 0.12), transparent 24%),
-    linear-gradient(135deg, #fbfaf8 0%, #f3ede9 100%);
+  margin: 0 auto;
+  padding: 55px 0 48px;
 
   .eyebrow {
-    margin-bottom: 18px;
+    margin-bottom: 14px;
     color: #a77b2a;
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
   }
 
   h1 {
     max-width: 650px;
-    font-size: clamp(3.5rem, 5.6vw, 6.5rem);
+    color: #741c32;
+    font-size: clamp(4rem, 5.4vw, 5.7rem);
     letter-spacing: -0.035em;
     line-height: 0.98;
   }
@@ -49,94 +78,90 @@ export const Copy = styled.div`
   .gold-line {
     width: 42px;
     height: 2px;
-    margin: 28px 0 24px;
-    background: #c9a96a;
+    margin: 24px 0 20px;
+    background: #bd8c39;
   }
 
   > p {
-    max-width: 520px;
-    color: #3f3a38;
-    font-size: clamp(1rem, 1.25vw, 1.15rem);
-    line-height: 1.75;
+    max-width: 485px;
+    color: #302c2a;
+    font-size: 1.02rem;
+    line-height: 1.65;
   }
 
   @media (max-width: 900px) {
-    min-height: 520px;
-    padding: 64px 28px;
+    width: min(100% - 44px, 1320px);
+    min-height: 515px;
+    padding: 52px 0;
 
     h1 {
-      font-size: clamp(3.25rem, 13vw, 5rem);
+      font-size: clamp(3.15rem, 13vw, 5rem);
+    }
+
+    > p {
+      max-width: 540px;
     }
   }
 
   @media (max-width: 480px) {
+    width: min(100% - 36px, 1320px);
     min-height: 500px;
-    padding: 54px 22px;
 
     .eyebrow {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 15vw, 4rem);
     }
   }
 `
 
 export const Portrait = styled.figure`
-  min-height: 610px;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   margin: 0;
   overflow: hidden;
-  background: #d9ccc4;
 
   img {
     width: 100%;
     height: 100%;
-    min-height: 610px;
     object-fit: cover;
-    object-position: 52% center;
+    object-position: 61% 45%;
   }
 
   @media (max-width: 900px) {
-    min-height: 420px;
-
-    img {
-      min-height: 420px;
-      object-position: 50% 38%;
-    }
-  }
-
-  @media (max-width: 520px) {
-    min-height: 310px;
-
-    img {
-      min-height: 310px;
-    }
+    display: none;
   }
 `
 
 export const Actions = styled.div`
   display: flex;
   align-items: center;
-  gap: 28px;
-  margin-top: 30px;
+  gap: 36px;
+  margin-top: 27px;
 
   @media (max-width: 480px) {
     width: 100%;
     align-items: stretch;
     flex-direction: column;
-    gap: 18px;
+    gap: 17px;
   }
 `
 
 export const WhatsButton = styled.a`
   display: inline-flex;
-  min-height: 50px;
+  min-height: 48px;
   align-items: center;
   justify-content: center;
   gap: 10px;
   padding: 0 24px;
   border-radius: 7px;
   background: linear-gradient(135deg, #8c3044, #a94f60);
-  box-shadow: 0 12px 28px rgba(125, 38, 58, 0.2);
+  box-shadow: 0 10px 22px rgba(125, 38, 58, 0.18);
   color: #fff;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.02em;
   text-decoration: none;
@@ -149,7 +174,7 @@ export const WhatsButton = styled.a`
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 16px 34px rgba(125, 38, 58, 0.27);
+    box-shadow: 0 14px 30px rgba(125, 38, 58, 0.25);
   }
 
   @media (max-width: 480px) {
@@ -160,16 +185,16 @@ export const WhatsButton = styled.a`
 export const SecondaryLink = styled.a`
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   color: #2f2a28;
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 600;
   letter-spacing: 0.07em;
   text-decoration: none;
   text-transform: uppercase;
 
   span {
-    color: #a77b2a;
+    color: #7d263a;
     font-size: 1rem;
   }
 
@@ -179,62 +204,68 @@ export const SecondaryLink = styled.a`
 `
 
 export const Benefits = styled.div`
+  position: relative;
+  z-index: 3;
   display: grid;
-  width: min(100% - 64px, 1320px);
-  margin: 0 auto;
+  width: 100%;
   grid-template-columns: repeat(4, 1fr);
-  padding: 28px 0;
-  background: #fff;
+  padding: 25px max(24px, calc((100vw - 1320px) / 2));
+  border-top: 1px solid rgba(98, 68, 59, 0.08);
+  border-bottom: 1px solid rgba(98, 68, 59, 0.08);
+  background: rgba(255, 255, 255, 0.98);
 
   @media (max-width: 1000px) {
-    width: min(100% - 40px, 1320px);
     grid-template-columns: repeat(2, 1fr);
+    padding-right: 22px;
+    padding-left: 22px;
   }
 
   @media (max-width: 620px) {
-    width: min(100% - 32px, 1320px);
     grid-template-columns: 1fr;
-    padding: 22px 0;
+    padding: 17px 20px;
   }
 `
 
 export const Benefit = styled.article`
   display: grid;
+  min-height: 104px;
   align-items: start;
-  grid-template-columns: 42px 1fr;
-  gap: 16px;
-  padding: 10px 28px;
-  border-right: 1px solid #e7ded9;
+  grid-template-columns: 44px 1fr;
+  gap: 15px;
+  padding: 6px 28px;
+  border-right: 1px solid #ded5d0;
 
   &:last-child {
     border-right: 0;
   }
 
   > svg {
-    color: #9b4052;
-    font-size: 2rem;
-    stroke-width: 1.25;
+    margin-top: 3px;
+    color: #8e2c42;
+    font-size: 2.15rem;
+    stroke-width: 1.2;
   }
 
   h2 {
     margin-bottom: 7px;
-    color: #302b29;
+    color: #272321;
     font-family: 'Inter', sans-serif;
-    font-size: 0.78rem;
+    font-size: 0.77rem;
     font-weight: 700;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.025em;
     line-height: 1.45;
     text-transform: uppercase;
   }
 
   p {
-    color: #625b57;
-    font-size: 0.78rem;
-    line-height: 1.55;
+    max-width: 205px;
+    color: #514b47;
+    font-size: 0.76rem;
+    line-height: 1.5;
   }
 
   @media (max-width: 1000px) {
-    margin: 10px 0;
+    margin: 9px 0;
 
     &:nth-child(2) {
       border-right: 0;
@@ -242,12 +273,17 @@ export const Benefit = styled.article`
   }
 
   @media (max-width: 620px) {
-    padding: 18px 8px;
+    min-height: auto;
+    padding: 18px 4px;
     border-right: 0;
-    border-bottom: 1px solid #e7ded9;
+    border-bottom: 1px solid #ded5d0;
 
     &:last-child {
       border-bottom: 0;
+    }
+
+    p {
+      max-width: none;
     }
   }
 `
