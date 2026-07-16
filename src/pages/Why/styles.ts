@@ -14,6 +14,7 @@ export const Container = styled.section`
 `
 
 export const Wrapper = styled.div`
+  position: relative;
   display: grid;
   max-width: 1320px;
   min-height: 520px;
@@ -80,6 +81,130 @@ export const Wrapper = styled.div`
   }
 `
 
+export const IntakeCard = styled.form`
+  position: absolute;
+  top: 50%;
+  left: 53%;
+  z-index: 4;
+  display: flex;
+  width: clamp(280px, 22vw, 320px);
+  flex-direction: column;
+  padding: 28px 25px 24px;
+  border: 1px solid rgba(201, 169, 106, 0.38);
+  border-radius: 14px;
+  background: rgba(255, 253, 251, 0.96);
+  box-shadow: 0 22px 58px rgba(72, 42, 37, 0.14);
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(16px);
+
+  .form-eyebrow {
+    margin-bottom: 5px;
+    color: #a77b2a;
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    color: #741c32;
+    font-size: 1.35rem;
+    line-height: 1.18;
+  }
+
+  > p {
+    margin: 8px 0 20px;
+    color: #6a615c;
+    font-size: 0.75rem;
+    line-height: 1.55;
+  }
+
+  label {
+    margin-bottom: 6px;
+    color: #3d3532;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    border: 1px solid #e1d6d0;
+    border-radius: 8px;
+    background: #fbf8f6;
+    color: #332e2b;
+    font-size: 0.78rem;
+    outline: none;
+    transition:
+      border-color 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  input {
+    min-height: 44px;
+    margin-bottom: 15px;
+    padding: 0 13px;
+  }
+
+  textarea {
+    min-height: 98px;
+    padding: 11px 13px;
+    resize: vertical;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: #a09791;
+  }
+
+  input:focus,
+  textarea:focus {
+    border-color: #b46c7b;
+    box-shadow: 0 0 0 3px rgba(155, 64, 82, 0.1);
+  }
+
+  button {
+    display: inline-flex;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    margin-top: 18px;
+    border: 0;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #81283c, #a6485b);
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  button svg {
+    font-size: 1.05rem;
+  }
+
+  small {
+    margin-top: 11px;
+    color: #8a807a;
+    font-size: 0.58rem;
+    line-height: 1.45;
+    text-align: center;
+  }
+
+  @media (max-width: 900px) {
+    position: relative;
+    top: auto;
+    left: auto;
+    z-index: 4;
+    grid-row: 2;
+    width: min(calc(100% - 40px), 430px);
+    margin: -88px auto 0;
+    padding: 27px 23px 23px;
+    transform: none;
+  }
+`
+
 export const Content = styled.div`
   position: relative;
   z-index: 2;
@@ -88,7 +213,7 @@ export const Content = styled.div`
   flex-direction: column;
   justify-content: center;
   margin-left: -10%;
-  padding: 62px clamp(36px, 6vw, 90px);
+  padding: 62px clamp(32px, 4vw, 58px) 62px clamp(198px, 18vw, 225px);
   background: linear-gradient(
     90deg,
     transparent 0%,
@@ -129,15 +254,11 @@ export const Content = styled.div`
   }
 
   @media (max-width: 900px) {
-    margin-top: -72px;
+    grid-row: 3;
+    margin-top: 0;
     margin-left: 0;
-    padding: 94px 22px 68px;
-    background: linear-gradient(
-      180deg,
-      transparent 0%,
-      rgba(251, 250, 248, 0.72) 12%,
-      #fbfaf8 30%
-    );
+    padding: 58px 22px 68px;
+    background: #fbfaf8;
 
     h2 {
       font-size: clamp(2.35rem, 10.7vw, 3.3rem);
