@@ -12,7 +12,7 @@ export const Container = styled.main`
 export const Hero = styled.div`
   position: relative;
   display: flex;
-  min-height: 550px;
+  min-height: clamp(450px, 35.7vw, 548px);
   align-items: stretch;
   overflow: hidden;
   background: #f5f0ec;
@@ -24,12 +24,13 @@ export const Hero = styled.div`
     background:
       linear-gradient(
         90deg,
-        #faf8f5 0%,
-        rgba(250, 248, 245, 0.99) 31%,
-        rgba(250, 248, 245, 0.88) 42%,
-        rgba(250, 248, 245, 0.46) 54%,
-        rgba(250, 248, 245, 0.08) 68%,
-        transparent 78%
+        #fbfaf8 0%,
+        #fbfaf8 28%,
+        rgba(251, 250, 248, 0.99) 35%,
+        rgba(251, 250, 248, 0.92) 41%,
+        rgba(251, 250, 248, 0.63) 48%,
+        rgba(251, 250, 248, 0.2) 56%,
+        transparent 63%
       );
     content: '';
     pointer-events: none;
@@ -51,26 +52,26 @@ export const Copy = styled.div`
   position: relative;
   z-index: 2;
   display: flex;
-  width: min(100% - 48px, 1320px);
+  width: min(100% - 136px, 1400px);
   align-items: flex-start;
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
-  padding: 55px 0 48px;
+  padding: 49px 0 44px;
 
   .eyebrow {
-    margin-bottom: 14px;
+    margin-bottom: 13px;
     color: #a77b2a;
-    font-size: 0.8rem;
+    font-size: 0.79rem;
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
 
   h1 {
-    max-width: 650px;
+    max-width: 670px;
     color: #741c32;
-    font-size: clamp(4rem, 5.4vw, 5.7rem);
+    font-size: clamp(4rem, 5.35vw, 5.5rem);
     letter-spacing: -0.035em;
     line-height: 0.98;
   }
@@ -78,15 +79,15 @@ export const Copy = styled.div`
   .gold-line {
     width: 42px;
     height: 2px;
-    margin: 24px 0 20px;
+    margin: 23px 0 19px;
     background: #bd8c39;
   }
 
   > p {
-    max-width: 485px;
+    max-width: 455px;
     color: #302c2a;
-    font-size: 1.02rem;
-    line-height: 1.65;
+    font-size: 0.98rem;
+    line-height: 1.68;
   }
 
   @media (max-width: 900px) {
@@ -125,10 +126,12 @@ export const Portrait = styled.figure`
   overflow: hidden;
 
   img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 61% 45%;
+    position: absolute;
+    top: clamp(-118px, -7.7vw, -82px);
+    left: 0;
+    width: 135%;
+    max-width: none;
+    height: auto;
   }
 
   @media (max-width: 900px) {
@@ -139,8 +142,8 @@ export const Portrait = styled.figure`
 export const Actions = styled.div`
   display: flex;
   align-items: center;
-  gap: 36px;
-  margin-top: 27px;
+  gap: 38px;
+  margin-top: 26px;
 
   @media (max-width: 480px) {
     width: 100%;
@@ -152,16 +155,16 @@ export const Actions = styled.div`
 
 export const WhatsButton = styled.a`
   display: inline-flex;
-  min-height: 48px;
+  min-height: 54px;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 0 24px;
+  padding: 0 28px;
   border-radius: 7px;
   background: linear-gradient(135deg, #8c3044, #a94f60);
   box-shadow: 0 10px 22px rgba(125, 38, 58, 0.18);
   color: #fff;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.02em;
   text-decoration: none;
@@ -209,7 +212,7 @@ export const Benefits = styled.div`
   display: grid;
   width: 100%;
   grid-template-columns: repeat(4, 1fr);
-  padding: 25px max(24px, calc((100vw - 1320px) / 2));
+  padding: 25px max(24px, calc((100vw - 1360px) / 2));
   border-top: 1px solid rgba(98, 68, 59, 0.08);
   border-bottom: 1px solid rgba(98, 68, 59, 0.08);
   background: rgba(255, 255, 255, 0.98);
@@ -228,11 +231,11 @@ export const Benefits = styled.div`
 
 export const Benefit = styled.article`
   display: grid;
-  min-height: 104px;
+  min-height: 108px;
   align-items: start;
   grid-template-columns: 44px 1fr;
   gap: 15px;
-  padding: 6px 28px;
+  padding: 6px 31px;
   border-right: 1px solid #ded5d0;
 
   &:last-child {

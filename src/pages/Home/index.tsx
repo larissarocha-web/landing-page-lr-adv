@@ -1,7 +1,7 @@
 import { FaWhatsapp } from 'react-icons/fa'
 import { FiHeart, FiHome, FiShield, FiUsers } from 'react-icons/fi'
 
-import blogueira from '../../assets/larissa-hero-seria-joias.webp'
+import blogueira from '../../assets/larissa-hero-colar-preservada.webp'
 import {
   Actions,
   Benefit,
@@ -69,8 +69,8 @@ export function Home() {
         <Benefit>
           <FiHome aria-hidden="true" />
           <div>
-            <h2>Atendimento online</h2>
-            <p>Praticidade e acompanhamento próximo, onde você estiver.</p>
+            <h2>Foco na solução</h2>
+            <p>Buscamos sempre as melhores soluções para você e sua família.</p>
           </div>
         </Benefit>
 

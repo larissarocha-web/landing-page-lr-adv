@@ -14,7 +14,7 @@ export const HeaderContainer = styled.header`
 
 export const Div1 = styled.div`
   display: flex;
-  width: min(100% - 48px, 1320px);
+  width: min(100% - 96px, 1400px);
   height: 86px;
   align-items: center;
   justify-content: space-between;
