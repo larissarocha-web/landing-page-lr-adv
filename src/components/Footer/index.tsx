@@ -21,7 +21,7 @@ export function Footer() {
             <a href="#inicio">Início</a>
             <a href="#sobre">Sobre mim</a>
             <a href="#atuacao">Áreas de atuação</a>
-            <a href="#perguntas">Dúvidas frequentes</a>
+            <a href="#duvidas">Dúvidas frequentes</a>
           </div>
 
           <div>

@@ -4,6 +4,7 @@ export const Container = styled.section`
   position: relative;
   padding: 0 24px;
   overflow: hidden;
+  scroll-margin-top: 102px;
   background: #fbfaf8;
 
   &::after {
@@ -20,7 +21,8 @@ export const Container = styled.section`
   }
 
   @media (max-width: 900px) {
-    padding: 0 20px;
+    padding: 0;
+    scroll-margin-top: 70px;
   }
 `
 
@@ -29,13 +31,32 @@ export const Wrapper = styled.div`
   max-width: 1320px;
   min-height: 470px;
   align-items: stretch;
-  grid-template-columns: 0.94fr 1.06fr;
+  grid-template-columns: 52% 48%;
   margin: 0 auto;
 
   .photo {
     position: relative;
+    z-index: 0;
     min-height: 470px;
     overflow: hidden;
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      #000 0%,
+      #000 66%,
+      rgba(0, 0, 0, 0.92) 73%,
+      rgba(0, 0, 0, 0.62) 83%,
+      rgba(0, 0, 0, 0.2) 94%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      90deg,
+      #000 0%,
+      #000 66%,
+      rgba(0, 0, 0, 0.92) 73%,
+      rgba(0, 0, 0, 0.62) 83%,
+      rgba(0, 0, 0, 0.2) 94%,
+      transparent 100%
+    );
   }
 
   .photo img {
@@ -49,16 +70,36 @@ export const Wrapper = styled.div`
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
 
-    .photo,
+    .photo {
+      min-height: 410px;
+      -webkit-mask-image: linear-gradient(
+        180deg,
+        #000 0%,
+        #000 70%,
+        rgba(0, 0, 0, 0.82) 80%,
+        rgba(0, 0, 0, 0.25) 93%,
+        transparent 100%
+      );
+      mask-image: linear-gradient(
+        180deg,
+        #000 0%,
+        #000 70%,
+        rgba(0, 0, 0, 0.82) 80%,
+        rgba(0, 0, 0, 0.25) 93%,
+        transparent 100%
+      );
+    }
+
     .photo img {
-      min-height: 420px;
+      min-height: 410px;
+      object-position: 45% center;
     }
   }
 
   @media (max-width: 520px) {
     .photo,
     .photo img {
-      min-height: 320px;
+      min-height: 340px;
     }
   }
 `
@@ -70,10 +111,16 @@ export const Content = styled.div`
   align-items: flex-start;
   flex-direction: column;
   justify-content: center;
+  margin-left: -8%;
   padding: 55px clamp(36px, 6vw, 92px);
-  background:
-    linear-gradient(90deg, rgba(251, 250, 248, 0.98), rgba(251, 250, 248, 0.93)),
-    #fbfaf8;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(251, 250, 248, 0.52) 8%,
+    rgba(251, 250, 248, 0.9) 20%,
+    #fbfaf8 35%,
+    #fbfaf8 100%
+  );
 
   .eyebrow {
     display: block;
@@ -131,7 +178,20 @@ export const Content = styled.div`
   }
 
   @media (max-width: 900px) {
-    padding: 50px 24px 58px;
+    margin-top: -70px;
+    margin-left: 0;
+    padding: 92px 24px 62px;
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(251, 250, 248, 0.72) 12%,
+      #fbfaf8 29%,
+      #fbfaf8 100%
+    );
+
+    h2 {
+      font-size: clamp(2.45rem, 11.5vw, 3.7rem);
+    }
   }
 `
 
@@ -180,15 +240,27 @@ export const Cards = styled.div`
   }
 
   @media (max-width: 900px) {
-    grid-template-columns: 1fr;
+    display: flex;
+    gap: 13px;
+    padding: 0 20px 24px;
+    overflow-x: auto;
+    border-top: 0;
+    scroll-padding-inline: 20px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
 
     article {
-      border-right: 0;
-      border-bottom: 1px solid #dfd2cb;
+      flex: 0 0 min(83vw, 350px);
+      min-height: 162px;
+      border: 1px solid rgba(125, 38, 58, 0.1);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.76);
+      box-shadow: 0 12px 30px rgba(72, 43, 37, 0.055);
+      scroll-snap-align: start;
+    }
 
-      &:last-child {
-        border-bottom: 0;
-      }
+    &::-webkit-scrollbar {
+      display: none;
     }
   }
 `

@@ -41,7 +41,7 @@ export function Perguntas() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
-    <Container id="perguntas">
+    <Container id="duvidas">
       <Wrapper>
         <div className="faq-heading">
           <span className="eyebrow">Dúvidas frequentes</span>
@@ -107,8 +107,8 @@ export function Perguntas() {
           <Card>
             <FaQuoteLeft aria-hidden="true" />
             <p>
-              “Profissional segura e objetiva. Me senti tranquila durante todo
-              o processo.”
+              “Profissional segura e objetiva. Me senti tranquila durante todo o
+              processo.”
             </p>
             <span>Cliente — SP</span>
           </Card>

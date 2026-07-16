@@ -2,10 +2,12 @@ import styled from 'styled-components'
 
 export const Container = styled.section`
   padding: 106px 24px 0;
+  scroll-margin-top: 102px;
   background: #f8f5f2;
 
   @media (max-width: 720px) {
     padding: 76px 20px 0;
+    scroll-margin-top: 70px;
   }
 `
 
@@ -41,8 +43,12 @@ export const Wrapper = styled.div`
 
   @media (max-width: 840px) {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 34px;
     margin-bottom: 74px;
+
+    .faq-heading h2 {
+      font-size: clamp(2.45rem, 11vw, 3.7rem);
+    }
   }
 `
 
@@ -86,7 +92,9 @@ export const AccordionContent = styled.div<{ isOpen: boolean }>`
   display: grid;
   grid-template-rows: ${(props) => (props.isOpen ? '1fr' : '0fr')};
   opacity: ${(props) => (props.isOpen ? 1 : 0)};
-  transition: grid-template-rows 240ms ease, opacity 180ms ease;
+  transition:
+    grid-template-rows 240ms ease,
+    opacity 180ms ease;
 
   p {
     min-height: 0;
@@ -102,8 +110,11 @@ export const AccordionContent = styled.div<{ isOpen: boolean }>`
 export const DepoimentosWrapper = styled.div`
   margin: 0 -24px;
   padding: 90px max(24px, calc((100vw - 1180px) / 2));
-  background:
-    radial-gradient(circle at 12% 20%, rgba(201, 169, 106, 0.19), transparent 27%),
+  background: radial-gradient(
+      circle at 12% 20%,
+      rgba(201, 169, 106, 0.19),
+      transparent 27%
+    ),
     #641d30;
   text-align: center;
 
@@ -127,7 +138,18 @@ export const DepoimentosWrapper = styled.div`
 
   @media (max-width: 720px) {
     margin: 0 -20px;
-    padding: 72px 20px;
+    padding: 72px 0;
+
+    > .eyebrow,
+    > h2 {
+      margin-right: 20px;
+      margin-left: 20px;
+    }
+
+    > h2 {
+      margin-bottom: 38px;
+      font-size: clamp(2.3rem, 10.5vw, 3.4rem);
+    }
   }
 `
 
@@ -139,7 +161,17 @@ export const Depoimentos = styled.div`
   margin: 0 auto;
 
   @media (max-width: 820px) {
-    grid-template-columns: 1fr;
+    display: flex;
+    gap: 14px;
+    padding: 0 20px 8px;
+    overflow-x: auto;
+    scroll-padding-inline: 20px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 `
 
@@ -171,5 +203,12 @@ export const Card = styled.article`
     font-size: 0.73rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+  }
+
+  @media (max-width: 820px) {
+    flex: 0 0 min(84vw, 360px);
+    min-height: 265px;
+    border-radius: 12px;
+    scroll-snap-align: start;
   }
 `

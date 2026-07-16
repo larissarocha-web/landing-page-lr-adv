@@ -1,13 +1,18 @@
 import styled from 'styled-components'
 
 export const Container = styled.section`
-  padding: 104px 24px 112px;
-  background:
-    radial-gradient(circle at 100% 0, rgba(201, 169, 106, 0.1), transparent 27%),
+  padding: 90px 24px 100px;
+  scroll-margin-top: 102px;
+  background: radial-gradient(
+      circle at 100% 0,
+      rgba(201, 169, 106, 0.1),
+      transparent 27%
+    ),
     #fff;
 
   @media (max-width: 720px) {
-    padding: 76px 20px 82px;
+    padding: 68px 0 74px;
+    scroll-margin-top: 70px;
   }
 `
 
@@ -27,10 +32,10 @@ export const Wrapper = styled.div`
   }
 
   h2 {
-    max-width: 700px;
+    max-width: 1040px;
     margin: 0 auto 18px;
-    font-size: clamp(2.4rem, 4vw, 4.25rem);
-    line-height: 1.08;
+    font-size: clamp(2.35rem, 3.55vw, 3.8rem);
+    line-height: 1.06;
   }
 
   .intro {
@@ -38,6 +43,29 @@ export const Wrapper = styled.div`
     margin: 0 auto 52px;
     color: #5a5552;
     line-height: 1.7;
+  }
+
+  @media (max-width: 720px) {
+    text-align: left;
+
+    > .eyebrow,
+    > h2,
+    > .intro {
+      margin-right: 20px;
+      margin-left: 20px;
+    }
+
+    h2 {
+      max-width: 590px;
+      font-size: clamp(2.15rem, 10.5vw, 3.15rem);
+      letter-spacing: -0.025em;
+    }
+
+    .intro {
+      margin-bottom: 36px;
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
   }
 `
 
@@ -47,7 +75,22 @@ export const Cards = styled.div`
   gap: 22px;
 
   @media (max-width: 900px) {
-    grid-template-columns: 1fr;
+    display: flex;
+    gap: 16px;
+    padding: 2px 20px 20px;
+    overflow-x: auto;
+    scroll-padding-inline: 20px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    article {
+      flex: 0 0 min(78vw, 410px);
+      scroll-snap-align: start;
+    }
   }
 
   article {
@@ -59,7 +102,10 @@ export const Cards = styled.div`
     border-radius: 2px;
     background: linear-gradient(145deg, #fff, #f9f5f2);
     text-align: left;
-    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+    transition:
+      transform 220ms ease,
+      box-shadow 220ms ease,
+      border-color 220ms ease;
 
     &::after {
       position: absolute;
@@ -109,8 +155,11 @@ export const Cards = styled.div`
     }
 
     @media (max-width: 500px) {
-      min-height: 290px;
+      flex: 0 0 min(84vw, 340px);
+      min-height: 300px;
       padding: 38px 28px 32px;
+      border-radius: 12px;
+      box-shadow: 0 15px 34px rgba(78, 46, 40, 0.07);
     }
   }
 `

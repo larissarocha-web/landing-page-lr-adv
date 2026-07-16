@@ -37,7 +37,7 @@ export function Home() {
               Falar no WhatsApp
             </WhatsButton>
 
-            <SecondaryLink href="#sobre">
+            <SecondaryLink href="#atuacao">
               Saiba mais
               <span aria-hidden="true">↓</span>
             </SecondaryLink>
@@ -45,7 +45,10 @@ export function Home() {
         </Copy>
 
         <Portrait aria-hidden="true">
-          <img src={blogueira} alt="Larissa Rocha em seu ambiente de trabalho" />
+          <img
+            src={blogueira}
+            alt="Larissa Rocha em seu ambiente de trabalho"
+          />
         </Portrait>
       </Hero>
 

@@ -19,31 +19,44 @@ export const Hero = styled.div`
 
   &::after {
     position: absolute;
-    inset: 0;
+    inset: 0 auto 0 0;
     z-index: 1;
-    background:
-      linear-gradient(
-        90deg,
-        #fbfaf8 0%,
-        #fbfaf8 32%,
-        rgba(251, 250, 248, 0.99) 36%,
-        rgba(251, 250, 248, 0.92) 40%,
-        rgba(251, 250, 248, 0.65) 45%,
-        rgba(251, 250, 248, 0.28) 50%,
-        transparent 56%
-      );
+    width: 61%;
+    background: linear-gradient(
+      90deg,
+      #fbfaf8 0%,
+      #fbfaf8 60%,
+      rgba(251, 250, 248, 0.96) 69%,
+      rgba(251, 250, 248, 0.72) 79%,
+      rgba(251, 250, 248, 0.28) 91%,
+      transparent 100%
+    );
     content: '';
     pointer-events: none;
   }
 
   @media (max-width: 900px) {
-    min-height: 515px;
-    background:
-      radial-gradient(circle at 82% 15%, rgba(201, 169, 106, 0.12), transparent 28%),
+    display: block;
+    min-height: 0;
+    background: radial-gradient(
+        circle at 82% 15%,
+        rgba(201, 169, 106, 0.12),
+        transparent 28%
+      ),
       linear-gradient(135deg, #fbfaf8 0%, #f3ede9 100%);
 
     &::after {
-      display: none;
+      inset: auto 0 0;
+      z-index: 1;
+      width: 100%;
+      height: 120px;
+      background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(251, 250, 248, 0.18) 30%,
+        rgba(251, 250, 248, 0.75) 76%,
+        #fbfaf8 100%
+      );
     }
   }
 `
@@ -92,8 +105,8 @@ export const Copy = styled.div`
 
   @media (max-width: 900px) {
     width: min(100% - 44px, 1320px);
-    min-height: 515px;
-    padding: 52px 0;
+    min-height: 455px;
+    padding: 50px 0 34px;
 
     h1 {
       font-size: clamp(3.15rem, 13vw, 5rem);
@@ -106,7 +119,8 @@ export const Copy = styled.div`
 
   @media (max-width: 480px) {
     width: min(100% - 36px, 1320px);
-    min-height: 500px;
+    min-height: 430px;
+    padding-top: 42px;
 
     .eyebrow {
       font-size: 0.7rem;
@@ -120,10 +134,29 @@ export const Copy = styled.div`
 
 export const Portrait = styled.figure`
   position: absolute;
-  inset: 0;
+  inset: 0 0 0 auto;
   z-index: 0;
+  width: 70%;
   margin: 0;
   overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.04) 8%,
+    rgba(0, 0, 0, 0.18) 16%,
+    rgba(0, 0, 0, 0.52) 27%,
+    rgba(0, 0, 0, 0.9) 39%,
+    #000 48%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.04) 8%,
+    rgba(0, 0, 0, 0.18) 16%,
+    rgba(0, 0, 0, 0.52) 27%,
+    rgba(0, 0, 0, 0.9) 39%,
+    #000 48%
+  );
 
   img {
     position: absolute;
@@ -135,7 +168,44 @@ export const Portrait = styled.figure`
   }
 
   @media (max-width: 900px) {
-    display: none;
+    position: relative;
+    inset: auto;
+    display: block;
+    width: 100%;
+    height: clamp(300px, 78vw, 520px);
+    -webkit-mask-image: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(0, 0, 0, 0.12) 8%,
+      rgba(0, 0, 0, 0.6) 21%,
+      #000 37%,
+      #000 100%
+    );
+    mask-image: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(0, 0, 0, 0.12) 8%,
+      rgba(0, 0, 0, 0.6) 21%,
+      #000 37%,
+      #000 100%
+    );
+
+    img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 63% 50%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    height: 330px;
+
+    img {
+      object-position: 61% 50%;
+    }
   }
 `
 
@@ -169,7 +239,9 @@ export const WhatsButton = styled.a`
   letter-spacing: 0.02em;
   text-decoration: none;
   text-transform: uppercase;
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
 
   svg {
     font-size: 1.25rem;
@@ -224,8 +296,17 @@ export const Benefits = styled.div`
   }
 
   @media (max-width: 620px) {
-    grid-template-columns: 1fr;
-    padding: 17px 20px;
+    display: flex;
+    gap: 13px;
+    padding: 18px 20px 22px;
+    overflow-x: auto;
+    scroll-padding-inline: 20px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 `
 
@@ -276,14 +357,14 @@ export const Benefit = styled.article`
   }
 
   @media (max-width: 620px) {
-    min-height: auto;
-    padding: 18px 4px;
-    border-right: 0;
-    border-bottom: 1px solid #ded5d0;
-
-    &:last-child {
-      border-bottom: 0;
-    }
+    flex: 0 0 min(82vw, 330px);
+    min-height: 142px;
+    padding: 22px 20px;
+    border: 1px solid rgba(125, 38, 58, 0.11);
+    border-radius: 12px;
+    background: linear-gradient(145deg, #fff, #fbf7f4);
+    box-shadow: 0 12px 30px rgba(72, 43, 37, 0.06);
+    scroll-snap-align: start;
 
     p {
       max-width: none;

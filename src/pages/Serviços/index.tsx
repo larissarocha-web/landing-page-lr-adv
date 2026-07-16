@@ -7,10 +7,12 @@ export function Servicos() {
     <Container id="atuacao">
       <Wrapper>
         <span className="eyebrow">Áreas de atuação</span>
-        <h2>Orientação segura para decisões importantes</h2>
+        <h2>
+          Direito de Família com orientação segura, clara, atendimento ágil e
+          acompanhamento do seu caso
+        </h2>
         <p className="intro">
-          Atuação em Direito de Família com orientação clara, atendimento ágil
-          e acompanhamento completo do seu caso.
+          Estratégia jurídica, acolhimento e comunicação próxima em cada etapa.
         </p>
 
         <Cards>

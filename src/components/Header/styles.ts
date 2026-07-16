@@ -104,7 +104,9 @@ export const NavBar = styled.nav`
     letter-spacing: 0.02em;
     text-decoration: none;
     text-transform: uppercase;
-    transition: transform 180ms ease, box-shadow 180ms ease;
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease;
 
     &:hover {
       transform: translateY(-2px);
@@ -148,9 +150,12 @@ export const MenuMobileOpen = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 110px 24px 42px;
-  background:
-    radial-gradient(circle at 85% 15%, rgba(201, 169, 106, 0.12), transparent 30%),
-    #fbf8f6;
+  background: radial-gradient(
+      circle at 88% 12%,
+      rgba(166, 70, 88, 0.08),
+      transparent 34%
+    ),
+    linear-gradient(145deg, #fbfaf8 0%, #f8f3f0 100%);
   color: #7d263a;
   animation: fadeIn 220ms ease;
 
@@ -172,12 +177,13 @@ export const MenuMobileOpen = styled.div`
     justify-content: space-between;
     padding: 14px 22px;
     border-bottom: 1px solid rgba(125, 38, 58, 0.08);
-    background: #fff;
+    background: transparent;
   }
 
   .menu-header img {
-    width: 190px;
+    width: min(64vw, 225px);
     height: auto;
+    object-fit: contain;
   }
 
   .menu-header button {
@@ -208,7 +214,7 @@ export const MenuMobileOpen = styled.div`
 `
 
 export const Ul = styled.ul`
-  width: min(100%, 360px);
+  width: min(100%, 390px);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -216,22 +222,14 @@ export const Ul = styled.ul`
 
   li {
     position: relative;
-    padding: 15px 0;
-
-    &::after {
-      position: absolute;
-      right: 30%;
-      bottom: 7px;
-      left: 30%;
-      height: 1px;
-      background: #c9a96a;
-      content: '';
-    }
+    border-bottom: 1px solid rgba(125, 38, 58, 0.1);
   }
 
   a {
+    display: block;
+    padding: 17px 10px;
     color: #352e2b;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     letter-spacing: 0.06em;
     text-decoration: none;
     text-transform: uppercase;

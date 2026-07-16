@@ -3,7 +3,6 @@ import { FaWhatsapp } from 'react-icons/fa'
 import { IoClose, IoMenu } from 'react-icons/io5'
 
 import logo from '../../assets/logo3.png'
-import logomenu from '../../assets/logomenu.png'
 import { Div1, HeaderContainer, MenuMobileOpen, NavBar, Ul } from './styles'
 
 const whatsappUrl =
@@ -33,16 +32,28 @@ export function Header() {
     <>
       <HeaderContainer>
         <Div1>
-          <a className="brand" href="#inicio" aria-label="Larissa Rocha - início">
+          <a
+            className="brand"
+            href="#inicio"
+            aria-label="Larissa Rocha - início"
+          >
             <img src={logo} alt="Larissa Rocha Advocacia" />
           </a>
 
           <NavBar>
             <ul>
-              <li><a href="#inicio">Início</a></li>
-              <li><a href="#sobre">Sobre mim</a></li>
-              <li><a href="#atuacao">Atuação</a></li>
-              <li><a href="#footer">Contato</a></li>
+              <li>
+                <a href="#inicio">Início e atuação</a>
+              </li>
+              <li>
+                <a href="#sobre">Sobre mim</a>
+              </li>
+              <li>
+                <a href="#duvidas">Dúvidas</a>
+              </li>
+              <li>
+                <a href="#footer">Contato</a>
+              </li>
             </ul>
 
             <a
@@ -69,19 +80,39 @@ export function Header() {
       </HeaderContainer>
 
       {isOpen && (
-        <MenuMobileOpen role="dialog" aria-modal="true" aria-label="Menu principal">
+        <MenuMobileOpen
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menu principal"
+        >
           <div className="menu-header">
-            <img src={logomenu} alt="Larissa Rocha Advogada" />
+            <img src={logo} alt="Larissa Rocha Advocacia" />
             <button type="button" onClick={closeMenu} aria-label="Fechar menu">
               <IoClose size={32} />
             </button>
           </div>
 
           <Ul>
-            <li><a href="#inicio" onClick={closeMenu}>Início</a></li>
-            <li><a href="#sobre" onClick={closeMenu}>Sobre mim</a></li>
-            <li><a href="#atuacao" onClick={closeMenu}>Atuação</a></li>
-            <li><a href="#footer" onClick={closeMenu}>Contato</a></li>
+            <li>
+              <a href="#inicio" onClick={closeMenu}>
+                Início e atuação
+              </a>
+            </li>
+            <li>
+              <a href="#sobre" onClick={closeMenu}>
+                Sobre mim
+              </a>
+            </li>
+            <li>
+              <a href="#duvidas" onClick={closeMenu}>
+                Dúvidas
+              </a>
+            </li>
+            <li>
+              <a href="#footer" onClick={closeMenu}>
+                Contato
+              </a>
+            </li>
           </Ul>
 
           <a

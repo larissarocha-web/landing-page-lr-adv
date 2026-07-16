@@ -14,8 +14,8 @@ function App() {
     <ThemeProvider theme={defaultTheme}>
       <Header />
       <Home />
-      <Why />
       <Servicos />
+      <Why />
       <Perguntas />
       <Footer />
       <GlobalStyle />
