@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react'
 import { FaWhatsapp } from 'react-icons/fa'
 
+import { WHATSAPP_URL } from '../../constants/brand'
 import { Container } from './styles'
-
-const whatsappUrl =
-  'https://wa.me/5561991742090?text=Olá,%20preciso%20de%20orientação%20em%20Direito%20de%20Família.'
 
 export function StickyContact() {
   const [visible, setVisible] = useState(false)
@@ -24,7 +22,7 @@ export function StickyContact() {
 
   return (
     <Container data-visible={visible}>
-      <a href={whatsappUrl} target="_blank" rel="noreferrer">
+      <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">
         <FaWhatsapp />
         Conversar pelo WhatsApp
       </a>

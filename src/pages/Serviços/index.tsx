@@ -57,10 +57,13 @@ export function Servicos() {
     <Container id="atuacao">
       <Wrapper>
         <span className="eyebrow">Áreas de atuação</span>
-        <h2>Encontre orientação para a sua situação</h2>
+        <h2>
+          Direito de Família com orientação segura, clara, atendimento ágil e
+          acompanhamento completo do seu caso.
+        </h2>
         <p className="intro">
-          Cada questão familiar pede uma análise individual. Conheça os temas em
-          que a Larissa pode oferecer orientação jurídica.
+          Cada situação familiar exige análise individual. Conheça os temas em
+          que Larissa Rocha oferece orientação jurídica.
         </p>
 
         <Cards>
@@ -71,15 +74,23 @@ export function Servicos() {
             return (
               <article key={area.title} data-open={isOpen}>
                 <button
+                  id={`area-title-${index}`}
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? -1 : index)}
                   aria-expanded={isOpen}
+                  aria-controls={`area-content-${index}`}
                 >
                   <Icon aria-hidden="true" />
                   <h3>{area.title}</h3>
                   <FiChevronDown className="chevron" aria-hidden="true" />
                 </button>
-                <div className="area-content" aria-hidden={!isOpen}>
+                <div
+                  className="area-content"
+                  id={`area-content-${index}`}
+                  role="region"
+                  aria-labelledby={`area-title-${index}`}
+                  aria-hidden={!isOpen}
+                >
                   <p>{area.description}</p>
                 </div>
               </article>

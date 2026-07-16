@@ -27,9 +27,9 @@ export const Wrapper = styled.div`
   }
 
   > h2 {
-    max-width: 760px;
+    max-width: 900px;
     margin: 0 auto 18px;
-    font-size: clamp(2.55rem, 4vw, 4.2rem);
+    font-size: clamp(2.4rem, 3.6vw, 3.8rem);
     line-height: 1.06;
   }
 

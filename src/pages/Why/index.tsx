@@ -1,6 +1,7 @@
 import { FiBookOpen, FiGlobe, FiUser } from 'react-icons/fi'
 
 import photo from '../../assets/larissa-sobre-sorrindo.webp'
+import { OAB_LABEL } from '../../constants/brand'
 import { Container, Content, Credentials, Wrapper } from './styles'
 
 export function Why() {
@@ -24,7 +25,7 @@ export function Why() {
           <Credentials aria-label="Informações profissionais">
             <li>
               <FiUser aria-hidden="true" />
-              <span>Advogada • OAB 65.877</span>
+              <span>Advogada • {OAB_LABEL}</span>
             </li>
             <li>
               <FiGlobe aria-hidden="true" />
@@ -32,7 +33,7 @@ export function Why() {
             </li>
             <li>
               <FiBookOpen aria-hidden="true" />
-              <span>Formação e especialização a confirmar</span>
+              <span>Atuação em Direito de Família e Sucessões</span>
             </li>
           </Credentials>
         </Content>

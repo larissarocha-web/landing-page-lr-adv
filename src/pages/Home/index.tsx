@@ -1,6 +1,7 @@
 import { FaWhatsapp } from 'react-icons/fa'
 
 import heroPhoto from '../../assets/larissa-hero-colar-preservada.webp'
+import { WHATSAPP_URL } from '../../constants/brand'
 import {
   Actions,
   Container,
@@ -10,9 +11,6 @@ import {
   SecondaryLink,
   WhatsButton,
 } from './styles'
-
-const whatsappUrl =
-  'https://wa.me/5561991742090?text=Olá,%20preciso%20de%20orientação%20em%20Direito%20de%20Família.'
 
 export function Home() {
   return (
@@ -29,7 +27,7 @@ export function Home() {
           </p>
 
           <Actions>
-            <WhatsButton href={whatsappUrl} target="_blank" rel="noreferrer">
+            <WhatsButton href={WHATSAPP_URL} target="_blank" rel="noreferrer">
               <FaWhatsapp />
               Conversar pelo WhatsApp
             </WhatsButton>

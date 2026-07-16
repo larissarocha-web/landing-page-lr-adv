@@ -1,30 +1,32 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { FaWhatsapp } from 'react-icons/fa'
 import { IoClose, IoMenu } from 'react-icons/io5'
 
 import logo from '../../assets/logo3.png'
+import { WHATSAPP_URL } from '../../constants/brand'
 import { Div1, HeaderContainer, MenuMobileOpen, NavBar, Ul } from './styles'
 
-const whatsappUrl =
-  'https://wa.me/5561991742090?text=Olá,%20preciso%20de%20orientação%20em%20Direito%20de%20Família.'
-
 const navItems = [
-  ['#inicio', 'Início'],
-  ['#atuacao', 'Áreas de atuação'],
-  ['#como-funciona', 'Como funciona'],
-  ['#sobre', 'Sobre Larissa'],
+  ['#inicio', 'Início e atuação'],
+  ['#sobre', 'Sobre mim'],
   ['#duvidas', 'Dúvidas'],
   ['#contato', 'Contato'],
 ]
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
+  const menuButtonRef = useRef<HTMLButtonElement>(null)
+
+  const closeMenuAndRestoreFocus = useCallback(() => {
+    setIsOpen(false)
+    window.requestAnimationFrame(() => menuButtonRef.current?.focus())
+  }, [])
 
   useEffect(() => {
     document.body.classList.toggle('menu-open', isOpen)
 
     const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setIsOpen(false)
+      if (event.key === 'Escape' && isOpen) closeMenuAndRestoreFocus()
     }
 
     window.addEventListener('keydown', closeOnEscape)
@@ -33,7 +35,7 @@ export function Header() {
       document.body.classList.remove('menu-open')
       window.removeEventListener('keydown', closeOnEscape)
     }
-  }, [isOpen])
+  }, [closeMenuAndRestoreFocus, isOpen])
 
   return (
     <>
@@ -58,7 +60,7 @@ export function Header() {
 
             <a
               className="header-cta"
-              href={whatsappUrl}
+              href={WHATSAPP_URL}
               target="_blank"
               rel="noreferrer"
             >
@@ -67,11 +69,13 @@ export function Header() {
             </a>
 
             <button
+              ref={menuButtonRef}
               className="menu-trigger"
               type="button"
               onClick={() => setIsOpen(true)}
               aria-label="Abrir menu"
               aria-expanded={isOpen}
+              aria-controls="mobile-menu"
             >
               <IoMenu size={28} />
             </button>
@@ -81,6 +85,7 @@ export function Header() {
 
       {isOpen && (
         <MenuMobileOpen
+          id="mobile-menu"
           role="dialog"
           aria-modal="true"
           aria-label="Menu principal"
@@ -89,8 +94,9 @@ export function Header() {
             <span aria-hidden="true" />
             <img src={logo} alt="Larissa Rocha Advocacia" />
             <button
+              autoFocus
               type="button"
-              onClick={() => setIsOpen(false)}
+              onClick={closeMenuAndRestoreFocus}
               aria-label="Fechar menu"
             >
               <IoClose size={30} />
@@ -109,9 +115,10 @@ export function Header() {
 
           <a
             className="mobile-cta"
-            href={whatsappUrl}
+            href={WHATSAPP_URL}
             target="_blank"
             rel="noreferrer"
+            onClick={() => setIsOpen(false)}
           >
             <FaWhatsapp />
             Conversar pelo WhatsApp

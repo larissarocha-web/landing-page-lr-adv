@@ -65,6 +65,7 @@ export function Perguntas() {
             return (
               <AccordionItem key={item.title}>
                 <AccordionTitle
+                  id={`faq-title-${index}`}
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   aria-expanded={isOpen}
@@ -77,6 +78,8 @@ export function Perguntas() {
                 <AccordionContent
                   id={`faq-${index}`}
                   isOpen={isOpen}
+                  role="region"
+                  aria-labelledby={`faq-title-${index}`}
                   aria-hidden={!isOpen}
                 >
                   <p>{item.content}</p>

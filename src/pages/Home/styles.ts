@@ -25,14 +25,14 @@ export const Hero = styled.div`
     position: absolute;
     inset: 0 auto 0 0;
     z-index: 1;
-    width: 63%;
+    width: 66%;
     background: linear-gradient(
       90deg,
       #fbfaf8 0%,
-      #fbfaf8 56%,
-      rgba(251, 250, 248, 0.98) 65%,
-      rgba(251, 250, 248, 0.82) 75%,
-      rgba(251, 250, 248, 0.4) 89%,
+      #fbfaf8 57%,
+      rgba(251, 250, 248, 0.98) 66%,
+      rgba(251, 250, 248, 0.88) 76%,
+      rgba(251, 250, 248, 0.52) 89%,
       transparent 100%
     );
     content: '';
@@ -185,40 +185,31 @@ export const Portrait = styled.figure`
   position: absolute;
   inset: 0 0 0 auto;
   z-index: 0;
-  width: 67%;
+  width: min(62vw, 980px);
   margin: 0;
   overflow: hidden;
   -webkit-mask-image: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(0, 0, 0, 0.06) 12%,
-    rgba(0, 0, 0, 0.32) 23%,
-    rgba(0, 0, 0, 0.76) 36%,
-    #000 48%
+    rgba(0, 0, 0, 0.18) 8%,
+    rgba(0, 0, 0, 0.54) 18%,
+    rgba(0, 0, 0, 0.9) 29%,
+    #000 39%
   );
   mask-image: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(0, 0, 0, 0.06) 12%,
-    rgba(0, 0, 0, 0.32) 23%,
-    rgba(0, 0, 0, 0.76) 36%,
-    #000 48%
+    rgba(0, 0, 0, 0.18) 8%,
+    rgba(0, 0, 0, 0.54) 18%,
+    rgba(0, 0, 0, 0.9) 29%,
+    #000 39%
   );
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 48%;
-  }
-
-  @media (min-width: 1200px) {
-    background: #d8ccc3;
-
-    img {
-      object-fit: contain;
-      object-position: right center;
-    }
+    object-position: center 46%;
   }
 
   @media (max-width: 900px) {
@@ -246,7 +237,7 @@ export const Portrait = styled.figure`
     );
 
     img {
-      object-position: 62% 50%;
+      object-position: 62% 47%;
     }
   }
 `
