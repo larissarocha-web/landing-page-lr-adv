@@ -38,35 +38,12 @@ export const Wrapper = styled.div`
     line-height: 1.06;
   }
 
-  > a {
-    display: inline-flex;
-    min-height: 48px;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 44px;
-    padding: 0 26px;
-    border: 1px solid #c9a96a;
-    border-radius: 6px;
-    color: #741c32;
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-decoration: none;
-    text-transform: uppercase;
-  }
-
   @media (max-width: 760px) {
     text-align: left;
 
     > h2 {
       margin-bottom: 38px;
       font-size: clamp(2.35rem, 10.5vw, 3.2rem);
-    }
-
-    > a {
-      width: 100%;
-      margin-top: 30px;
     }
   }
 `

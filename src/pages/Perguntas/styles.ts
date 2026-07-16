@@ -57,6 +57,13 @@ export const Wrapper = styled.div`
 
 export const AccordionContainer = styled.div`
   border-top: 1px solid #d9ccc5;
+
+  .faq-note {
+    margin-top: 22px;
+    color: #756c67;
+    font-size: 0.74rem;
+    line-height: 1.6;
+  }
 `
 
 export const AccordionItem = styled.div`
@@ -91,8 +98,10 @@ export const AccordionTitle = styled.button`
   }
 
   @media (max-width: 600px) {
-    min-height: 60px;
-    font-size: 0.88rem;
+    min-height: 64px;
+    gap: 18px;
+    font-size: 0.9rem;
+    line-height: 1.4;
   }
 `
 
@@ -112,5 +121,13 @@ export const AccordionContent = styled.div<{ isOpen: boolean }>`
     font-size: 0.9rem;
     line-height: 1.7;
     transition: padding 240ms ease;
+  }
+
+  @media (max-width: 600px) {
+    p {
+      padding: ${(props) => (props.isOpen ? '0 34px 24px 0' : '0 34px 0 0')};
+      font-size: 0.88rem;
+      line-height: 1.72;
+    }
   }
 `

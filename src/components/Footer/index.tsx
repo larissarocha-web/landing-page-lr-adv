@@ -13,7 +13,7 @@ export function Footer() {
             Advocacia em Direito de Família com orientação clara e atendimento
             online.
           </p>
-          <span>OAB/UF nº XXXXX — confirmar</span>
+          <span>OAB 65.877</span>
         </Brand>
 
         <Columns>

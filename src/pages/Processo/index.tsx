@@ -36,10 +36,6 @@ export function Processo() {
             </article>
           ))}
         </Steps>
-
-        <a href="#duvidas">
-          Entender o atendimento <span>→</span>
-        </a>
       </Wrapper>
     </Container>
   )

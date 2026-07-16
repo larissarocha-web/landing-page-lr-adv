@@ -14,17 +14,32 @@ const questions = [
   {
     title: 'Como funciona o primeiro atendimento?',
     content:
-      'O primeiro contato permite compreender a situação, identificar os pontos jurídicos relevantes e orientar os próximos passos.',
+      'O atendimento inicial é online. Larissa ouve a situação, identifica os pontos jurídicos relevantes, verifica os documentos já disponíveis e explica as possibilidades e os próximos passos. A orientação específica depende da análise de cada caso.',
   },
   {
-    title: 'Meu caso pode ser resolvido online?',
+    title: 'O divórcio pode ser feito em cartório?',
     content:
-      'O atendimento pode ser realizado online. A viabilidade de atos e procedimentos remotos depende das particularidades de cada caso.',
+      'Em situações consensuais, o divórcio pode ser extrajudicial. Quando há filhos menores ou incapazes, as questões de guarda, convivência e alimentos precisam estar previamente resolvidas judicialmente. A análise individual confirma se a via de cartório é adequada.',
   },
   {
-    title: 'Quais documentos devo separar?',
+    title: 'Guarda compartilhada significa dividir o tempo igualmente?',
     content:
-      'Os documentos variam conforme o assunto. Após uma breve análise, você recebe orientação sobre o que será necessário apresentar.',
+      'Não necessariamente. A guarda compartilhada envolve responsabilidade conjunta pelas decisões sobre os filhos. A convivência deve considerar a rotina e o melhor interesse da criança, sem exigir uma divisão matemática do tempo.',
+  },
+  {
+    title: 'Existe um percentual fixo para pensão alimentícia?',
+    content:
+      'Não. O valor é analisado conforme as necessidades de quem recebe, as possibilidades de quem paga e a proporcionalidade no caso concreto. Percentuais divulgados na internet não substituem uma análise individual.',
+  },
+  {
+    title: 'A união estável precisa de contrato para existir?',
+    content:
+      'Não necessariamente. Ela pode ser reconhecida quando a convivência é pública, contínua, duradoura e estabelecida com o objetivo de constituir família. O contrato pode ajudar a documentar escolhas patrimoniais, mas cada situação precisa ser examinada.',
+  },
+  {
+    title: 'O inventário pode ser feito em cartório?',
+    content:
+      'Em determinadas situações, sim. A via extrajudicial exige consenso e assistência de advogado. Há também hipóteses com menores ou incapazes, sujeitas a requisitos específicos e à manifestação favorável do Ministério Público. É necessário analisar os herdeiros, os bens e a eventual existência de testamento.',
   },
 ]
 
@@ -38,8 +53,8 @@ export function Perguntas() {
           <span className="eyebrow">Dúvidas frequentes</span>
           <h2>Antes de decidir, entenda suas possibilidades</h2>
           <p>
-            Informações iniciais para ajudar você a compreender como funciona o
-            atendimento jurídico.
+            Respostas objetivas para algumas das dúvidas mais comuns em Direito
+            de Família e Sucessões.
           </p>
         </div>
 
@@ -69,6 +84,10 @@ export function Perguntas() {
               </AccordionItem>
             )
           })}
+          <p className="faq-note">
+            As informações são gerais e não substituem a análise individual do
+            seu caso.
+          </p>
         </AccordionContainer>
       </Wrapper>
     </Container>

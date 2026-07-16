@@ -24,7 +24,7 @@ export function Why() {
           <Credentials aria-label="Informações profissionais">
             <li>
               <FiUser aria-hidden="true" />
-              <span>Advogada • OAB/UF nº XXXXX</span>
+              <span>Advogada • OAB 65.877</span>
             </li>
             <li>
               <FiGlobe aria-hidden="true" />

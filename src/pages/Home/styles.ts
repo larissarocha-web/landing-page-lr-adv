@@ -122,7 +122,7 @@ export const Copy = styled.div`
   @media (max-width: 900px) {
     width: min(100% - 44px, 660px);
     justify-content: flex-start;
-    padding: 48px 0 16px;
+    padding: 48px 0 34px;
 
     h1 {
       max-width: 620px;
@@ -141,16 +141,15 @@ export const Copy = styled.div`
     }
 
     .microcopy {
-      position: absolute;
-      top: calc(100% + 11px);
-      left: 0;
-      z-index: 4;
+      position: static;
       width: 100%;
-      justify-content: center;
-      margin: 0;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      margin-top: 22px;
       color: #514a46;
       font-size: clamp(0.58rem, 2.45vw, 0.69rem);
-      text-align: center;
+      line-height: 1.55;
+      text-align: left;
     }
   }
 
