@@ -9,7 +9,7 @@ export function Footer() {
     <Container id="footer">
       <Wrapper>
         <Brand>
-          <img src={logo} alt="Larissa Rocha Advocacia" />
+          <img src={logo} alt="Larissa Rocha Advogada" />
           <p>
             Advocacia em Direito de Família com orientação clara e atendimento
             online.
@@ -46,8 +46,11 @@ export function Footer() {
       </Wrapper>
 
       <Bottom>
-        <span>© {new Date().getFullYear()} Larissa Rocha Advocacia</span>
-        <span>Todos os direitos reservados</span>
+        <span>© {new Date().getFullYear()} Larissa Rocha Advogada</span>
+        <span>
+          Desenvolvido por Gustavo Brito —{' '}
+          <a href="mailto:gvnb.eng@gmail.com">gvnb.eng@gmail.com</a>
+        </span>
       </Bottom>
     </Container>
   )

@@ -123,6 +123,18 @@ export const Bottom = styled.div`
   letter-spacing: 0.03em;
   text-transform: uppercase;
 
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      color: #7d263a;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  }
+
   @media (max-width: 600px) {
     align-items: center;
     flex-direction: column;
