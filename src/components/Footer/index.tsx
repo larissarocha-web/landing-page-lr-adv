@@ -1,10 +1,28 @@
 import { FaWhatsapp } from 'react-icons/fa'
 
 import logo from '../../assets/logo3.png'
-import { OAB_LABEL, WHATSAPP_PHONE, WHATSAPP_URL } from '../../constants/brand'
-import { Bottom, Brand, Columns, Container, Wrapper } from './styles'
+import {
+  OAB_LABEL,
+  WHATSAPP_PHONE,
+  getWhatsAppUrl,
+} from '../../constants/brand'
+import {
+  openCookieSettings,
+  openLegalNotice,
+  trackMarketingEvent,
+} from '../../lib/marketing'
+import {
+  Bottom,
+  Brand,
+  Columns,
+  Container,
+  LegalLinks,
+  Wrapper,
+} from './styles'
 
 export function Footer() {
+  const whatsappUrl = getWhatsAppUrl()
+
   return (
     <Container id="footer">
       <Wrapper>
@@ -36,7 +54,16 @@ export function Footer() {
 
           <div className="contact-column">
             <h2>Contato</h2>
-            <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() =>
+                trackMarketingEvent('whatsapp_click', {
+                  cta_location: 'footer_contact',
+                })
+              }
+            >
               <FaWhatsapp />
               {WHATSAPP_PHONE}
             </a>
@@ -47,6 +74,14 @@ export function Footer() {
 
       <Bottom>
         <span>© {new Date().getFullYear()} Larissa Rocha Advogada</span>
+        <LegalLinks>
+          <button type="button" onClick={() => openLegalNotice('privacy')}>
+            Privacidade
+          </button>
+          <button type="button" onClick={openCookieSettings}>
+            Cookies
+          </button>
+        </LegalLinks>
         <span>
           Desenvolvido por Gustavo Brito —{' '}
           <a href="mailto:gvnb.eng@gmail.com">gvnb.eng@gmail.com</a>

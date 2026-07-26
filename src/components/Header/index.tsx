@@ -3,7 +3,8 @@ import { FaWhatsapp } from 'react-icons/fa'
 import { IoClose, IoMenu } from 'react-icons/io5'
 
 import logo from '../../assets/logo3.png'
-import { WHATSAPP_URL } from '../../constants/brand'
+import { getWhatsAppUrl } from '../../constants/brand'
+import { trackMarketingEvent } from '../../lib/marketing'
 import { Div1, HeaderContainer, MenuMobileOpen, NavBar, Ul } from './styles'
 
 const navItems = [
@@ -16,6 +17,7 @@ const navItems = [
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const menuButtonRef = useRef<HTMLButtonElement>(null)
+  const whatsappUrl = getWhatsAppUrl()
 
   const closeMenuAndRestoreFocus = useCallback(() => {
     setIsOpen(false)
@@ -60,9 +62,14 @@ export function Header() {
 
             <a
               className="header-cta"
-              href={WHATSAPP_URL}
+              href={whatsappUrl}
               target="_blank"
               rel="noreferrer"
+              onClick={() =>
+                trackMarketingEvent('whatsapp_click', {
+                  cta_location: 'header_desktop',
+                })
+              }
             >
               <FaWhatsapp />
               Conversar pelo WhatsApp
@@ -115,10 +122,15 @@ export function Header() {
 
           <a
             className="mobile-cta"
-            href={WHATSAPP_URL}
+            href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
-            onClick={() => setIsOpen(false)}
+            onClick={() => {
+              trackMarketingEvent('whatsapp_click', {
+                cta_location: 'header_mobile',
+              })
+              setIsOpen(false)
+            }}
           >
             <FaWhatsapp />
             Conversar pelo WhatsApp

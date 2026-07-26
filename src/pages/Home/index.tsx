@@ -2,7 +2,8 @@ import { FormEvent, useState } from 'react'
 import { FaWhatsapp } from 'react-icons/fa'
 
 import heroPhoto from '../../assets/larissa-hero-colar-preservada.webp'
-import { buildWhatsAppUrl, WHATSAPP_URL } from '../../constants/brand'
+import { getWhatsAppUrl } from '../../constants/brand'
+import { trackMarketingEvent } from '../../lib/marketing'
 import {
   Actions,
   Container,
@@ -17,6 +18,7 @@ import {
 export function Home() {
   const [fullName, setFullName] = useState('')
   const [caseSummary, setCaseSummary] = useState('')
+  const whatsappUrl = getWhatsAppUrl()
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -28,7 +30,9 @@ export function Home() {
       `Resumo do caso: ${caseSummary.trim()}`,
     ].join('\n')
 
-    window.open(buildWhatsAppUrl(message), '_blank', 'noopener,noreferrer')
+    trackMarketingEvent('triage_submit', { cta_location: 'hero_triage' })
+    trackMarketingEvent('whatsapp_click', { cta_location: 'hero_triage' })
+    window.open(getWhatsAppUrl(message), '_blank', 'noopener,noreferrer')
   }
 
   return (
@@ -45,7 +49,16 @@ export function Home() {
           </p>
 
           <Actions>
-            <WhatsButton href={WHATSAPP_URL} target="_blank" rel="noreferrer">
+            <WhatsButton
+              href={whatsappUrl}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() =>
+                trackMarketingEvent('whatsapp_click', {
+                  cta_location: 'hero_primary',
+                })
+              }
+            >
               <FaWhatsapp />
               Conversar pelo WhatsApp
             </WhatsButton>

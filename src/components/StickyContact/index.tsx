@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
 import { FaWhatsapp } from 'react-icons/fa'
 
-import { WHATSAPP_URL } from '../../constants/brand'
+import { getWhatsAppUrl } from '../../constants/brand'
+import { trackMarketingEvent } from '../../lib/marketing'
 import { Container } from './styles'
 
 export function StickyContact() {
   const [visible, setVisible] = useState(false)
+  const whatsappUrl = getWhatsAppUrl()
 
   useEffect(() => {
     const hero = document.querySelector('#inicio')
@@ -22,7 +24,16 @@ export function StickyContact() {
 
   return (
     <Container data-visible={visible}>
-      <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noreferrer"
+        onClick={() =>
+          trackMarketingEvent('whatsapp_click', {
+            cta_location: 'sticky_contact',
+          })
+        }
+      >
         <FaWhatsapp />
         Conversar pelo WhatsApp
       </a>

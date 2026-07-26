@@ -142,3 +142,19 @@ export const Bottom = styled.div`
     text-align: center;
   }
 `
+
+export const LegalLinks = styled.div`
+  display: inline-flex;
+  gap: 12px;
+
+  button {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+  }
+`

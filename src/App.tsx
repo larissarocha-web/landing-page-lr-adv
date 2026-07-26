@@ -1,7 +1,9 @@
 import { ThemeProvider } from 'styled-components'
 
+import { CookieConsent } from './components/CookieConsent'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
+import { LegalCenter } from './components/LegalCenter'
 import { StickyContact } from './components/StickyContact'
 import { GlobalStyle } from './global'
 import { Contato } from './pages/Contato'
@@ -24,6 +26,8 @@ function App() {
       <Contato />
       <Footer />
       <StickyContact />
+      <CookieConsent />
+      <LegalCenter />
       <GlobalStyle />
     </ThemeProvider>
   )

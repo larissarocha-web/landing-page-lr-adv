@@ -1,9 +1,12 @@
 import { FaWhatsapp } from 'react-icons/fa'
 
-import { WHATSAPP_URL } from '../../constants/brand'
+import { getWhatsAppUrl } from '../../constants/brand'
+import { trackMarketingEvent } from '../../lib/marketing'
 import { Container, Wrapper } from './styles'
 
 export function Contato() {
+  const whatsappUrl = getWhatsAppUrl()
+
   return (
     <Container id="contato">
       <Wrapper>
@@ -11,7 +14,16 @@ export function Contato() {
         <h2>Seu caso merece uma orientação individual.</h2>
         <p>Envie uma mensagem e explique brevemente a sua situação.</p>
 
-        <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noreferrer"
+          onClick={() =>
+            trackMarketingEvent('whatsapp_click', {
+              cta_location: 'contact_section',
+            })
+          }
+        >
           <FaWhatsapp />
           Conversar pelo WhatsApp
         </a>

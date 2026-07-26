@@ -1,3 +1,5 @@
+import { appendAttributionToWhatsAppMessage } from '../lib/marketing'
+
 export const WHATSAPP_NUMBER = '5561991742090'
 
 export const WHATSAPP_PHONE = '(61) 99174-2090'
@@ -8,6 +10,9 @@ export function buildWhatsAppUrl(message: string) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
 }
 
-export const WHATSAPP_URL = buildWhatsAppUrl(
-  'Olá, preciso de orientação em Direito de Família.',
-)
+export const DEFAULT_WHATSAPP_MESSAGE =
+  'Olá, preciso de orientação em Direito de Família.'
+
+export function getWhatsAppUrl(message = DEFAULT_WHATSAPP_MESSAGE) {
+  return buildWhatsAppUrl(appendAttributionToWhatsAppMessage(message))
+}
