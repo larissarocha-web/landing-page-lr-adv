@@ -48,7 +48,7 @@ export function Header() {
             href="#inicio"
             aria-label="Larissa Rocha - início"
           >
-            <img src={logo} alt="Larissa Rocha Advocacia" />
+            <img src={logo} alt="Larissa Rocha Advogada" />
           </a>
 
           <NavBar>
@@ -99,7 +99,7 @@ export function Header() {
         >
           <div className="menu-header">
             <span aria-hidden="true" />
-            <img src={logo} alt="Larissa Rocha Advocacia" />
+            <img src={logo} alt="Larissa Rocha Advogada" />
             <button
               autoFocus
               type="button"
