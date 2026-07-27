@@ -76,9 +76,10 @@ export function CookieConsent() {
           <div>
             <strong>Privacidade e cookies</strong>
             <p>
-              Usamos cookies opcionais apenas para medir a navegação e melhorar
-              campanhas. Dados enviados no WhatsApp não são compartilhados com
-              ferramentas de publicidade.
+              Medimos visitas e desempenho de forma anônima, sem cookies. Com
+              sua autorização, ativamos cookies opcionais para medir campanhas.
+              Dados enviados no WhatsApp não são compartilhados com ferramentas
+              de publicidade.
             </p>
             <button type="button" onClick={() => openLegalNotice('cookies')}>
               Ler política de cookies

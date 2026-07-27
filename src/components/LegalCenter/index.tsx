@@ -74,11 +74,20 @@ function PrivacyContent() {
         você entra em contato, os dados são usados para responder à solicitação
         e conduzir o atendimento jurídico, quando aplicável.
       </p>
-      <h3>Medição e publicidade</h3>
+      <h3>Medição anônima do site</h3>
       <p>
-        Medimos, mediante seu consentimento, interações gerais como cliques no
-        WhatsApp e origem da visita. Não enviamos nome, telefone, resumo de caso
-        ou conteúdo jurídico para plataformas de publicidade.
+        Usamos Vercel Web Analytics e Speed Insights para obter estatísticas
+        agregadas de visitas e desempenho, sem cookies e sem identificar
+        visitantes. Parâmetros da URL são removidos antes do envio. Essas
+        ferramentas podem registrar página visitada, origem, país, dispositivo,
+        navegador e métricas técnicas de carregamento.
+      </p>
+      <h3>Medição de campanhas</h3>
+      <p>
+        Mediante seu consentimento, Google Tag Manager, Analytics e Google Ads
+        medem interações gerais como cliques no WhatsApp e origem da visita. Não
+        enviamos nome, telefone, resumo de caso ou conteúdo jurídico para
+        plataformas de publicidade.
       </p>
       <h3>Seus direitos</h3>
       <p>
@@ -86,7 +95,7 @@ function PrivacyContent() {
         direitos relacionados aos seus dados, escreva para
         juridicolarissarocha@gmail.com.
       </p>
-      <p className="updated">Atualizada em 17 de julho de 2026.</p>
+      <p className="updated">Atualizada em 27 de julho de 2026.</p>
     </div>
   )
 }
@@ -95,19 +104,21 @@ function CookiesContent() {
   return (
     <div>
       <p>
-        Usamos recursos necessários para lembrar sua escolha de privacidade e,
-        somente com sua autorização, recursos analíticos e de publicidade.
+        Usamos armazenamento local necessário para lembrar sua escolha de
+        privacidade e, somente com sua autorização, recursos analíticos e de
+        publicidade do Google.
       </p>
-      <h3>Cookies necessários</h3>
+      <h3>Medição sem cookies</h3>
       <p>
-        Guardam sua preferência de consentimento e não são usados para criar
-        perfis publicitários.
+        Vercel Web Analytics e Speed Insights medem visitas e desempenho de
+        forma agregada, sem cookies e sem criar perfis publicitários. Parâmetros
+        da URL são removidos antes do envio.
       </p>
       <h3>Cookies opcionais</h3>
       <p>
-        Google Tag Manager, Analytics, Google Ads e Meta só poderão ser ativados
-        após seu aceite. Eles servem para medir a navegação e a origem de
-        campanhas, nunca o conteúdo do seu caso.
+        Google Tag Manager, Analytics e Google Ads só poderão ser ativados após
+        seu aceite. Eles servem para medir a navegação e a origem de campanhas,
+        nunca o conteúdo do seu caso.
       </p>
       <p className="updated">
         Você pode alterar sua escolha a qualquer momento pelo rodapé.

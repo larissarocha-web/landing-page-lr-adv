@@ -1,3 +1,5 @@
+import { Analytics, type BeforeSendEvent } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 import { ThemeProvider } from 'styled-components'
 
 import { CookieConsent } from './components/CookieConsent'
@@ -14,6 +16,13 @@ import { Servicos } from './pages/Serviços'
 import { Why } from './pages/Why'
 import { defaultTheme } from './styles/themes/default'
 
+function redactAnalyticsQuery(event: BeforeSendEvent): BeforeSendEvent {
+  return {
+    ...event,
+    url: event.url.split(/[?#]/, 1)[0],
+  }
+}
+
 function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -29,6 +38,8 @@ function App() {
       <CookieConsent />
       <LegalCenter />
       <GlobalStyle />
+      <Analytics beforeSend={redactAnalyticsQuery} />
+      <SpeedInsights />
     </ThemeProvider>
   )
 }
