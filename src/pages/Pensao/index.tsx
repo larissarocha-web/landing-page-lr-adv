@@ -111,7 +111,6 @@ export function Pensao() {
 
       <PrincipleSection>
         <div className="principle-layout">
-          <span className="section-index">01</span>
           <div>
             <span className="eyebrow">Análise individual</span>
             <h2>Pensão alimentícia não segue uma fórmula única</h2>
@@ -127,32 +126,23 @@ export function Pensao() {
 
       <SituationsSection id="atuacao">
         <div className="section-heading">
-          <div>
-            <span className="section-index">02</span>
-            <span className="eyebrow">Possibilidades de orientação</span>
-          </div>
+          <span className="eyebrow">Possibilidades de orientação</span>
           <h2>Situações que podem ser analisadas</h2>
         </div>
 
-        <ol>
-          {situations.map((situation, index) => (
+        <ul className="situation-grid">
+          {situations.map((situation) => (
             <li key={situation}>
-              <span>{String(index + 1).padStart(2, '0')}</span>
               <h3>{situation}</h3>
             </li>
           ))}
-        </ol>
+        </ul>
       </SituationsSection>
 
       <FaqSection id="duvidas">
         <div className="faq-heading">
-          <span className="section-index">05</span>
           <span className="eyebrow">Perguntas essenciais</span>
           <h2>Dúvidas frequentes sobre pensão alimentícia</h2>
-          <p>
-            Informação geral para compreender o tema antes de uma análise
-            individual.
-          </p>
         </div>
 
         <div className="faq-column">
