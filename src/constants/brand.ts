@@ -13,6 +13,9 @@ export function buildWhatsAppUrl(message: string) {
 export const DEFAULT_WHATSAPP_MESSAGE =
   'Olá, preciso de orientação em Direito de Família.'
 
+export const PENSION_WHATSAPP_MESSAGE =
+  'Olá, gostaria de informações sobre atendimento em pensão alimentícia.'
+
 export function getWhatsAppUrl(message = DEFAULT_WHATSAPP_MESSAGE) {
   return buildWhatsAppUrl(appendAttributionToWhatsAppMessage(message))
 }

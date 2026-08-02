@@ -11,8 +11,11 @@ export function Contato() {
     <Container id="contato">
       <Wrapper>
         <span className="eyebrow">Contato</span>
-        <h2>Seu caso merece uma orientação individual.</h2>
-        <p>Envie uma mensagem e explique brevemente a sua situação.</p>
+        <h2>Converse com Larissa Rocha</h2>
+        <p>
+          Entre em contato pelo WhatsApp para informações sobre o atendimento
+          jurídico.
+        </p>
 
         <a
           href={whatsappUrl}

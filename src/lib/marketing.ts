@@ -11,7 +11,7 @@ type AttributionKey =
 
 type Attribution = Partial<Record<AttributionKey, string>>
 
-type MarketingEvent = 'whatsapp_click' | 'triage_submit'
+type MarketingEvent = 'whatsapp_click'
 
 type MarketingEventDetails = {
   cta_location: string

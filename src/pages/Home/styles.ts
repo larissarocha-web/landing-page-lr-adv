@@ -42,7 +42,7 @@ export const Hero = styled.div`
   @media (max-width: 1279px) {
     display: grid;
     min-height: calc(100svh - 88px);
-    grid-template-rows: auto minmax(300px, 43svh) auto auto;
+    grid-template-rows: auto minmax(300px, 43svh) auto;
     background: #fbfaf8;
 
     &::after {
@@ -242,128 +242,6 @@ export const Portrait = styled.figure`
 
     img {
       object-position: 62% 47%;
-    }
-  }
-`
-
-export const IntakeCard = styled.form`
-  position: absolute;
-  top: 50%;
-  left: 60%;
-  z-index: 4;
-  display: flex;
-  width: clamp(250px, 18vw, 290px);
-  flex-direction: column;
-  padding: 22px 21px 19px;
-  border: 1px solid rgba(201, 169, 106, 0.42);
-  border-radius: 12px;
-  background: rgba(255, 253, 251, 0.94);
-  box-shadow: 0 18px 44px rgba(72, 42, 37, 0.11);
-  transform: translate(-50%, -50%);
-  backdrop-filter: blur(14px);
-
-  .form-eyebrow {
-    margin-bottom: 4px;
-    color: #a77b2a;
-    font-size: 0.6rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  h2 {
-    margin-bottom: 16px;
-    color: #741c32;
-    font-size: 1.18rem;
-    line-height: 1.2;
-  }
-
-  label {
-    margin-bottom: 5px;
-    color: #443b37;
-    font-size: 0.66rem;
-    font-weight: 600;
-  }
-
-  input,
-  textarea {
-    width: 100%;
-    border: 1px solid #dfd3cd;
-    border-radius: 7px;
-    background: rgba(251, 248, 246, 0.94);
-    color: #332e2b;
-    font-size: 0.74rem;
-    outline: none;
-    transition:
-      border-color 180ms ease,
-      box-shadow 180ms ease;
-  }
-
-  input {
-    min-height: 42px;
-    margin-bottom: 13px;
-    padding: 0 12px;
-  }
-
-  textarea {
-    min-height: 82px;
-    padding: 10px 12px;
-    resize: vertical;
-  }
-
-  input::placeholder,
-  textarea::placeholder {
-    color: #9d938d;
-  }
-
-  input:focus,
-  textarea:focus {
-    border-color: #b46c7b;
-    box-shadow: 0 0 0 3px rgba(155, 64, 82, 0.1);
-  }
-
-  button {
-    display: inline-flex;
-    min-height: 46px;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 15px;
-    border: 0;
-    border-radius: 7px;
-    background: linear-gradient(135deg, #81283c, #a6485b);
-    color: #fff;
-    cursor: pointer;
-    font-size: 0.68rem;
-    font-weight: 700;
-    text-transform: uppercase;
-  }
-
-  button svg {
-    font-size: 1rem;
-  }
-
-  small {
-    margin-top: 8px;
-    color: #8a807a;
-    font-size: 0.55rem;
-    text-align: center;
-  }
-
-  @media (max-width: 1279px) {
-    position: relative;
-    top: auto;
-    left: auto;
-    grid-row: 4;
-    width: min(calc(100% - 40px), 430px);
-    margin: 6px auto 34px;
-    padding: 24px 22px 21px;
-    background: #fffdfb;
-    box-shadow: 0 14px 38px rgba(72, 42, 37, 0.09);
-    transform: none;
-
-    h2 {
-      font-size: 1.32rem;
     }
   }
 `

@@ -105,10 +105,10 @@ export const AccordionTitle = styled.button`
   }
 `
 
-export const AccordionContent = styled.div<{ isOpen: boolean }>`
+export const AccordionContent = styled.div<{ $isOpen: boolean }>`
   display: grid;
-  grid-template-rows: ${(props) => (props.isOpen ? '1fr' : '0fr')};
-  opacity: ${(props) => (props.isOpen ? 1 : 0)};
+  grid-template-rows: ${(props) => (props.$isOpen ? '1fr' : '0fr')};
+  opacity: ${(props) => (props.$isOpen ? 1 : 0)};
   transition:
     grid-template-rows 240ms ease,
     opacity 180ms ease;
@@ -116,7 +116,7 @@ export const AccordionContent = styled.div<{ isOpen: boolean }>`
   p {
     min-height: 0;
     overflow: hidden;
-    padding: ${(props) => (props.isOpen ? '0 44px 24px 0' : '0 44px 0 0')};
+    padding: ${(props) => (props.$isOpen ? '0 44px 24px 0' : '0 44px 0 0')};
     color: #655d59;
     font-size: 0.9rem;
     line-height: 1.7;
@@ -125,7 +125,7 @@ export const AccordionContent = styled.div<{ isOpen: boolean }>`
 
   @media (max-width: 600px) {
     p {
-      padding: ${(props) => (props.isOpen ? '0 34px 24px 0' : '0 34px 0 0')};
+      padding: ${(props) => (props.$isOpen ? '0 34px 24px 0' : '0 34px 0 0')};
       font-size: 0.88rem;
       line-height: 1.72;
     }

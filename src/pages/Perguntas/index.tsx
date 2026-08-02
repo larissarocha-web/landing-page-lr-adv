@@ -77,7 +77,7 @@ export function Perguntas() {
 
                 <AccordionContent
                   id={`faq-${index}`}
-                  isOpen={isOpen}
+                  $isOpen={isOpen}
                   role="region"
                   aria-labelledby={`faq-title-${index}`}
                   aria-hidden={!isOpen}

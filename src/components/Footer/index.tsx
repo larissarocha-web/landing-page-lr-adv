@@ -20,8 +20,16 @@ import {
   Wrapper,
 } from './styles'
 
-export function Footer() {
-  const whatsappUrl = getWhatsAppUrl()
+type FooterProps = {
+  ctaLocation?: string
+  whatsappMessage?: string
+}
+
+export function Footer({
+  ctaLocation = 'footer_contact',
+  whatsappMessage,
+}: FooterProps = {}) {
+  const whatsappUrl = getWhatsAppUrl(whatsappMessage)
 
   return (
     <Container id="footer">
@@ -60,7 +68,7 @@ export function Footer() {
               rel="noreferrer"
               onClick={() =>
                 trackMarketingEvent('whatsapp_click', {
-                  cta_location: 'footer_contact',
+                  cta_location: ctaLocation,
                 })
               }
             >

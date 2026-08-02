@@ -69,9 +69,9 @@ function PrivacyContent() {
       </p>
       <h3>Dados e finalidade</h3>
       <p>
-        Ao usar o atendimento inicial, nome e resumo do caso são inseridos por
-        você diretamente no WhatsApp. O site não armazena esses dados. Quando
-        você entra em contato, os dados são usados para responder à solicitação
+        O site não solicita nem armazena nome, telefone ou relato jurídico. Ao
+        selecionar um botão de WhatsApp, você é direcionado ao aplicativo. As
+        informações enviadas nesse canal são usadas para responder à solicitação
         e conduzir o atendimento jurídico, quando aplicável.
       </p>
       <h3>Medição anônima do site</h3>
@@ -95,7 +95,7 @@ function PrivacyContent() {
         direitos relacionados aos seus dados, escreva para
         juridicolarissarocha@gmail.com.
       </p>
-      <p className="updated">Atualizada em 27 de julho de 2026.</p>
+      <p className="updated">Atualizada em 2 de agosto de 2026.</p>
     </div>
   )
 }

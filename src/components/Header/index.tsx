@@ -7,17 +7,40 @@ import { getWhatsAppUrl } from '../../constants/brand'
 import { trackMarketingEvent } from '../../lib/marketing'
 import { Div1, HeaderContainer, MenuMobileOpen, NavBar, Ul } from './styles'
 
-const navItems = [
-  ['#inicio', 'Início e atuação'],
-  ['#sobre', 'Sobre mim'],
-  ['#duvidas', 'Dúvidas'],
-  ['#contato', 'Contato'],
+export type HeaderNavItem = {
+  href: string
+  label: string
+}
+
+const defaultNavItems: HeaderNavItem[] = [
+  { href: '#inicio', label: 'Início e atuação' },
+  { href: '#sobre', label: 'Sobre mim' },
+  { href: '#duvidas', label: 'Dúvidas' },
+  { href: '#contato', label: 'Contato' },
 ]
 
-export function Header() {
+type HeaderProps = {
+  brandHref?: string
+  navItems?: HeaderNavItem[]
+  trackingPrefix?: string
+  whatsappMessage?: string
+}
+
+export function Header({
+  brandHref = '#inicio',
+  navItems = defaultNavItems,
+  trackingPrefix,
+  whatsappMessage,
+}: HeaderProps = {}) {
   const [isOpen, setIsOpen] = useState(false)
   const menuButtonRef = useRef<HTMLButtonElement>(null)
-  const whatsappUrl = getWhatsAppUrl()
+  const whatsappUrl = getWhatsAppUrl(whatsappMessage)
+  const desktopCtaLocation = trackingPrefix
+    ? `${trackingPrefix}_header_desktop`
+    : 'header_desktop'
+  const mobileCtaLocation = trackingPrefix
+    ? `${trackingPrefix}_header_mobile`
+    : 'header_mobile'
 
   const closeMenuAndRestoreFocus = useCallback(() => {
     setIsOpen(false)
@@ -45,7 +68,7 @@ export function Header() {
         <Div1>
           <a
             className="brand"
-            href="#inicio"
+            href={brandHref}
             aria-label="Larissa Rocha - início"
           >
             <img src={logo} alt="Larissa Rocha Advogada" />
@@ -53,9 +76,9 @@ export function Header() {
 
           <NavBar>
             <ul>
-              {navItems.map(([href, label]) => (
-                <li key={href}>
-                  <a href={href}>{label}</a>
+              {navItems.map((item) => (
+                <li key={item.href}>
+                  <a href={item.href}>{item.label}</a>
                 </li>
               ))}
             </ul>
@@ -67,7 +90,7 @@ export function Header() {
               rel="noreferrer"
               onClick={() =>
                 trackMarketingEvent('whatsapp_click', {
-                  cta_location: 'header_desktop',
+                  cta_location: desktopCtaLocation,
                 })
               }
             >
@@ -111,10 +134,10 @@ export function Header() {
           </div>
 
           <Ul>
-            {navItems.map(([href, label]) => (
-              <li key={href}>
-                <a href={href} onClick={() => setIsOpen(false)}>
-                  {label}
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <a href={item.href} onClick={() => setIsOpen(false)}>
+                  {item.label}
                 </a>
               </li>
             ))}
@@ -127,7 +150,7 @@ export function Header() {
             rel="noreferrer"
             onClick={() => {
               trackMarketingEvent('whatsapp_click', {
-                cta_location: 'header_mobile',
+                cta_location: mobileCtaLocation,
               })
               setIsOpen(false)
             }}
