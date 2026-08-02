@@ -1,16 +1,23 @@
 import styled from 'styled-components'
 
-export const HeaderContainer = styled.header`
+type HeaderVariantProps = {
+  $variant: 'full' | 'minimal'
+}
+
+export const HeaderContainer = styled.header<HeaderVariantProps>`
   position: fixed;
   inset: 0 0 auto;
   z-index: 100;
   border-bottom: 1px solid rgba(85, 54, 47, 0.1);
-  background: rgba(255, 255, 255, 0.96);
+  background: ${({ $variant }) =>
+    $variant === 'minimal'
+      ? 'rgba(251, 250, 248, 0.97)'
+      : 'rgba(255, 255, 255, 0.96)'};
   box-shadow: 0 8px 30px rgba(62, 38, 33, 0.05);
   backdrop-filter: blur(18px);
 `
 
-export const Div1 = styled.div`
+export const Div1 = styled.div<HeaderVariantProps>`
   display: flex;
   width: min(100% - 64px, 1432px);
   height: 88px;
@@ -24,30 +31,37 @@ export const Div1 = styled.div`
   }
 
   .brand img {
-    width: 245px;
+    width: ${({ $variant }) => ($variant === 'minimal' ? '224px' : '245px')};
     height: auto;
   }
 
   @media (max-width: 760px) {
-    display: grid;
+    display: ${({ $variant }) => ($variant === 'minimal' ? 'flex' : 'grid')};
     width: 100%;
     height: 66px;
-    grid-template-columns: 48px minmax(0, 1fr) 48px;
+    grid-template-columns: ${({ $variant }) =>
+      $variant === 'minimal' ? 'none' : '48px minmax(0, 1fr) 48px'};
+    justify-content: ${({ $variant }) =>
+      $variant === 'minimal' ? 'space-between' : 'normal'};
     gap: 0;
     padding: 0 14px;
 
     .brand {
-      grid-column: 2;
-      justify-self: center;
+      grid-column: ${({ $variant }) => ($variant === 'minimal' ? 'auto' : '2')};
+      justify-self: ${({ $variant }) =>
+        $variant === 'minimal' ? 'auto' : 'center'};
     }
 
     .brand img {
-      width: min(58vw, 205px);
+      width: ${({ $variant }) =>
+        $variant === 'minimal'
+          ? 'clamp(132px, 42vw, 188px)'
+          : 'min(58vw, 205px)'};
     }
   }
 `
 
-export const NavBar = styled.nav`
+export const NavBar = styled.nav<HeaderVariantProps>`
   display: flex;
   align-items: center;
   gap: clamp(20px, 2.2vw, 38px);
@@ -110,6 +124,20 @@ export const NavBar = styled.nav`
     text-transform: uppercase;
   }
 
+  ${({ $variant }) =>
+    $variant === 'minimal' &&
+    `
+      .header-cta {
+        min-height: 46px;
+        padding: 0 18px;
+        border: 1px solid rgba(125, 38, 58, 0.16);
+        border-radius: 999px;
+        background: transparent;
+        box-shadow: none;
+        color: #741c32;
+      }
+    `}
+
   .menu-trigger {
     display: none;
     width: 48px;
@@ -124,19 +152,49 @@ export const NavBar = styled.nav`
   }
 
   @media (max-width: 1180px) {
-    ul,
-    .header-cta {
+    ul {
       display: none;
     }
 
+    ${({ $variant }) =>
+      $variant === 'full' &&
+      `
+        .header-cta {
+          display: none;
+        }
+      `}
+
     .menu-trigger {
-      display: inline-flex;
+      display: ${({ $variant }) =>
+        $variant === 'minimal' ? 'none' : 'inline-flex'};
     }
   }
 
   @media (max-width: 760px) {
-    grid-column: 3;
+    grid-column: ${({ $variant }) => ($variant === 'minimal' ? 'auto' : '3')};
     justify-self: end;
+
+    .header-cta {
+      width: 46px;
+      min-height: 46px;
+      padding: 0;
+    }
+
+    .header-cta span {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .header-cta svg {
+      font-size: 1.22rem;
+    }
   }
 `
 

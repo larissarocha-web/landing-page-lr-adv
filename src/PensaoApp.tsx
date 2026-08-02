@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components'
 
 import { CookieConsent } from './components/CookieConsent'
 import { Footer } from './components/Footer'
-import { Header, type HeaderNavItem } from './components/Header'
+import { Header } from './components/Header'
 import { LegalCenter } from './components/LegalCenter'
 import { StickyContact } from './components/StickyContact'
 import { PENSION_WHATSAPP_MESSAGE } from './constants/brand'
@@ -13,27 +13,19 @@ import { redactAnalyticsQuery } from './lib/analytics'
 import { Pensao } from './pages/Pensao'
 import { defaultTheme } from './styles/themes/default'
 
-const pensionNavItems: HeaderNavItem[] = [
-  { href: '/', label: 'Página principal' },
-  { href: '#atuacao', label: 'Situações atendidas' },
-  { href: '#como-funciona', label: 'Como funciona' },
-  { href: '#duvidas', label: 'Dúvidas' },
-  { href: '#sobre', label: 'Sobre Larissa' },
-]
-
 function PensaoApp() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <Header
         brandHref="/"
         brandLabel="Ir para a página principal"
-        navItems={pensionNavItems}
-        trackingPrefix="pension"
+        ctaLocation="pension_hero"
+        variant="minimal"
         whatsappMessage={PENSION_WHATSAPP_MESSAGE}
       />
       <Pensao />
       <Footer
-        ctaLocation="pension_footer"
+        ctaLocation="pension_final"
         whatsappMessage={PENSION_WHATSAPP_MESSAGE}
       />
       <StickyContact

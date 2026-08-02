@@ -13,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     margin: 0;
-    min-width: 320px;
+    min-width: 0;
     overflow-x: hidden;
     background: #f7f6f3;
     color: #3d3937;

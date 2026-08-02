@@ -1,119 +1,79 @@
 import { useState } from 'react'
-import {
-  FiChevronDown,
-  FiClock,
-  FiFileText,
-  FiMinusCircle,
-  FiRefreshCw,
-} from 'react-icons/fi'
 import { FaWhatsapp } from 'react-icons/fa'
-import { LuScale } from 'react-icons/lu'
 
-import heroPhoto from '../../assets/larissa-hero-colar-preservada.webp'
 import { PENSION_WHATSAPP_MESSAGE, getWhatsAppUrl } from '../../constants/brand'
 import { trackMarketingEvent } from '../../lib/marketing'
-import { Why } from '../Why'
 import {
+  AboutSection,
   AccordionContent,
   AccordionItem,
   ContactSection,
   FaqSection,
-  HeroCopy,
-  HeroPortrait,
   HeroSection,
   HowSection,
   Page,
-  SectionHeading,
-  SituationGrid,
+  PrincipleSection,
   SituationsSection,
-  Steps,
   WhatsButton,
 } from './styles'
 
 const situations = [
-  {
-    title: 'Pedido inicial',
-    description:
-      'Análise das necessidades, das possibilidades e dos documentos relevantes para definir a forma adequada de solicitar os alimentos.',
-    icon: LuScale,
-  },
-  {
-    title: 'Acordo de pensão',
-    description:
-      'Orientação para construir e formalizar um acordo claro, com condições compatíveis com a realidade familiar.',
-    icon: FiFileText,
-  },
-  {
-    title: 'Revisão do valor',
-    description:
-      'Avaliação de mudanças relevantes nas necessidades de quem recebe ou nas possibilidades de quem paga.',
-    icon: FiRefreshCw,
-  },
-  {
-    title: 'Execução e valores atrasados',
-    description:
-      'Análise das parcelas em aberto e das medidas jurídicas adequadas para buscar o cumprimento da obrigação.',
-    icon: FiClock,
-  },
-  {
-    title: 'Redução e exoneração',
-    description:
-      'Avaliação jurídica das circunstâncias que podem justificar a redução ou o encerramento da obrigação alimentar.',
-    icon: FiMinusCircle,
-  },
+  'Filhos menores ou maiores',
+  'Alimentos gravídicos',
+  'Ex-cônjuges e ex-companheiros',
+  'Pais e outros familiares',
+  'Responsabilidade complementar dos avós',
+  'Acordo e formalização',
+  'Revisão, redução ou exoneração',
+  'Parcelas atrasadas e execução',
 ]
 
 const steps = [
-  {
-    number: '01',
-    title: 'Atendimento inicial',
-    description:
-      'O contato pelo WhatsApp informa disponibilidade, formato do atendimento e os próximos passos para a consulta.',
-  },
-  {
-    number: '02',
-    title: 'Análise jurídica',
-    description:
-      'Na consulta, Larissa examina a situação, os documentos disponíveis e as possibilidades jurídicas aplicáveis.',
-  },
-  {
-    number: '03',
-    title: 'Acompanhamento',
-    description:
-      'Definida a estratégia, o atendimento segue com orientação clara e comunicação ao longo de cada etapa.',
-  },
+  'Contato pelo WhatsApp e informações sobre disponibilidade.',
+  'Consulta e análise dos fatos e documentos.',
+  'Orientação sobre possibilidades e próximos passos.',
 ]
 
 const questions = [
   {
-    title: 'Existe percentual fixo para pensão alimentícia?',
+    title: 'Existe percentual fixo, como 30%?',
     content:
-      'Não. O valor é analisado conforme as necessidades de quem recebe, as possibilidades de quem paga e a proporcionalidade no caso concreto. Percentuais divulgados na internet não substituem uma análise individual.',
+      'Não. O valor depende das necessidades de quem recebe, dos recursos de quem paga e da proporcionalidade no caso concreto.',
   },
   {
-    title: 'Quando é possível revisar o valor?',
+    title: 'O que pode ser considerado na definição do valor?',
     content:
-      'A revisão pode ser analisada quando há mudança relevante nas necessidades de quem recebe ou nas possibilidades financeiras de quem paga. É necessário demonstrar essa alteração e avaliar as circunstâncias atuais.',
+      'Podem ser avaliadas despesas com alimentação, moradia, saúde, educação, transporte, vestuário e outras necessidades, além da capacidade contributiva das pessoas responsáveis.',
   },
   {
-    title: 'O que fazer diante de valores atrasados?',
+    title: 'Quem pode pedir pensão alimentícia?',
     content:
-      'Parcelas não pagas podem ser cobradas judicialmente. A medida adequada depende do título existente, do período em atraso e das particularidades da obrigação, por isso a documentação deve ser examinada.',
+      'A análise pode envolver filhos, gestantes, ex-cônjuges ou ex-companheiros, pais e outros parentes. A responsabilidade dos avós é complementar e depende da impossibilidade total ou parcial dos responsáveis principais.',
   },
   {
-    title: 'Quando redução ou exoneração podem ser analisadas?',
+    title: 'Um acordo particular precisa ser formalizado?',
     content:
-      'Elas podem ser avaliadas diante de mudanças relevantes na necessidade de quem recebe ou na possibilidade de quem paga. A obrigação fixada judicialmente não deve ser interrompida por decisão unilateral.',
+      'A formalização adequada oferece clareza sobre valor, vencimento, reajuste e forma de pagamento. A modalidade judicial ou extrajudicial depende da situação e das pessoas envolvidas.',
   },
   {
-    title: 'Um acordo precisa ser formalizado?',
+    title: 'Quando o valor pode ser revisto, reduzido ou encerrado?',
     content:
-      'A formalização jurídica traz clareza sobre valor, vencimento, forma de pagamento e atualização, além de permitir o cumprimento do acordo caso ele deixe de ser observado. A forma adequada depende da situação familiar.',
+      'Mudanças relevantes nas necessidades ou na capacidade financeira podem justificar revisão, redução, aumento ou exoneração. Alterações de renda ou desemprego não modificam automaticamente a obrigação.',
   },
   {
-    title: 'É possível receber atendimento online de outro estado?',
+    title: 'A pensão termina automaticamente aos 18 anos?',
     content:
-      'Sim. O atendimento inicial e a orientação podem ocorrer online em todo o Brasil. A possibilidade de atuação em eventual processo é confirmada conforme a competência e as particularidades de cada demanda.',
+      'Não. A maioridade não encerra automaticamente a pensão; o cancelamento depende de decisão judicial com oportunidade de manifestação de quem recebe.',
+  },
+  {
+    title: 'O que pode ser feito quando existem parcelas atrasadas?',
+    content:
+      'Os valores podem ser cobrados judicialmente. As três prestações anteriores ao início da execução e as vencidas durante o processo podem admitir o rito da prisão, enquanto outros valores podem seguir meios patrimoniais de cobrança.',
+  },
+  {
+    title: 'É possível receber atendimento online de qualquer estado?',
+    content:
+      'Sim. A consulta e a orientação inicial podem ocorrer online em todo o Brasil. Competência territorial e possibilidade de atuação no processo serão verificadas individualmente.',
   },
 ]
 
@@ -124,150 +84,177 @@ export function Pensao() {
   return (
     <Page>
       <HeroSection id="inicio">
-        <HeroCopy>
-          <span className="eyebrow">Pensão alimentícia</span>
-          <h1>Orientação jurídica clara em pensão alimentícia</h1>
-          <span className="gold-line" aria-hidden="true" />
-          <p>
-            Atendimento online para pedidos, acordos, revisões, execução de
-            valores em atraso, redução e exoneração, conforme as
-            particularidades de cada caso.
-          </p>
-
-          <WhatsButton
-            href={whatsappUrl}
-            target="_blank"
-            rel="noreferrer"
-            onClick={() =>
-              trackMarketingEvent('whatsapp_click', {
-                cta_location: 'pension_hero',
-              })
-            }
-          >
-            <FaWhatsapp aria-hidden="true" />
-            Conversar pelo WhatsApp
-          </WhatsButton>
-
-          <div className="desktop-microcopy">
-            <span>Atendimento online em todo o Brasil</span>
-            <span>OAB/DF nº 65.877</span>
-            <span>Sigilo</span>
+        <div className="hero-layout">
+          <div className="hero-context">
+            <span className="eyebrow">Pensão alimentícia</span>
+            <p className="trust-line">
+              Atendimento online em todo o Brasil
+              <span aria-hidden="true">•</span>
+              OAB/DF nº 65.877
+              <span aria-hidden="true">•</span>
+              Sigilo
+            </p>
           </div>
-        </HeroCopy>
 
-        <HeroPortrait>
-          <img
-            src={heroPhoto}
-            alt="Larissa Rocha em seu ambiente de trabalho"
-          />
-        </HeroPortrait>
+          <div className="hero-copy">
+            <h1>
+              Orientação clara para diferentes situações de pensão alimentícia
+            </h1>
+            <p>
+              Atendimento jurídico em pedidos, acordos, revisões, exoneração e
+              cobrança de alimentos para filhos, gestantes, ex-cônjuges,
+              companheiros, pais e outros familiares, conforme as
+              particularidades de cada caso.
+            </p>
 
-        <div className="mobile-microcopy">
-          <span>Atendimento online em todo o Brasil</span>
-          <span>OAB/DF nº 65.877</span>
-          <span>Sigilo</span>
+            <WhatsButton
+              href={whatsappUrl}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() =>
+                trackMarketingEvent('whatsapp_click', {
+                  cta_location: 'pension_hero',
+                })
+              }
+            >
+              <FaWhatsapp aria-hidden="true" />
+              Conversar pelo WhatsApp
+            </WhatsButton>
+          </div>
         </div>
       </HeroSection>
 
+      <PrincipleSection>
+        <div className="principle-layout">
+          <span className="section-index">01</span>
+          <div>
+            <span className="eyebrow">Análise individual</span>
+            <h2>Pensão alimentícia não segue uma fórmula única</h2>
+            <p>
+              Não existe um percentual obrigatório aplicável a todas as
+              famílias. A definição considera as necessidades de quem recebe, os
+              recursos de quem paga e a proporcionalidade diante das
+              circunstâncias concretas.
+            </p>
+          </div>
+        </div>
+      </PrincipleSection>
+
       <SituationsSection id="atuacao">
-        <SectionHeading>
-          <span className="eyebrow">Situações atendidas</span>
-          <h2>Orientação para diferentes momentos da pensão alimentícia</h2>
-          <p>
-            Cada situação exige uma análise própria. Conheça os principais temas
-            que podem ser avaliados no atendimento.
-          </p>
-        </SectionHeading>
+        <div className="section-heading">
+          <div>
+            <span className="section-index">02</span>
+            <span className="eyebrow">Possibilidades de orientação</span>
+          </div>
+          <h2>Situações que podem ser analisadas</h2>
+        </div>
 
-        <SituationGrid>
-          {situations.map((situation) => {
-            const Icon = situation.icon
-
-            return (
-              <article key={situation.title}>
-                <Icon aria-hidden="true" />
-                <h3>{situation.title}</h3>
-                <p>{situation.description}</p>
-              </article>
-            )
-          })}
-        </SituationGrid>
+        <ol>
+          {situations.map((situation, index) => (
+            <li key={situation}>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <h3>{situation}</h3>
+            </li>
+          ))}
+        </ol>
       </SituationsSection>
 
       <HowSection id="como-funciona">
-        <SectionHeading>
-          <span className="eyebrow">Como funciona</span>
-          <h2>Clareza desde o primeiro contato</h2>
-          <p>
-            O atendimento é organizado em etapas para que você compreenda as
-            possibilidades e os próximos passos.
-          </p>
-        </SectionHeading>
+        <div className="section-heading">
+          <div>
+            <span className="section-index">03</span>
+            <span className="eyebrow">Etapas</span>
+          </div>
+          <h2>Como o atendimento acontece</h2>
+        </div>
 
-        <Steps>
-          {steps.map((step) => (
-            <article key={step.number}>
-              <span className="number">{step.number}</span>
-              <div>
-                <h3>{step.title}</h3>
-                <p>{step.description}</p>
-              </div>
-            </article>
+        <ol>
+          {steps.map((step, index) => (
+            <li key={step}>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <p>{step}</p>
+            </li>
           ))}
-        </Steps>
+        </ol>
       </HowSection>
 
-      <Why />
+      <AboutSection id="sobre">
+        <div>
+          <span className="section-index">04</span>
+          <span className="eyebrow">Sobre Larissa Rocha</span>
+        </div>
+        <p>
+          Larissa Rocha é advogada inscrita na OAB/DF nº 65.877, com atuação em
+          Direito de Família e Sucessões. O atendimento é realizado online, com
+          análise individual e comunicação objetiva sobre as possibilidades
+          jurídicas.
+        </p>
+      </AboutSection>
 
       <FaqSection id="duvidas">
         <div className="faq-heading">
-          <span className="eyebrow">Dúvidas sobre pensão</span>
-          <h2>Informação segura antes de decidir</h2>
+          <span className="section-index">05</span>
+          <span className="eyebrow">Perguntas essenciais</span>
+          <h2>Dúvidas frequentes sobre pensão alimentícia</h2>
           <p>
-            Respostas gerais para dúvidas frequentes sobre pensão alimentícia. A
-            orientação aplicável depende da análise individual.
+            Informação geral para compreender o tema antes de uma análise
+            individual.
           </p>
         </div>
 
-        <div className="faq-list">
-          {questions.map((question, index) => {
-            const isOpen = openQuestion === index
+        <div className="faq-column">
+          <div className="faq-list">
+            {questions.map((question, index) => {
+              const isOpen = openQuestion === index
 
-            return (
-              <AccordionItem key={question.title}>
-                <button
-                  id={`pension-faq-title-${index}`}
-                  type="button"
-                  onClick={() => setOpenQuestion(isOpen ? null : index)}
-                  aria-expanded={isOpen}
-                  aria-controls={`pension-faq-${index}`}
-                >
-                  <span>{question.title}</span>
-                  <FiChevronDown aria-hidden="true" />
-                </button>
+              return (
+                <AccordionItem key={question.title}>
+                  <button
+                    id={`pension-faq-title-${index}`}
+                    type="button"
+                    onClick={() => setOpenQuestion(isOpen ? null : index)}
+                    aria-expanded={isOpen}
+                    aria-controls={`pension-faq-${index}`}
+                  >
+                    <span className="question-number">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <span className="question-title">{question.title}</span>
+                    <span className="question-state" aria-hidden="true">
+                      {isOpen ? '−' : '+'}
+                    </span>
+                  </button>
 
-                <AccordionContent
-                  id={`pension-faq-${index}`}
-                  data-open={isOpen}
-                  role="region"
-                  aria-labelledby={`pension-faq-title-${index}`}
-                  aria-hidden={!isOpen}
-                >
-                  <p>{question.content}</p>
-                </AccordionContent>
-              </AccordionItem>
-            )
-          })}
+                  {isOpen && (
+                    <AccordionContent
+                      id={`pension-faq-${index}`}
+                      role="region"
+                      aria-labelledby={`pension-faq-title-${index}`}
+                    >
+                      <div>
+                        <p>{question.content}</p>
+                      </div>
+                    </AccordionContent>
+                  )}
+                </AccordionItem>
+              )
+            })}
+          </div>
+
+          <p className="faq-note">
+            As respostas são gerais e não substituem a análise jurídica
+            individual.
+          </p>
         </div>
       </FaqSection>
 
       <ContactSection id="contato">
         <div>
           <span className="eyebrow">Contato</span>
-          <h2>Converse com Larissa sobre orientação em pensão alimentícia</h2>
+          <h2>Converse com Larissa Rocha</h2>
           <p>
-            O atendimento começa pelo WhatsApp, com informações sobre
-            disponibilidade e próximos passos.
+            Entre em contato pelo WhatsApp para informações sobre o atendimento
+            jurídico em pensão alimentícia.
           </p>
 
           <WhatsButton
@@ -285,7 +272,8 @@ export function Pensao() {
           </WhatsButton>
 
           <div className="contact-microcopy">
-            <span>Contato confidencial</span>
+            <span>Atendimento online</span>
+            <span>Sigilo</span>
             <span>Retorno em horário comercial</span>
           </div>
         </div>

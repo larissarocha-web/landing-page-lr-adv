@@ -22,27 +22,32 @@ const defaultNavItems: HeaderNavItem[] = [
 type HeaderProps = {
   brandHref?: string
   brandLabel?: string
+  ctaLocation?: string
   navItems?: HeaderNavItem[]
   trackingPrefix?: string
+  variant?: 'full' | 'minimal'
   whatsappMessage?: string
 }
 
 export function Header({
   brandHref = '#inicio',
   brandLabel = 'Larissa Rocha - início',
+  ctaLocation,
   navItems = defaultNavItems,
   trackingPrefix,
+  variant = 'full',
   whatsappMessage,
 }: HeaderProps = {}) {
   const [isOpen, setIsOpen] = useState(false)
   const menuButtonRef = useRef<HTMLButtonElement>(null)
   const whatsappUrl = getWhatsAppUrl(whatsappMessage)
-  const desktopCtaLocation = trackingPrefix
-    ? `${trackingPrefix}_header_desktop`
-    : 'header_desktop'
+  const desktopCtaLocation =
+    ctaLocation ??
+    (trackingPrefix ? `${trackingPrefix}_header_desktop` : 'header_desktop')
   const mobileCtaLocation = trackingPrefix
     ? `${trackingPrefix}_header_mobile`
     : 'header_mobile'
+  const isMinimal = variant === 'minimal'
 
   const closeMenuAndRestoreFocus = useCallback(() => {
     setIsOpen(false)
@@ -66,23 +71,26 @@ export function Header({
 
   return (
     <>
-      <HeaderContainer>
-        <Div1>
+      <HeaderContainer $variant={variant}>
+        <Div1 $variant={variant}>
           <a className="brand" href={brandHref} aria-label={brandLabel}>
             <img src={logo} alt="Larissa Rocha Advogada" />
           </a>
 
-          <NavBar>
-            <ul>
-              {navItems.map((item) => (
-                <li key={item.href}>
-                  <a href={item.href}>{item.label}</a>
-                </li>
-              ))}
-            </ul>
+          <NavBar $variant={variant}>
+            {!isMinimal && (
+              <ul>
+                {navItems.map((item) => (
+                  <li key={item.href}>
+                    <a href={item.href}>{item.label}</a>
+                  </li>
+                ))}
+              </ul>
+            )}
 
             <a
               className="header-cta"
+              aria-label="Conversar pelo WhatsApp"
               href={whatsappUrl}
               target="_blank"
               rel="noreferrer"
@@ -93,25 +101,27 @@ export function Header({
               }
             >
               <FaWhatsapp />
-              Conversar pelo WhatsApp
+              <span>Conversar pelo WhatsApp</span>
             </a>
 
-            <button
-              ref={menuButtonRef}
-              className="menu-trigger"
-              type="button"
-              onClick={() => setIsOpen(true)}
-              aria-label="Abrir menu"
-              aria-expanded={isOpen}
-              aria-controls="mobile-menu"
-            >
-              <IoMenu size={28} />
-            </button>
+            {!isMinimal && (
+              <button
+                ref={menuButtonRef}
+                className="menu-trigger"
+                type="button"
+                onClick={() => setIsOpen(true)}
+                aria-label="Abrir menu"
+                aria-expanded={isOpen}
+                aria-controls="mobile-menu"
+              >
+                <IoMenu size={28} />
+              </button>
+            )}
           </NavBar>
         </Div1>
       </HeaderContainer>
 
-      {isOpen && (
+      {!isMinimal && isOpen && (
         <MenuMobileOpen
           id="mobile-menu"
           role="dialog"
