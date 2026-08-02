@@ -150,8 +150,8 @@ export function Pensao() {
 
           <div className="desktop-microcopy">
             <span>Atendimento online em todo o Brasil</span>
+            <span>OAB/DF nº 65.877</span>
             <span>Sigilo</span>
-            <span>Retorno em horário comercial</span>
           </div>
         </HeroCopy>
 
@@ -164,8 +164,8 @@ export function Pensao() {
 
         <div className="mobile-microcopy">
           <span>Atendimento online em todo o Brasil</span>
+          <span>OAB/DF nº 65.877</span>
           <span>Sigilo</span>
-          <span>Retorno em horário comercial</span>
         </div>
       </HeroSection>
 
@@ -286,7 +286,7 @@ export function Pensao() {
 
           <div className="contact-microcopy">
             <span>Contato confidencial</span>
-            <span>Atendimento em horário comercial</span>
+            <span>Retorno em horário comercial</span>
           </div>
         </div>
       </ContactSection>

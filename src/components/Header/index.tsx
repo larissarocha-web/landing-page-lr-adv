@@ -21,6 +21,7 @@ const defaultNavItems: HeaderNavItem[] = [
 
 type HeaderProps = {
   brandHref?: string
+  brandLabel?: string
   navItems?: HeaderNavItem[]
   trackingPrefix?: string
   whatsappMessage?: string
@@ -28,6 +29,7 @@ type HeaderProps = {
 
 export function Header({
   brandHref = '#inicio',
+  brandLabel = 'Larissa Rocha - início',
   navItems = defaultNavItems,
   trackingPrefix,
   whatsappMessage,
@@ -66,11 +68,7 @@ export function Header({
     <>
       <HeaderContainer>
         <Div1>
-          <a
-            className="brand"
-            href={brandHref}
-            aria-label="Larissa Rocha - início"
-          >
+          <a className="brand" href={brandHref} aria-label={brandLabel}>
             <img src={logo} alt="Larissa Rocha Advogada" />
           </a>
 
@@ -122,7 +120,14 @@ export function Header({
         >
           <div className="menu-header">
             <span aria-hidden="true" />
-            <img src={logo} alt="Larissa Rocha Advogada" />
+            <a
+              className="menu-brand"
+              href={brandHref}
+              aria-label={brandLabel}
+              onClick={() => setIsOpen(false)}
+            >
+              <img src={logo} alt="Larissa Rocha Advogada" />
+            </a>
             <button
               autoFocus
               type="button"

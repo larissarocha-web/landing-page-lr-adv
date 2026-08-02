@@ -121,6 +121,28 @@ export const Cards = styled.div`
     line-height: 1.65;
   }
 
+  .area-link {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    gap: 7px;
+    margin-top: 15px;
+    color: #8c3044;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    line-height: 1.45;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:hover,
+    &:focus-visible {
+      color: #641d30;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+  }
+
   @media (max-width: 900px) {
     grid-template-columns: repeat(2, 1fr);
   }

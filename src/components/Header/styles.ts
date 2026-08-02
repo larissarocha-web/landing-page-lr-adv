@@ -175,11 +175,16 @@ export const MenuMobileOpen = styled.div`
     border-bottom: 1px solid rgba(125, 38, 58, 0.08);
   }
 
+  .menu-brand {
+    display: inline-flex;
+    grid-column: 2;
+    justify-self: center;
+  }
+
   .menu-header img {
     width: min(58vw, 205px);
     height: auto;
     object-fit: contain;
-    justify-self: center;
   }
 
   .menu-header button {

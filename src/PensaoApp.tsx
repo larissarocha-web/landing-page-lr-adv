@@ -14,7 +14,7 @@ import { Pensao } from './pages/Pensao'
 import { defaultTheme } from './styles/themes/default'
 
 const pensionNavItems: HeaderNavItem[] = [
-  { href: '#inicio', label: 'Pensão alimentícia' },
+  { href: '/', label: 'Página principal' },
   { href: '#atuacao', label: 'Situações atendidas' },
   { href: '#como-funciona', label: 'Como funciona' },
   { href: '#duvidas', label: 'Dúvidas' },
@@ -25,6 +25,8 @@ function PensaoApp() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <Header
+        brandHref="/"
+        brandLabel="Ir para a página principal"
         navItems={pensionNavItems}
         trackingPrefix="pension"
         whatsappMessage={PENSION_WHATSAPP_MESSAGE}

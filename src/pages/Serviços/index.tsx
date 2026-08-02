@@ -29,6 +29,8 @@ const areas = [
     description:
       'Orientação em pedidos, revisões e cumprimento de obrigações alimentares.',
     icon: LuScale,
+    href: '/pensao',
+    linkLabel: 'Conhecer orientação em pensão alimentícia',
   },
   {
     title: 'União estável',
@@ -88,7 +90,15 @@ export function Servicos() {
                   aria-labelledby={`area-title-${index}`}
                   aria-hidden={!isOpen}
                 >
-                  <p>{area.description}</p>
+                  <p>
+                    {area.description}
+                    {area.href && area.linkLabel && (
+                      <a className="area-link" href={area.href}>
+                        {area.linkLabel}
+                        <span aria-hidden="true">→</span>
+                      </a>
+                    )}
+                  </p>
                 </div>
               </article>
             )
