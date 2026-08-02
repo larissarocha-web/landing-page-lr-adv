@@ -4,13 +4,11 @@ import { FaWhatsapp } from 'react-icons/fa'
 import { PENSION_WHATSAPP_MESSAGE, getWhatsAppUrl } from '../../constants/brand'
 import { trackMarketingEvent } from '../../lib/marketing'
 import {
-  AboutSection,
   AccordionContent,
   AccordionItem,
   ContactSection,
   FaqSection,
   HeroSection,
-  HowSection,
   Page,
   PrincipleSection,
   SituationsSection,
@@ -26,12 +24,6 @@ const situations = [
   'Acordo e formalização',
   'Revisão, redução ou exoneração',
   'Parcelas atrasadas e execução',
-]
-
-const steps = [
-  'Contato pelo WhatsApp e informações sobre disponibilidade.',
-  'Consulta e análise dos fatos e documentos.',
-  'Orientação sobre possibilidades e próximos passos.',
 ]
 
 const questions = [
@@ -87,25 +79,12 @@ export function Pensao() {
         <div className="hero-layout">
           <div className="hero-context">
             <span className="eyebrow">Pensão alimentícia</span>
-            <p className="trust-line">
-              Atendimento online em todo o Brasil
-              <span aria-hidden="true">•</span>
-              OAB/DF nº 65.877
-              <span aria-hidden="true">•</span>
-              Sigilo
-            </p>
           </div>
 
           <div className="hero-copy">
             <h1>
               Orientação clara para diferentes situações de pensão alimentícia
             </h1>
-            <p>
-              Atendimento jurídico em pedidos, acordos, revisões, exoneração e
-              cobrança de alimentos para filhos, gestantes, ex-cônjuges,
-              companheiros, pais e outros familiares, conforme as
-              particularidades de cada caso.
-            </p>
 
             <WhatsButton
               href={whatsappUrl}
@@ -120,6 +99,12 @@ export function Pensao() {
               <FaWhatsapp aria-hidden="true" />
               Conversar pelo WhatsApp
             </WhatsButton>
+
+            <div className="trust-line">
+              <span>Atendimento online em todo o Brasil</span>
+              <span>OAB/DF nº 65.877</span>
+              <span>Sigilo</span>
+            </div>
           </div>
         </div>
       </HeroSection>
@@ -158,38 +143,6 @@ export function Pensao() {
           ))}
         </ol>
       </SituationsSection>
-
-      <HowSection id="como-funciona">
-        <div className="section-heading">
-          <div>
-            <span className="section-index">03</span>
-            <span className="eyebrow">Etapas</span>
-          </div>
-          <h2>Como o atendimento acontece</h2>
-        </div>
-
-        <ol>
-          {steps.map((step, index) => (
-            <li key={step}>
-              <span>{String(index + 1).padStart(2, '0')}</span>
-              <p>{step}</p>
-            </li>
-          ))}
-        </ol>
-      </HowSection>
-
-      <AboutSection id="sobre">
-        <div>
-          <span className="section-index">04</span>
-          <span className="eyebrow">Sobre Larissa Rocha</span>
-        </div>
-        <p>
-          Larissa Rocha é advogada inscrita na OAB/DF nº 65.877, com atuação em
-          Direito de Família e Sucessões. O atendimento é realizado online, com
-          análise individual e comunicação objetiva sobre as possibilidades
-          jurídicas.
-        </p>
-      </AboutSection>
 
       <FaqSection id="duvidas">
         <div className="faq-heading">

@@ -67,9 +67,9 @@ export const WhatsButton = styled.a`
 `
 
 export const HeroSection = styled.section`
-  min-height: min(780px, calc(100svh - 88px));
+  min-height: min(640px, calc(100svh - 88px));
   margin-top: 88px;
-  padding: clamp(88px, 10vw, 150px) 32px 88px;
+  padding: clamp(68px, 6.5vw, 96px) 32px clamp(64px, 6vw, 88px);
   border-bottom: 1px solid var(--pension-line);
   scroll-margin-top: 88px;
   background: linear-gradient(
@@ -87,57 +87,45 @@ export const HeroSection = styled.section`
   .hero-layout {
     display: grid;
     width: min(100%, 1240px);
-    grid-template-columns: minmax(220px, 0.38fr) minmax(0, 1fr);
-    gap: clamp(54px, 8vw, 128px);
+    grid-template-columns: minmax(220px, 0.34fr) minmax(0, 1fr);
+    gap: clamp(48px, 7vw, 104px);
     margin: 0 auto;
     padding-top: 25px;
     border-top: 1px solid rgba(189, 140, 57, 0.65);
   }
 
   .hero-context {
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 72px;
     padding-top: 19px;
   }
 
   .trust-line {
     display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 5px;
-    max-width: 210px;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0;
+    margin-top: 21px;
     color: var(--pension-muted);
     font-size: 0.72rem;
-    line-height: 1.55;
+    line-height: 1.6;
   }
 
-  .trust-line span {
+  .trust-line span + span::before {
+    margin: 0 10px;
     color: var(--pension-gold);
-    line-height: 0.75;
+    content: '•';
   }
 
   .hero-copy h1 {
-    max-width: 900px;
+    max-width: 880px;
     color: var(--pension-burgundy);
-    font-size: clamp(4rem, 6vw, 6.65rem);
+    font-size: clamp(4rem, 5.6vw, 6.1rem);
     letter-spacing: -0.052em;
-    line-height: 0.94;
-  }
-
-  .hero-copy > p {
-    max-width: 750px;
-    margin-top: 37px;
-    color: #4d4642;
-    font-size: clamp(1rem, 1.25vw, 1.14rem);
-    line-height: 1.8;
+    line-height: 0.96;
   }
 
   @media (max-width: 900px) {
     min-height: auto;
-    padding: 70px 22px 76px;
+    padding: 62px 22px 68px;
 
     .hero-layout {
       grid-template-columns: 1fr;
@@ -145,12 +133,7 @@ export const HeroSection = styled.section`
     }
 
     .hero-context {
-      gap: 0;
       padding-top: 14px;
-    }
-
-    .trust-line {
-      display: none;
     }
 
     .hero-copy h1 {
@@ -158,15 +141,8 @@ export const HeroSection = styled.section`
       line-height: 0.97;
     }
 
-    .hero-copy > p {
+    .trust-line {
       margin-top: 28px;
-    }
-
-    .hero-copy::after {
-      display: block;
-      margin-top: 28px;
-      color: var(--pension-muted);
-      content: 'Atendimento online em todo o Brasil • OAB/DF nº 65.877 • Sigilo';
       font-size: 0.68rem;
       line-height: 1.65;
     }
@@ -184,21 +160,24 @@ export const HeroSection = styled.section`
   }
 
   @media (max-width: 390px) {
-    padding: 58px 20px 66px;
+    padding: 54px 20px 62px;
 
     .hero-copy h1 {
       font-size: clamp(2.75rem, 13.3vw, 3.25rem);
     }
 
-    .hero-copy > p {
-      font-size: 0.94rem;
-      line-height: 1.72;
+    .trust-line {
+      font-size: 0.62rem;
+    }
+
+    .trust-line span + span::before {
+      margin: 0 4px;
     }
   }
 `
 
 export const PrincipleSection = styled.section`
-  padding: clamp(86px, 10vw, 142px) 32px;
+  padding: clamp(72px, 7vw, 96px) 32px;
 
   .principle-layout {
     display: grid;
@@ -218,7 +197,7 @@ export const PrincipleSection = styled.section`
 
   p {
     max-width: 760px;
-    margin-top: 38px;
+    margin-top: 30px;
     padding-left: 28px;
     border-left: 2px solid var(--pension-gold);
     color: #4e4743;
@@ -227,7 +206,7 @@ export const PrincipleSection = styled.section`
   }
 
   @media (max-width: 760px) {
-    padding: 72px 20px 78px;
+    padding: 62px 20px 66px;
 
     .principle-layout {
       grid-template-columns: 1fr;
@@ -239,7 +218,7 @@ export const PrincipleSection = styled.section`
     }
 
     p {
-      margin-top: 28px;
+      margin-top: 24px;
       padding-left: 20px;
       font-size: 1rem;
       line-height: 1.72;
@@ -248,7 +227,7 @@ export const PrincipleSection = styled.section`
 `
 
 export const SituationsSection = styled.section`
-  padding: clamp(86px, 9vw, 126px) 32px;
+  padding: clamp(72px, 7vw, 96px) 32px;
   scroll-margin-top: 88px;
   background: #f4eeea;
 
@@ -263,7 +242,7 @@ export const SituationsSection = styled.section`
     display: grid;
     grid-template-columns: minmax(220px, 0.42fr) minmax(0, 1fr);
     gap: clamp(38px, 7vw, 110px);
-    margin-bottom: 64px;
+    margin-bottom: 46px;
   }
 
   .section-heading h2 {
@@ -281,7 +260,7 @@ export const SituationsSection = styled.section`
 
   li {
     display: grid;
-    min-height: 82px;
+    min-height: 72px;
     align-items: center;
     grid-template-columns: minmax(90px, 0.28fr) 1fr;
     border-bottom: 1px solid var(--pension-line);
@@ -302,13 +281,13 @@ export const SituationsSection = styled.section`
   }
 
   @media (max-width: 760px) {
-    padding: 70px 20px 76px;
+    padding: 62px 20px 66px;
     scroll-margin-top: 66px;
 
     .section-heading {
       grid-template-columns: 1fr;
       gap: 21px;
-      margin-bottom: 43px;
+      margin-bottom: 36px;
     }
 
     .section-heading h2 {
@@ -316,7 +295,7 @@ export const SituationsSection = styled.section`
     }
 
     li {
-      min-height: 70px;
+      min-height: 66px;
       grid-template-columns: 52px 1fr;
       gap: 10px;
     }
@@ -328,143 +307,14 @@ export const SituationsSection = styled.section`
   }
 `
 
-export const HowSection = styled.section`
-  padding: clamp(84px, 9vw, 124px) 32px;
-  scroll-margin-top: 88px;
-
-  .section-heading,
-  ol {
-    width: min(100%, 1120px);
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  .section-heading {
-    display: grid;
-    grid-template-columns: minmax(220px, 0.42fr) minmax(0, 1fr);
-    gap: clamp(38px, 7vw, 110px);
-    margin-bottom: 60px;
-  }
-
-  h2 {
-    font-size: clamp(3rem, 5vw, 5.15rem);
-    letter-spacing: -0.04em;
-    line-height: 1;
-  }
-
-  ol {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    padding: 0;
-    border-top: 1px solid var(--pension-line);
-    list-style: none;
-  }
-
-  li {
-    min-height: 205px;
-    padding: 28px 36px 20px 0;
-    border-bottom: 1px solid var(--pension-line);
-  }
-
-  li + li {
-    padding-left: 36px;
-    border-left: 1px solid var(--pension-line);
-  }
-
-  li > span {
-    display: block;
-    margin-bottom: 36px;
-    color: var(--pension-gold);
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 0.95rem;
-  }
-
-  li p {
-    max-width: 290px;
-    color: #423a36;
-    font-size: 1rem;
-    line-height: 1.7;
-  }
-
-  @media (max-width: 760px) {
-    padding: 70px 20px 76px;
-    scroll-margin-top: 66px;
-
-    .section-heading {
-      grid-template-columns: 1fr;
-      gap: 21px;
-      margin-bottom: 40px;
-    }
-
-    h2 {
-      font-size: clamp(2.65rem, 11.5vw, 3.55rem);
-    }
-
-    ol {
-      grid-template-columns: 1fr;
-    }
-
-    li,
-    li + li {
-      display: grid;
-      min-height: 0;
-      grid-template-columns: 42px 1fr;
-      gap: 16px;
-      padding: 25px 0;
-      border-left: 0;
-    }
-
-    li > span {
-      margin: 0;
-    }
-
-    li p {
-      font-size: 0.96rem;
-    }
-  }
-`
-
-export const AboutSection = styled.section`
-  display: grid;
-  grid-template-columns: minmax(220px, 0.42fr) minmax(0, 1fr);
-  gap: clamp(38px, 7vw, 110px);
-  width: min(100% - 64px, 1120px);
-  margin: 0 auto;
-  padding: clamp(84px, 9vw, 124px) 0;
-  border-top: 1px solid var(--pension-line);
-  scroll-margin-top: 88px;
-
-  > p {
-    max-width: 830px;
-    color: var(--pension-burgundy);
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(2rem, 3.45vw, 3.5rem);
-    letter-spacing: -0.026em;
-    line-height: 1.2;
-  }
-
-  @media (max-width: 760px) {
-    width: calc(100% - 40px);
-    grid-template-columns: 1fr;
-    gap: 25px;
-    padding: 70px 0 76px;
-    scroll-margin-top: 66px;
-
-    > p {
-      font-size: clamp(1.85rem, 8.4vw, 2.5rem);
-      line-height: 1.24;
-    }
-  }
-`
-
 export const FaqSection = styled.section`
   display: grid;
   grid-template-columns: minmax(260px, 0.55fr) minmax(0, 1fr);
-  gap: clamp(52px, 8vw, 124px);
-  padding: clamp(88px, 10vw, 138px) max(32px, calc((100vw - 1120px) / 2));
+  gap: clamp(48px, 6vw, 88px);
+  padding: clamp(72px, 7vw, 96px) max(32px, calc((100vw - 1120px) / 2));
+  border-top: 1px solid var(--pension-line);
   scroll-margin-top: 88px;
-  background: #f4eeea;
+  background: var(--pension-ivory);
 
   .faq-heading h2 {
     margin-top: 21px;
@@ -495,7 +345,7 @@ export const FaqSection = styled.section`
   @media (max-width: 880px) {
     grid-template-columns: 1fr;
     gap: 43px;
-    padding: 72px 20px 78px;
+    padding: 62px 20px 66px;
     scroll-margin-top: 66px;
 
     .faq-heading h2 {
@@ -591,7 +441,7 @@ export const AccordionContent = styled.div`
 
 export const ContactSection = styled.section`
   position: relative;
-  padding: clamp(82px, 9vw, 124px) 24px;
+  padding: clamp(72px, 7vw, 92px) 24px;
   overflow: hidden;
   scroll-margin-top: 88px;
   background: var(--pension-burgundy);
@@ -661,7 +511,7 @@ export const ContactSection = styled.section`
   }
 
   @media (max-width: 760px) {
-    padding: 70px 20px 76px;
+    padding: 62px 20px 66px;
     scroll-margin-top: 66px;
 
     h2 {

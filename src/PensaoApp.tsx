@@ -26,6 +26,7 @@ function PensaoApp() {
       <Pensao />
       <Footer
         ctaLocation="pension_final"
+        navigationBase="/"
         whatsappMessage={PENSION_WHATSAPP_MESSAGE}
       />
       <StickyContact

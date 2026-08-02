@@ -22,11 +22,13 @@ import {
 
 type FooterProps = {
   ctaLocation?: string
+  navigationBase?: string
   whatsappMessage?: string
 }
 
 export function Footer({
   ctaLocation = 'footer_contact',
+  navigationBase = '',
   whatsappMessage,
 }: FooterProps = {}) {
   const whatsappUrl = getWhatsAppUrl(whatsappMessage)
@@ -46,16 +48,16 @@ export function Footer({
         <Columns>
           <div>
             <h2>Navegação</h2>
-            <a href="#inicio">Início e atuação</a>
-            <a href="#sobre">Sobre mim</a>
-            <a href="#duvidas">Dúvidas</a>
-            <a href="#contato">Contato</a>
+            <a href={`${navigationBase}#inicio`}>Início e atuação</a>
+            <a href={`${navigationBase}#sobre`}>Sobre mim</a>
+            <a href={`${navigationBase}#duvidas`}>Dúvidas</a>
+            <a href={`${navigationBase}#contato`}>Contato</a>
           </div>
 
           <div>
             <h2>Informações</h2>
-            <a href="#atuacao">Áreas de atuação</a>
-            <a href="#como-funciona">Como funciona</a>
+            <a href={`${navigationBase}#atuacao`}>Áreas de atuação</a>
+            <a href={`${navigationBase}#como-funciona`}>Como funciona</a>
             <p>Atendimento online</p>
             <p>Todo o Brasil</p>
           </div>
