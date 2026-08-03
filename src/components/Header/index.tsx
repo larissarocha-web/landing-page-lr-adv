@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { FaWhatsapp } from 'react-icons/fa'
+import { FiArrowLeft } from 'react-icons/fi'
 import { IoClose, IoMenu } from 'react-icons/io5'
 
 import logo from '../../assets/logo3.png'
@@ -76,6 +77,18 @@ export function Header({
           <a className="brand" href={brandHref} aria-label={brandLabel}>
             <img src={logo} alt="Larissa Rocha Advogada" />
           </a>
+
+          {isMinimal && (
+            <a
+              className="home-link"
+              href={brandHref}
+              aria-label="Ir para a página principal"
+            >
+              <FiArrowLeft aria-hidden="true" />
+              <span className="home-link-desktop">Página principal</span>
+              <span className="home-link-mobile">Início</span>
+            </a>
+          )}
 
           <NavBar $variant={variant}>
             {!isMinimal && (

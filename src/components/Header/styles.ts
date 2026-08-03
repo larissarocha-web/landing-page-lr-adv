@@ -18,16 +18,22 @@ export const HeaderContainer = styled.header<HeaderVariantProps>`
 `
 
 export const Div1 = styled.div<HeaderVariantProps>`
-  display: flex;
+  display: ${({ $variant }) => ($variant === 'minimal' ? 'grid' : 'flex')};
   width: min(100% - 64px, 1432px);
   height: 88px;
   align-items: center;
+  grid-template-columns: ${({ $variant }) =>
+    $variant === 'minimal'
+      ? 'minmax(230px, 1fr) auto minmax(230px, 1fr)'
+      : 'none'};
   justify-content: space-between;
   gap: 28px;
   margin: 0 auto;
 
   .brand {
     flex: 0 0 auto;
+    grid-column: 1;
+    justify-self: start;
   }
 
   .brand img {
@@ -35,28 +41,91 @@ export const Div1 = styled.div<HeaderVariantProps>`
     height: auto;
   }
 
+  .home-link {
+    position: relative;
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    grid-column: 2;
+    color: #741c32;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.055em;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &::after {
+      position: absolute;
+      right: 0;
+      bottom: 4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      margin: auto;
+      background: #c9a96a;
+      content: '';
+      transition: width 180ms ease;
+    }
+
+    &:hover::after,
+    &:focus-visible::after {
+      width: 100%;
+    }
+
+    &:focus-visible {
+      border-radius: 4px;
+      outline: 2px solid rgba(189, 140, 57, 0.7);
+      outline-offset: 4px;
+    }
+  }
+
+  .home-link-mobile {
+    display: none;
+  }
+
   @media (max-width: 760px) {
-    display: ${({ $variant }) => ($variant === 'minimal' ? 'flex' : 'grid')};
+    display: grid;
     width: 100%;
     height: 66px;
     grid-template-columns: ${({ $variant }) =>
-      $variant === 'minimal' ? 'none' : '48px minmax(0, 1fr) 48px'};
-    justify-content: ${({ $variant }) =>
-      $variant === 'minimal' ? 'space-between' : 'normal'};
+      $variant === 'minimal'
+        ? '60px minmax(0, 1fr) 46px'
+        : '48px minmax(0, 1fr) 48px'};
+    justify-content: normal;
     gap: 0;
     padding: 0 14px;
 
     .brand {
-      grid-column: ${({ $variant }) => ($variant === 'minimal' ? 'auto' : '2')};
-      justify-self: ${({ $variant }) =>
-        $variant === 'minimal' ? 'auto' : 'center'};
+      grid-column: 2;
+      justify-self: center;
     }
 
     .brand img {
       width: ${({ $variant }) =>
         $variant === 'minimal'
-          ? 'clamp(132px, 42vw, 188px)'
+          ? 'clamp(132px, 42vw, 172px)'
           : 'min(58vw, 205px)'};
+    }
+
+    .home-link {
+      min-height: 44px;
+      justify-content: flex-start;
+      gap: 4px;
+      grid-column: 1;
+      justify-self: start;
+      font-size: 0.66rem;
+      letter-spacing: 0.025em;
+    }
+
+    .home-link::after,
+    .home-link-desktop {
+      display: none;
+    }
+
+    .home-link-mobile {
+      display: inline;
     }
   }
 `
@@ -65,6 +134,8 @@ export const NavBar = styled.nav<HeaderVariantProps>`
   display: flex;
   align-items: center;
   gap: clamp(20px, 2.2vw, 38px);
+  grid-column: ${({ $variant }) => ($variant === 'minimal' ? '3' : 'auto')};
+  justify-self: ${({ $variant }) => ($variant === 'minimal' ? 'end' : 'auto')};
 
   ul {
     display: flex;
@@ -171,7 +242,7 @@ export const NavBar = styled.nav<HeaderVariantProps>`
   }
 
   @media (max-width: 760px) {
-    grid-column: ${({ $variant }) => ($variant === 'minimal' ? 'auto' : '3')};
+    grid-column: 3;
     justify-self: end;
 
     .header-cta {

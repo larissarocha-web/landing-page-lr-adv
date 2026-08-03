@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { FaBaby, FaWhatsapp } from 'react-icons/fa'
 import {
   FiCheckCircle,
+  FiArrowRight,
   FiChevronDown,
   FiClock,
   FiHome,
@@ -154,19 +155,26 @@ export function Pensao() {
             <span className="eyebrow">Pensão alimentícia</span>
             <h1>Advogada de Pensão Alimentícia em Brasília‑DF</h1>
 
-            <WhatsButton
-              href={whatsappUrl}
-              target="_blank"
-              rel="noreferrer"
-              onClick={() =>
-                trackMarketingEvent('whatsapp_click', {
-                  cta_location: 'pension_hero',
-                })
-              }
-            >
-              <FaWhatsapp aria-hidden="true" />
-              Conversar pelo WhatsApp
-            </WhatsButton>
+            <div className="hero-actions">
+              <WhatsButton
+                href={whatsappUrl}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() =>
+                  trackMarketingEvent('whatsapp_click', {
+                    cta_location: 'pension_hero',
+                  })
+                }
+              >
+                <FaWhatsapp aria-hidden="true" />
+                Conversar pelo WhatsApp
+              </WhatsButton>
+
+              <a className="hero-home-link" href="/">
+                Conhecer todas as áreas de atuação
+                <FiArrowRight aria-hidden="true" />
+              </a>
+            </div>
           </div>
 
           <div className="trust-line">
