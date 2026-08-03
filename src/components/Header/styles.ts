@@ -33,10 +33,12 @@ export const Div1 = styled.div<HeaderVariantProps>`
   .brand {
     flex: 0 0 auto;
     grid-column: 1;
+    grid-row: 1;
     justify-self: start;
   }
 
   .brand img {
+    display: block;
     width: ${({ $variant }) => ($variant === 'minimal' ? '224px' : '245px')};
     height: auto;
   }
@@ -49,6 +51,7 @@ export const Div1 = styled.div<HeaderVariantProps>`
     justify-content: center;
     gap: 8px;
     grid-column: 2;
+    grid-row: 1;
     color: #741c32;
     font-size: 0.72rem;
     font-weight: 600;
@@ -94,23 +97,26 @@ export const Div1 = styled.div<HeaderVariantProps>`
     padding: 0 16px;
 
     .brand {
+      display: inline-flex;
+      align-items: center;
       grid-column: 2;
+      grid-row: 1;
+      justify-content: center;
       justify-self: center;
+      line-height: 0;
     }
 
     .brand img {
-      width: ${({ $variant }) =>
-        $variant === 'minimal'
-          ? 'clamp(132px, 42vw, 172px)'
-          : 'min(58vw, 205px)'};
+      width: min(58vw, 205px);
     }
 
     .home-link {
-      width: 44px;
-      min-height: 44px;
+      width: 46px;
+      min-height: 46px;
       justify-content: center;
       gap: 0;
       grid-column: 1;
+      grid-row: 1;
       justify-self: start;
       border: 1px solid rgba(125, 38, 58, 0.16);
       border-radius: 50%;
@@ -129,6 +135,7 @@ export const NavBar = styled.nav<HeaderVariantProps>`
   align-items: center;
   gap: clamp(20px, 2.2vw, 38px);
   grid-column: ${({ $variant }) => ($variant === 'minimal' ? '3' : 'auto')};
+  grid-row: 1;
   justify-self: ${({ $variant }) => ($variant === 'minimal' ? 'end' : 'auto')};
 
   ul {
@@ -237,6 +244,7 @@ export const NavBar = styled.nav<HeaderVariantProps>`
 
   @media (max-width: 760px) {
     grid-column: 3;
+    grid-row: 1;
     justify-self: end;
 
     .header-cta {
