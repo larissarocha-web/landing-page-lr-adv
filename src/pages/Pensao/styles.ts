@@ -229,8 +229,8 @@ export const HeroSection = styled.section`
   }
 
   @media (max-width: 860px) {
-    margin-top: 66px;
-    scroll-margin-top: 66px;
+    margin-top: 68px;
+    scroll-margin-top: 68px;
 
     .hero-stage {
       display: flex;

@@ -81,21 +81,17 @@ export const Div1 = styled.div<HeaderVariantProps>`
     }
   }
 
-  .home-link-mobile {
-    display: none;
-  }
-
   @media (max-width: 760px) {
     display: grid;
     width: 100%;
-    height: 66px;
+    height: 68px;
     grid-template-columns: ${({ $variant }) =>
       $variant === 'minimal'
-        ? '60px minmax(0, 1fr) 46px'
+        ? '46px minmax(0, 1fr) 46px'
         : '48px minmax(0, 1fr) 48px'};
     justify-content: normal;
     gap: 0;
-    padding: 0 14px;
+    padding: 0 16px;
 
     .brand {
       grid-column: 2;
@@ -110,22 +106,20 @@ export const Div1 = styled.div<HeaderVariantProps>`
     }
 
     .home-link {
+      width: 44px;
       min-height: 44px;
-      justify-content: flex-start;
-      gap: 4px;
+      justify-content: center;
+      gap: 0;
       grid-column: 1;
       justify-self: start;
-      font-size: 0.66rem;
-      letter-spacing: 0.025em;
+      border: 1px solid rgba(125, 38, 58, 0.16);
+      border-radius: 50%;
+      font-size: 1.16rem;
     }
 
     .home-link::after,
     .home-link-desktop {
       display: none;
-    }
-
-    .home-link-mobile {
-      display: inline;
     }
   }
 `

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { FaWhatsapp } from 'react-icons/fa'
-import { FiArrowLeft } from 'react-icons/fi'
+import { FiHome } from 'react-icons/fi'
 import { IoClose, IoMenu } from 'react-icons/io5'
 
 import logo from '../../assets/logo3.png'
@@ -84,9 +84,8 @@ export function Header({
               href={brandHref}
               aria-label="Ir para a página principal"
             >
-              <FiArrowLeft aria-hidden="true" />
+              <FiHome aria-hidden="true" />
               <span className="home-link-desktop">Página principal</span>
-              <span className="home-link-mobile">Início</span>
             </a>
           )}
 
