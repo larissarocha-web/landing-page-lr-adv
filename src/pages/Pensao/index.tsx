@@ -11,7 +11,7 @@ import {
   FiUsers,
 } from 'react-icons/fi'
 
-import heroPhoto from '../../assets/larissa-pensao-reuniao-natural-v3.webp'
+import heroPhoto from '../../assets/larissa-pensao-reuniao-documento-v4.webp'
 import { PENSION_WHATSAPP_MESSAGE, getWhatsAppUrl } from '../../constants/brand'
 import { trackMarketingEvent } from '../../lib/marketing'
 import {
