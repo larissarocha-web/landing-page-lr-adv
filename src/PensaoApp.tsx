@@ -19,7 +19,7 @@ function PensaoApp() {
       <Header
         brandHref="/"
         brandLabel="Ir para a página principal"
-        ctaLocation="pension_hero"
+        ctaLocation="pension_header"
         variant="minimal"
         whatsappMessage={PENSION_WHATSAPP_MESSAGE}
       />

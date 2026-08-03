@@ -11,6 +11,7 @@ import {
   FiUsers,
 } from 'react-icons/fi'
 
+import heroPhoto from '../../assets/larissa-hero-colar-preservada.webp'
 import { PENSION_WHATSAPP_MESSAGE, getWhatsAppUrl } from '../../constants/brand'
 import { trackMarketingEvent } from '../../lib/marketing'
 import {
@@ -29,7 +30,7 @@ const situations = [
   {
     title: 'Filhos menores ou maiores',
     description:
-      'Orientação sobre pedido, manutenção e continuidade da obrigação alimentar.',
+      'Orientação sobre pedido, manutenção e continuidade da obrigação.',
     icon: FiUsers,
   },
   {
@@ -45,13 +46,12 @@ const situations = [
   },
   {
     title: 'Pais e outros familiares',
-    description: 'Orientação em situações de necessidade entre familiares.',
+    description: 'Análise das hipóteses de alimentos entre familiares.',
     icon: FiHome,
   },
   {
     title: 'Responsabilidade complementar dos avós',
-    description:
-      'Análise da responsabilidade complementar conforme o caso concreto.',
+    description: 'Responsabilidade subsidiária e complementar quando cabível.',
     icon: FiShield,
   },
   {
@@ -75,19 +75,19 @@ const situations = [
 
 const questions = [
   {
-    title: 'Existe percentual fixo, como 30%?',
+    title: 'Como é calculado o valor da pensão alimentícia?',
     content:
-      'Não. O valor depende das necessidades de quem recebe, dos recursos de quem paga e da proporcionalidade no caso concreto.',
+      'Não existe percentual único. A definição considera as necessidades de quem recebe, os recursos de quem paga e a proporcionalidade entre as pessoas responsáveis, conforme as circunstâncias comprovadas.',
   },
   {
-    title: 'O que pode ser considerado na definição do valor?',
+    title: 'Existe um valor mínimo de pensão alimentícia?',
     content:
-      'Podem ser avaliadas despesas com alimentação, moradia, saúde, educação, transporte, vestuário e outras necessidades, além da capacidade contributiva das pessoas responsáveis.',
+      'Não há um valor mínimo universal aplicável a todos os casos. A quantia ou o percentual depende das necessidades apresentadas e da capacidade contributiva demonstrada.',
   },
   {
     title: 'Quem pode pedir pensão alimentícia?',
     content:
-      'A análise pode envolver filhos, gestantes, ex-cônjuges ou ex-companheiros, pais e outros parentes. A responsabilidade dos avós é complementar e depende da impossibilidade total ou parcial dos responsáveis principais.',
+      'A análise pode envolver filhos, gestantes, ex-cônjuges ou ex-companheiros, pais e outros parentes. A responsabilidade dos avós é complementar e subsidiária, dependendo da impossibilidade total ou parcial de cumprimento pelos pais.',
   },
   {
     title: 'Um acordo particular precisa ser formalizado?',
@@ -95,9 +95,9 @@ const questions = [
       'A formalização adequada oferece clareza sobre valor, vencimento, reajuste e forma de pagamento. A modalidade judicial ou extrajudicial depende da situação e das pessoas envolvidas.',
   },
   {
-    title: 'Quando o valor pode ser revisto, reduzido ou encerrado?',
+    title: 'Quando o valor pode ser revisto, reduzido, aumentado ou encerrado?',
     content:
-      'Mudanças relevantes nas necessidades ou na capacidade financeira podem justificar revisão, redução, aumento ou exoneração. Alterações de renda ou desemprego não modificam automaticamente a obrigação.',
+      'Mudanças relevantes nas necessidades ou na capacidade financeira podem justificar a revisão. Alterações de renda ou desemprego não modificam automaticamente a obrigação.',
   },
   {
     title: 'A pensão termina automaticamente aos 18 anos?',
@@ -105,12 +105,27 @@ const questions = [
       'Não. A maioridade não encerra automaticamente a pensão; o cancelamento depende de decisão judicial com oportunidade de manifestação de quem recebe.',
   },
   {
-    title: 'O que pode ser feito quando existem parcelas atrasadas?',
+    title: 'O que pode acontecer quando a pensão não é paga?',
     content:
-      'Os valores podem ser cobrados judicialmente. As três prestações anteriores ao início da execução e as vencidas durante o processo podem admitir o rito da prisão, enquanto outros valores podem seguir meios patrimoniais de cobrança.',
+      'Os valores podem ser cobrados judicialmente por procedimentos distintos. Conforme as parcelas e os requisitos legais, podem existir medidas patrimoniais, protesto e prisão civil. A via adequada exige análise individual.',
   },
   {
-    title: 'É possível receber atendimento online de qualquer estado?',
+    title: 'É obrigatório ter advogado para tratar de pensão alimentícia?',
+    content:
+      'Em processos judiciais, a representação por profissional da advocacia ou pela Defensoria Pública, quando cabível, é em regra necessária. A forma adequada para um pedido ou acordo depende do caso.',
+  },
+  {
+    title: 'Meu pedido de pensão foi negado. O que pode ser feito?',
+    content:
+      'É necessário analisar a decisão, as provas e a fase do processo. Dependendo das circunstâncias e dos prazos, pode haver medida recursal ou possibilidade de novo pedido com elementos diferentes.',
+  },
+  {
+    title: 'Quanto custa contratar uma advogada para pensão alimentícia?',
+    content:
+      'Os honorários dependem do tipo de atuação necessária, da complexidade e da extensão do trabalho. Após compreender a demanda, a advogada apresenta o escopo do serviço e os honorários antes da contratação.',
+  },
+  {
+    title: 'É possível receber atendimento online de outro estado?',
     content:
       'Sim. A consulta e a orientação inicial podem ocorrer online em todo o Brasil. Competência territorial e possibilidade de atuação no processo serão verificadas individualmente.',
   },
@@ -123,25 +138,36 @@ export function Pensao() {
   return (
     <Page>
       <HeroSection id="inicio">
-        <div className="hero-layout">
-          <span className="eyebrow">Pensão alimentícia</span>
-          <h1>
-            Orientação clara para diferentes situações de pensão alimentícia
-          </h1>
+        <div className="hero-stage">
+          <div className="hero-media">
+            <img
+              src={heroPhoto}
+              alt="Larissa Rocha, advogada, em seu ambiente de trabalho"
+              width="1536"
+              height="1024"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
 
-          <WhatsButton
-            href={whatsappUrl}
-            target="_blank"
-            rel="noreferrer"
-            onClick={() =>
-              trackMarketingEvent('whatsapp_click', {
-                cta_location: 'pension_hero',
-              })
-            }
-          >
-            <FaWhatsapp aria-hidden="true" />
-            Conversar pelo WhatsApp
-          </WhatsButton>
+          <div className="hero-copy">
+            <span className="eyebrow">Pensão alimentícia</span>
+            <h1>Advogada de Pensão Alimentícia em Brasília‑DF</h1>
+
+            <WhatsButton
+              href={whatsappUrl}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() =>
+                trackMarketingEvent('whatsapp_click', {
+                  cta_location: 'pension_hero',
+                })
+              }
+            >
+              <FaWhatsapp aria-hidden="true" />
+              Conversar pelo WhatsApp
+            </WhatsButton>
+          </div>
 
           <div className="trust-line">
             <span>Atendimento online em todo o Brasil</span>
@@ -153,19 +179,14 @@ export function Pensao() {
 
       <PrincipleSection>
         <div className="principle-layout">
-          <div className="principle-heading">
-            <span className="eyebrow">Análise individual</span>
-            <h2>Pensão alimentícia não segue uma fórmula única</h2>
-          </div>
-
-          <div className="principle-copy">
-            <p>
-              Não existe um percentual obrigatório aplicável a todas as
-              famílias. A definição considera as necessidades de quem recebe, os
-              recursos de quem paga e a proporcionalidade diante das
-              circunstâncias concretas.
-            </p>
-          </div>
+          <span className="eyebrow">Orientação jurídica</span>
+          <h2>Orientação jurídica em pensão alimentícia</h2>
+          <span className="gold-line" aria-hidden="true" />
+          <p>
+            Cada situação exige a análise das necessidades de quem recebe, dos
+            recursos de quem paga e da proporcionalidade no caso concreto. Não
+            existe um percentual obrigatório aplicável a todas as famílias.
+          </p>
         </div>
       </PrincipleSection>
 
