@@ -11,7 +11,7 @@ import {
   FiUsers,
 } from 'react-icons/fi'
 
-import heroPhoto from '../../assets/larissa-hero-colar-preservada.webp'
+import heroPhoto from '../../assets/larissa-pensao-em-pe-v1.webp'
 import { PENSION_WHATSAPP_MESSAGE, getWhatsAppUrl } from '../../constants/brand'
 import { trackMarketingEvent } from '../../lib/marketing'
 import {
@@ -142,7 +142,7 @@ export function Pensao() {
           <div className="hero-media">
             <img
               src={heroPhoto}
-              alt="Larissa Rocha, advogada, em seu ambiente de trabalho"
+              alt="Larissa Rocha em pé, em seu ambiente de trabalho"
               width="1536"
               height="1024"
               loading="eager"
