@@ -10,6 +10,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         pensao: resolve(__dirname, 'pensao/index.html'),
+        admin: resolve(__dirname, 'admin/index.html'),
       },
     },
   },
